@@ -307,7 +307,7 @@ nav {
 
 .navAnchors {
     height: 100%;
-    width: 50%;
+    width: 55%;
     margin-left: 0;
     padding: 0;
     display: flex;
@@ -326,7 +326,7 @@ nav {
     text-decoration: none;
     text-decoration-color: white;
     color: white;
-    font-size: 1.02em;
+    font-size: 0.9rem;
     font-family: Poppins;
     font-weight: 400;
     padding-bottom: 5px;
@@ -365,6 +365,66 @@ nav {
     display: none;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown button{
+    color: white;
+    padding-bottom: 5px;
+    font-size: 1.02em;
+    font-family: Poppins;
+}
+
+.fa-caret-down{
+    padding-left: 5px;
+}
+
+.dropbtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    /* min-width: 160px; */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    flex-direction: column;
+    color: white;
+    
+    margin-top: 1.25rem;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 0;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.tick-mark {
+    visibility: hidden;
+    margin-left: 10px;
+}
+
+.tick-mark.show {
+    visibility: visible;
+}
+
+.fa-caret-down{
+    filter: invert(100);
+}
 
 /* Blurred background effect on scroll */
 .navSection.scrolled {

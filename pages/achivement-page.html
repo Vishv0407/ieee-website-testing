@@ -161,33 +161,33 @@
         }
 
         .navAnchors {
-            height: 100%;
-            width: 50%;
-            margin-left: 0;
-            padding: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin: auto 0;
-            margin-right: 2rem;
-        }
+        height: 100%;
+        width: 55%;
+        margin-left: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin: auto 0;
+        margin-right: 2rem;
+    }
 
-        .navAnchors a {
-            display: flex;
-            gap: 0.5em;
-            align-items: center;
-            flex-direction: row;
-            justify-content: center;
-            text-decoration: none;
-            text-decoration-color: white;
-            color: white;
-            font-size: 1.02em;
-            font-family: Poppins;
-            font-weight: 400;
-            padding-bottom: 5px;
-            transition: border-bottom 0s;
-            transition: transform 0.2s;
-        }
+    .navAnchors a {
+        display: flex;
+        gap: 0.5em;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        text-decoration: none;
+        text-decoration-color: white;
+        color: white;
+        font-size: 0.9rem;
+        font-family: Poppins;
+        font-weight: 400;
+        padding-bottom: 5px;
+        transition: border-bottom 0s;
+        transition: transform 0.2s;
+    }
 
         .navAnchors a i {
             color: white;
@@ -220,6 +220,67 @@
             display: none;
         }
 
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown button {
+            color: white;
+            padding-bottom: 5px;
+            font-size: 1.02em;
+            font-family: Poppins;
+        }
+
+        .fa-caret-down {
+            padding-left: 5px;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: transparent;
+            /* min-width: 160px; */
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            flex-direction: column;
+            color: white;
+
+            margin-top: 1.25rem;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 0;
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .tick-mark {
+            visibility: hidden;
+            margin-left: 10px;
+        }
+
+        .tick-mark.show {
+            visibility: visible;
+        }
+        
+        .fa-caret-down{
+            filter: invert(100);
+        }
+
 
         /* Blurred background effect on scroll */
         .navSection.scrolled {
@@ -246,34 +307,6 @@
         .navSection.scrolled .navAnchors a.active {
             border-bottom: solid black;
             transform: scale(1.06);
-        }
-
-        .theme-div {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid black;
-            border-radius: 5px;
-            padding: 0.4rem 0.8rem;
-            flex-direction: row;
-            margin-right: 4%;
-            margin-top: 0.5rem;
-            cursor: pointer;
-            background-color: white;
-        }
-
-        .theme-div button {
-            margin-left: 0.5rem;
-            background-color: transparent;
-            border: none;
-            color: white;
-            text-transform: uppercase;
-            color: black;
-            cursor: pointer;
-        }
-
-        .theme-div button:hover {
-            color: black;
         }
 
         .bottom-div {
@@ -362,7 +395,7 @@
 
         @media (max-width: 1000px) {
 
-            .achivement-div{
+            .achivement-div {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -377,7 +410,7 @@
                 flex-direction: column;
             }
 
-            .achi-text{
+            .achi-text {
                 text-align: center;
             }
         }
@@ -393,15 +426,33 @@
             </div>
 
             <div class="navAnchors">
-                <a href="../index.html" id="home-link"><i class="fa-solid fa-house" style="font-size: 0.8rem;"></i>Home</a>
-                <a href="achivement-page.html" id="achivement-link"><i class="fa-solid fa-trophy"
+                <a href="../index.html"><i class="fa-solid fa-house" style="font-size: 0.8rem;"></i>Home</a>
+                <a href="achivement-page.html"><i class="fa-solid fa-trophy"
                         style="font-size: 0.8rem;"></i>Achievements</a>
-                <a href="event-page.html" id="events-link"><i class="fa-solid fa-calendar-days"
+                <a href="event-page.html"><i class="fa-solid fa-calendar-days"
                         style="font-size: 0.8rem;"></i>Events</a>
-                <a href="member-front.html" id="committee-link"><i class="fa-solid fa-users"
+                <a href="member-front.html"><i class="fa-solid fa-users"
                         style="font-size: 0.8rem;"></i>Committee</a>
-                <a href="../index.html#contactUs"><i class="fa-solid fa-phone" style="font-size: 0.8rem;"></i>Contact
-                    Us</a>
+                <a href="../index.html#contactUs"><i class="fa-solid fa-phone" style="font-size: 0.8rem;"></i>Contact Us</a>
+                <div class="dropdown">
+                    <button class="dropbtn" id="theme-button">
+                        <span id="theme-text">Theme</span>
+                        <!-- <i id="theme-icon" class="fa-solid" style="font-size: 0.8rem;"></i> -->
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="theme-dropdown">
+                        <a href="#" id="dark-theme">
+                            <img src="/Images/moon-icon.svg" alt="Dark Theme Icon" style="width: 16px; height: 16px;">
+                            Dark
+                            <span class="tick-mark" id="tick-dark">&#10003;</span>
+                        </a>
+                        <a href="#" id="light-theme">
+                            <img src="/Images/sun-icon.svg" alt="Light Theme Icon" style="width: 16px; height: 16px;">
+                            Light
+                            <span class="tick-mark" id="tick-light">&#10003;</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </nav>
     </div>

@@ -35,11 +35,28 @@
             </div>
 
             <div class="navAnchors">
-                <a href="../index.html" id="home-link"><i class="fa-solid fa-house" style="font-size: 0.8rem;"></i>Home</a>
-                <a href="achivement-page.html" id="achivement-link"><i class="fa-solid fa-trophy" style="font-size: 0.8rem;"></i>Achievements</a>
-                <a href="event-page.html" id="events-link"><i class="fa-solid fa-calendar-days" style="font-size: 0.8rem;"></i>Events</a>
-                <a href="member-front.html" id="committee-link"><i class="fa-solid fa-users" style="font-size: 0.8rem;"></i>Committee</a>
+                <a href="../index.html"><i class="fa-solid fa-house" style="font-size: 0.8rem;"></i>Home</a>
+                <a href="achivement-page.html"><i class="fa-solid fa-trophy" style="font-size: 0.8rem;"></i>Achievements</a>
+                <a href="event-page.html"><i class="fa-solid fa-calendar-days" style="font-size: 0.8rem;"></i>Events</a>
+                <a href="member-front.html"><i class="fa-solid fa-users" style="font-size: 0.8rem;"></i>Committee</a>
                 <a href="../index.html#contactUs"><i class="fa-solid fa-phone" style="font-size: 0.8rem;"></i>Contact Us</a>
+                <div class="dropdown">
+                    <button class="dropbtn" id="theme-button">
+                        <span id="theme-text">Theme</span>
+                        <!-- <i id="theme-icon" class="fa-solid" style="font-size: 0.8rem;"></i> -->
+                        <i class="fa-solid fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="theme-dropdown">
+                        <a href="#" id="dark-theme">
+                            <img src="/Images/moon-icon.svg" alt="Dark Theme Icon" style="width: 16px; height: 16px;"> Dark
+                            <span class="tick-mark" id="tick-dark">&#10003;</span>
+                        </a>
+                        <a href="#" id="light-theme">
+                            <img src="/Images/sun-icon.svg" alt="Light Theme Icon" style="width: 16px; height: 16px;"> Light
+                            <span class="tick-mark" id="tick-light">&#10003;</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </nav>
     </div>
