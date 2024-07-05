@@ -14,42 +14,21 @@
     <link rel="stylesheet" href="./CSS/mediaQuery.-Laptop.css">
     <link rel="stylesheet" href="./CSS/backgroundAnimation.css">
     <link rel="stylesheet" href="CSS/au-slider.css">
+
+    <!-- icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- sweet alerts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- axios api -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="./js/animation.js"></script>
 
-    <!-- Swiper JS -->
+    <!-- Swiper JS - past events -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <!-- Link Swiper's CSS -->
+
+    <!-- Link Swiper's CSS - past events -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <!-- fonts -->
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-
-    <!-- for past event slider-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-
-    <!-- for past event slider -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 </head>
 
@@ -77,30 +56,37 @@
 
                         <div class="navAnchors">
                             <a href="#Home"><i class="fa-solid fa-house" style="font-size: 0.8rem;"></i>Home</a>
-                            <a href="./pages/achivement-page.html"><i class="fa-solid fa-trophy" style="font-size: 0.8rem;"></i>Achievements</a>
-                            <a href="./pages/event-page.html"><i class="fa-solid fa-calendar-days" style="font-size: 0.8rem;"></i>Events</a>
-                            <a href="./pages/member-front.html"><i class="fa-solid fa-users" style="font-size: 0.8rem;"></i>Committee</a>
-                            <a href="#contactUs"><i class="fa-solid fa-phone" style="font-size: 0.8rem;"></i>Contact Us</a>
+                            <a href="./pages/achivement-page.html"><i class="fa-solid fa-trophy"
+                                    style="font-size: 0.8rem;"></i>Achievements</a>
+                            <a href="./pages/event-page.html"><i class="fa-solid fa-calendar-days"
+                                    style="font-size: 0.8rem;"></i>Events</a>
+                            <a href="./pages/member-front.html"><i class="fa-solid fa-users"
+                                    style="font-size: 0.8rem;"></i>Committee</a>
+                            <a href="#contactUs"><i class="fa-solid fa-phone" style="font-size: 0.8rem;"></i>Contact
+                                Us</a>
                             <div class="dropdown">
                                 <button class="dropbtn" id="theme-button">
+                                    <img class="theme-icon" src="Images/theme.png" alt="theme-icon">
                                     <span id="theme-text">Theme</span>
                                     <!-- <i id="theme-icon" class="fa-solid" style="font-size: 0.8rem;"></i> -->
                                     <i class="fa-solid fa-caret-down"></i>
                                 </button>
                                 <div class="dropdown-content" id="theme-dropdown">
                                     <a href="#" id="dark-theme">
-                                        <img src="/Images/moon-icon.svg" alt="Dark Theme Icon" style="width: 16px; height: 16px;"> Dark
+                                        <img src="/Images/moon-icon.svg" alt="Dark Theme Icon"
+                                            style="width: 16px; height: 16px;"> Dark
                                         <span class="tick-mark" id="tick-dark">&#10003;</span>
                                     </a>
                                     <a href="#" id="light-theme">
-                                        <img src="/Images/sun-icon.svg" alt="Light Theme Icon" style="width: 16px; height: 16px;"> Light
+                                        <img src="/Images/sun-icon.svg" alt="Light Theme Icon"
+                                            style="width: 16px; height: 16px;"> Light
                                         <span class="tick-mark" id="tick-light">&#10003;</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        
-                        
+
+
 
                     </nav>
                 </div>
@@ -125,42 +111,6 @@
                             <span id="typing-text"></span><span id="cursor">|</span>
                         </div>
                     </div>
-
-                    <!-- <div class="image-Slider-HeroSection">
-                        <div class="slide-hero-container">
-                            <div class="carousel">
-                                <div class="carousel__item bg-yellow active">
-                                    <img src="./Images/aboutAu8.jpg" alt="">
-                                </div>
-                                <div class="carousel__item bg-green">
-
-                                    <img src="./Images/aboutAu8.jpg" alt="">
-                                </div>
-                                <div class="carousel__item bg-brown">
-
-                                    <img src="./Images/aboutAu8.jpg" alt="">
-                                </div>
-                                <div class="carousel__item bg-blue">
-
-                                    <img src="./Images/aboutAu8.jpg" alt="">
-                                </div>
-                                <div class="carousel__item bg-yellow">
-
-                                    <img src="./Images/aboutAu8.jpg" alt="">
-                                </div>
-                                <div class="carousel__item bg-blue">
-
-                                    <img src="./Images/aboutAu8.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="carousel__buttons">
-                                <button type="button" class="carousel-button">&#10094;</button>
-                                <button type="button" class="carousel-button">&#10095;</button>
-                            </div>
-
-                        </div>
-
-                    </div> -->
                 </div>
 
 
@@ -237,7 +187,7 @@
     </section>
 
     <!-- image slider -->
-    <section>
+    <section class="au-slider">
         <h1 style="text-align: center; font-size: 2.5rem;">Glimpse of Ahmedabad University</h1>
         <div class="cont s--inactive">
             <!-- cont inner start -->
@@ -367,17 +317,6 @@
             </div>
             <div class="arrow right"><img src="/Images/right-arrow.png" alt="Right Arrow"></div>
         </div>
-
-        <!-- <h1 style="text-align: center; margin: 2rem;">Past Events</h1>
-        <div class="eventContainer">
-            <div class="arrow left"><img src="/Images/left-arrow.png" alt="Left Arrow"></div>
-            <div class="card-container" id="past-card-container">
-            </div>
-            <div class="arrow right"><img src="/Images/right-arrow.png" alt="Right Arrow"></div>
-        </div> -->
-
-        <!-- <button class="adminbtn" onclick="window.location.href='event-admin.html'">Admin page</button> -->
-
 
     </div>
 
@@ -603,15 +542,6 @@
 
     </section>
 
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
-    <script src="deep/js2/owl.carousel.min.js"></script>
-    <script src="deep/js2/pastEvent.js"></script>
-    <script src="deep/js2/imageslider-HeroSection.js"></script>
-
     <script src="js/event-front.js"></script>
     <script src="js/get-updates.js"></script>
     <script src="js/contact-us.js"></script>
@@ -623,7 +553,9 @@
     <script src="js/au-slider.js"></script>
     <script src="js/typing.js"></script>
 
+    <script src="js/animation.js"></script>
 
+    
 
 
 </body>

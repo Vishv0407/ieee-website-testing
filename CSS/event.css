@@ -126,6 +126,10 @@ body {
     width: fit-content;
 }
 
+.link:active{
+    width: fit-content;
+}
+
 .link:hover {
     background-color: transparent;
     color: black;

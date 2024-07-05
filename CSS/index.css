@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 /*  Hero section  */
 
 *{
@@ -18,8 +25,8 @@
 }
 
 #heroSection img{
-    height         : 100%       ;
-    width          : 100%       ;
+    /* height         : 100%       ;
+    width          : 100%       ; */
     position       : relative   ;
 
 }
@@ -94,44 +101,6 @@ nav{
     display        : none;
 }
 
-/* .navAnchors{
-    height         : 100%;
-    width          : 55%;
-    margin-left    : 0;
-    padding        : 0;
-    display        : flex;
-    justify-content: space-between;
-    align-items    : flex-end;
-    margin         : auto 0;
-    margin-right   : 2rem;
-}
-
-.navAnchors a{
-    display        : flex;
-    gap            : 0.5em;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    text-decoration: none;
-    text-decoration-color: white;
-    color: white;
-    font-size: 0.9rem;
-    font-family: Poppins;
-    font-weight: 400;
-    padding-bottom: 5px;
-    transition: border-bottom 0s ;
-    transition: transform 0.2s;
-}
-
-.navAnchors a i{
-    color : white;
-}
-
-.navAnchors a:hover{
-    border-bottom: solid white;
-    transform: scale(1.06);
-     
-} */
 
 .navAnchors {
     height: 100%;
@@ -195,42 +164,64 @@ nav{
     background-color: transparent;
     border: none;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
+    font-family: poppins;
+}
+
+.theme-icon{
+    width: 24px;
+    filter: invert(100);
+    padding-right: 5px;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: transparent;
+    background-color: white;
     /* min-width: 160px; */
+    /* padding: 0.5rem; */
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     flex-direction: column;
-    color: white;
+    /* color: black; */
     
     margin-top: 1.25rem;
 }
 
 .dropdown-content a {
-    color: white;
-    padding: 12px 0;
+    color: black;
+    padding: 12px 18px;
     text-decoration: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    transition: 0.1s;
+}
+
+
+.dropdown-content a:hover{
+    border-bottom: none;
+    transform: scale(1.0);
 }
 
 .tick-mark {
     visibility: hidden;
-    margin-left: 10px;
+    margin-left: 5px;
+    font-weight:bolder;
 }
 
 .tick-mark.show {
     visibility: visible;
 }
+
+#light-theme img{
+    filter: invert(100);
+}
+
+
 
 
 /* Add the scrolled class to the navbar when it's scrolled */
@@ -243,7 +234,7 @@ nav{
 
 .navSection.scrolled .navAnchors a:hover {
     border-bottom: solid black;
-    transform: scale(1.06);
+    /* transform: scale(1.06); */
 }
 
 .navSection.scrolled .navAnchors a.active {
@@ -261,9 +252,23 @@ nav{
     color: white;
 }
 
+.navSection.scrolledwhite .dropdown-content a{
+    color: black;
+}
+
 .navSection.scrolled a, .navSection.scrolled i {
     color: black;
 }
+
+.navSection.scrolled .dropbtn{
+    color: black;
+}
+
+.navSection.scrolled .dropbtn img{
+    filter: invert(0);
+}
+
+
 
 
 /* ===============Line============= */
@@ -637,6 +642,10 @@ nav{
     
 }
 
+.au-slider h1{
+    margin-top: 1rem;
+}
+
 /* Achivement section */
 
 .achievementsSection {
@@ -979,33 +988,6 @@ a:link {
     text-align: center;
 }
 
-.theme-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 0.4rem 0.8rem;
-    flex-direction: row;
-    /* margin-right: 4%; */
-    /* margin-top: 0.5rem; */
-    cursor: pointer;
-    background-color: white;
-}
-
-.theme-div button{
-    margin-left: 0.5rem;
-    background-color: transparent;
-    border: none;
-    color: white;
-    text-transform: uppercase;
-    color: black;
-    cursor: pointer;
-}
-
-.theme-div button:hover{
-    color: black;
-}
 
 .bottom-div {
     display: flex;
@@ -1109,6 +1091,18 @@ body.darkTheme .navSection.scrolled .navAnchors a:hover {
     border-bottom: solid white;
 }
 
+
+.navSection.scrolledwhite .dropdown-content a:hover{
+    border-bottom: solid black;
+    transform: scale(1);
+}
+
+body.darkTheme .navSection.scrolled .dropdown-content a:hover{
+    border-bottom: solid black;
+    transform: scale(1);
+}
+
+
 body.darkTheme .navSection.scrolled .navAnchors a.active {
     border-bottom: solid white;
 }
@@ -1117,6 +1111,8 @@ body.darkTheme .navSection.scrolled a,
 body.darkTheme .navSection.scrolled i {
     color: white;
 }
+
+
 
 body.darkTheme .eventContainer .content{
     color: rgba(255, 255, 255, 0.65);
@@ -1181,6 +1177,34 @@ body.darkTheme .content .card-date-div .upcomingEventCard-content{
     background-color: rgb(13,127,181);
     color: white;
 }
+
+body.darkTheme .au-slider h1{
+    color: white;
+}
+
+body.darkTheme .dropdown-content a:hover{
+    border-bottom: none;
+    transform: scale(1.0);
+} 
+
+body.darkTheme .dropdown .dropdown-content a{
+    color: black;
+} 
+
+body.darkTheme .dropdown .dropbtn{
+    color: white;
+}
+
+body.darkTheme .dropdown .dropbtn img{
+    filter: invert(100);
+}
+
+
+
+
+
+
+
 
 
 /* //Scrollbar */

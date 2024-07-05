@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Add remaining columns: leave date, profile image, and action buttons
       tr.innerHTML += `
           <td class="leave-date">${formattedLeaveDate}</td> <!-- Display formatted leave_date -->
-          <td><img src="./uploads/members/${row.profile_image}" alt="profile image" style="width: 100px; height: auto;"></td>
+          <td><img src="../uploads/members/${row.profile_image}" alt="profile image" style="width: 100px; height: auto;"></td>
           <td>
             <button onclick="editMember(${row.id})">Edit</button>
             <button onclick="deleteMember(${row.id})">Delete</button>

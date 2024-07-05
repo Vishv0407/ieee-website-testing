@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function showUpcomingArrows() {
         const arrows = document.querySelectorAll(".arrow");
         arrows.forEach((arrow) => {
-            arrow.style.display = "block";
+            arrow.style.display = "flex";
         });
     }
     function hidePastArrows() {

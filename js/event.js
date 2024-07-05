@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <td>${row.venue}</td>
         <td><a href="${row.registrationLink}" target="_blank">Register Here</a></td>
         <td><a href="${row.instaPostLink}" target="_blank">Instagram Post</a></td>
-        <td><img src="./uploads/events/${row.eventPoster}" alt="event poster" style="width: 100px; height: auto;"></td>
+        <td><img src="../uploads/events/${row.eventPoster}" alt="event poster" style="width: 100px; height: auto;"></td>
         <td>
           <button onclick="editEvent(${row.id})">Edit</button>
           <button onclick="deleteEvent(${row.id})">Delete</button>
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (event.eventPoster) {
           currentPoster = event.eventPoster;
           const img = document.createElement('img');
-          img.src = `./uploads/events/${event.eventPoster}`;
+          img.src = `../uploads/events/${event.eventPoster}`;
           img.style.maxWidth = '100%';
           img.style.maxHeight = '200px';
           imagePreview.innerHTML = '';
