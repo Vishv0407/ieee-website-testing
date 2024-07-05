@@ -43,7 +43,8 @@
 }
 
 .typing-container {
-    font-size: 24px;
+    /* font-size: 1.5rem; */
+    font-size: 125%;
     font-family     : Poppins;
     font-weight     : 400;
     letter-spacing  : 0.150em;
@@ -366,13 +367,7 @@ nav{
          4s steps(35) infinite alternate typing ,
         .75s step-end infinite alternate cursor;
 }
-@keyframes cursor{
-    50% { border-color : transparent}
-}
-@keyframes typing{
-    from{width : 0%}
-    to { width: 100% }
-}
+
 
 .normal-text{
     position        : -webkit-sticky;
