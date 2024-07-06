@@ -74,14 +74,14 @@
         position: fixed;
         top: unset;
         bottom: 0;
-        height: 10%;
+        height: 7%;
         width: 100%;
         box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.433);
         display: flex;
         align-items: center;
         z-index: 10000;
         background-color: white;
-        padding-top: 3%;
+        padding-top: 5%;
         border-top: 2px solid gray;
 
     }
@@ -718,11 +718,20 @@
         /* color : white; */
         font-weight: 400;
         font-size: 1em;
-        padding-bottom: 7rem;
+        padding-bottom: 6rem;
+        /* position: relative; */
+    }
+
+    .nav-line3{
+        width: 96%;
+        /* position: absolute; */
+        /* left: 5%; */
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.509); /* Change line color */
     }
 
     .copyrightSection h4{
-        color: white;
+        color: #bebaba;
         font-weight: normal;
     }
 
