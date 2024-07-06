@@ -1,6 +1,6 @@
 
 /* For pHONE AND TABLET */
-@media screen and (max-width : 499px) {
+@media screen and (max-width : 767px) {
     * {
         padding: 0;
         margin: 0;
@@ -79,9 +79,9 @@
         box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.433);
         display: flex;
         align-items: center;
-        z-index: 10;
-        background-color: yellow;
-        padding-top: 5%;
+        z-index: 10000;
+        background-color: white;
+        padding-top: 3%;
         border-top: 2px solid gray;
 
     }
@@ -533,6 +533,7 @@
         height : auto;
         width : 100vw;
     }
+
     .footerSection{
         height : auto;
         width  : 100vw;
@@ -545,31 +546,43 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap : 6vh;
+        /* gap : 6vh; */
     }
     .OurGoalsSection{
         display: flex;
         flex-direction: column;
-        height : auto;
-        width  : 30%;
+        /* height : auto; */
+        width  : 100%;
         gap : 8%;
     }
     
     #headerOurGoals{
-        display: none;
+        /* display: none; */
+        margin: 1rem 0;
+        text-align: center;
+        font-size: 5vw;
+        font-weight: bold;
+        color: #bebaba;
+        padding-bottom: 1rem;
     }
     #headerOurGoals::after{
-        display: none;
+        /* display: none; */
+        width  : 90%;
+        position: absolute;
+        left: 5%;
     
     }
     #OurGoalsDescription{
-        display: none;
+        /* display: none; */
+        margin-bottom: 2rem;
+        font-size: 1rem;
     }
     #socialLinks{
         display: flex;
         flex-direction: row ;
         justify-content: center;
         gap : 4vw;
+        margin-bottom: 2rem;
     }
     #socialLinks a{
         height :10vw;
@@ -594,20 +607,25 @@
     }
     .VerticallineFooter div{
         display: none;
+        width: 0px;
     }
     .siteMap{
         flex-direction: column;
-        gap : 5vh;
+        /* gap : 5vh; */
+        align-items: center;
+        width: 100%;
     }
     .siteMap p{
-        font-size: 1.2em;
+        font-size: 1em;
         font-weight: 600;
         color : rgba(255, 255, 255, 0.818);
         padding-bottom : 3px;
         position: relative;
     }
     .siteMap p::after{
-        width  : 100%;
+        width  : 90%;
+        position: absolute;
+        left: 5%;
     }
     #SiteMapHeader{
         text-align: center;
@@ -616,11 +634,12 @@
         display: flex;
         flex-direction: column;
         align-content: center;
-        gap : 4vh;
+        gap : 2vh;
+        margin-bottom: 2rem;
     }
     .siteMap a{
-        font-size : 0.9em;
-        display: inline;
+        font-size : 1.1rem;
+        /* display: inline; */
         transition: all 0.3s;
         text-align: center;
         
@@ -628,23 +647,56 @@
     .ContactUsSection{
         display: flex;
         flex-direction: column;
-        gap : 5vh;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        /* gap : 5vh; */
     }
+
+    #emailSection {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #emailSection a, #addressSection p{
+        font-size: 1.1rem;
+        padding-top: 1.5%;
+    }
+    #emailSection i, #addressSection i{
+        font-size: 1.25rem;
+    }
+
     .ContactUsHeader p{
-        font-size: 1.2em;
+        /* font-size: 10em; */
         text-align: center;
     }
+
+    .ContactUsContent{
+        margin: 1rem 0;
+    }
     .ContactUsHeader p::after{
-        width  : 100%;
+        width  : 90%;
+        position: absolute;
+        left: 5%;
     }
     .GetUpdates{
-        gap: 5vh;
+        gap: 3vh;
     }
     .GetUpdatesHeader p{
         text-align: center;
     }
     .GetUpdatesHeader p::after{
-        width  : 100%;
+        width  : 90%;
+        position: absolute;
+        left: 5%;
+    }
+
+    .imgs{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 0 1rem 0;
     }
 
     .AULogo{
@@ -656,22 +708,28 @@
         height: 10em;
         width : 23em;
     }
+
     .copyrightSection{
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: poppins;
-        color : #2f2f2f;
-        font-weight: 300;
-        font-size:1em
-    
+        font-family: Poppins;
+        /* color : white; */
+        font-weight: 400;
+        font-size: 1em;
+        padding-bottom: 7rem;
+    }
+
+    .copyrightSection h4{
+        color: white;
     }
 
     #SiteMapHeader p ,.ContactUsHeader p, .GetUpdatesHeader p{
         width : 100vw;
-        font-size: 7vw;
-        font-weight: normal;
-        color: #888888;
+        font-size: 5vw;
+        font-weight: bold;
+        color: #bebaba;
+        padding-bottom: 1rem;
     }
     .ContactUsSection,.GetUpdates{
         align-items: center
@@ -684,7 +742,7 @@
 
 
 /* For TABLET */
-@media screen and (max-width : 899px) {
+@media screen and (min-width : 768px) and (max-width : 1023px) {
     * {
         padding: 0;
         margin: 0;
@@ -758,14 +816,14 @@
         position: fixed;
         top: unset;
         bottom: 0;
-        height: 10%;
+        height: 11%;
         width: 100%;
         box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.433);
         display: flex;
         align-items: center;
         z-index: 10;
-        background-color: red;
-        padding-top: 5%;
+        background-color: white;
+        padding-top: 3%;
         border-top: 2px solid gray;
 
     }
