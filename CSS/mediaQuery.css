@@ -567,9 +567,10 @@
     }
     #headerOurGoals::after{
         /* display: none; */
-        width  : 90%;
+        width  : 100%;
         position: absolute;
-        left: 5%;
+        /* left: 5%; */
+
     
     }
     #OurGoalsDescription{
@@ -681,7 +682,7 @@
         left: 5%;
     }
     .GetUpdates{
-        gap: 3vh;
+        gap: 5vh;
     }
     .GetUpdatesHeader p{
         text-align: center;
@@ -722,6 +723,7 @@
 
     .copyrightSection h4{
         color: white;
+        font-weight: normal;
     }
 
     #SiteMapHeader p ,.ContactUsHeader p, .GetUpdatesHeader p{
