@@ -74,7 +74,7 @@
         position: fixed;
         top: unset;
         bottom: 0;
-        height: 7%;
+        height: 8%;
         width: 100%;
         box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.433);
         display: flex;
@@ -718,7 +718,7 @@
         /* color : white; */
         font-weight: 400;
         font-size: 1em;
-        padding-bottom: 6rem;
+        padding-bottom: 5.5rem;
         /* position: relative; */
     }
 
