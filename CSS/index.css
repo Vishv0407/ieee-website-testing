@@ -134,6 +134,7 @@ nav{
 
 .navAnchors a i {
     color: white;
+    font-size: 0.8rem
 }
 
 .navAnchors a:hover {

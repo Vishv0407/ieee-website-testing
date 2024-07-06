@@ -69,18 +69,20 @@
     }
 
     .navSection {
-        padding-top: 1%;
-        padding-left: 1%;
+        /* padding-top: 1%; */
+        /* padding-left: 1%; */
         position: fixed;
         top: unset;
         bottom: 0;
         height: 10%;
         width: 100%;
-        background-color: white;
         box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.433);
         display: flex;
         align-items: center;
         z-index: 10;
+        background-color: white;
+        padding-top: 5%;
+        border-top: 2px solid gray;
 
     }
 
@@ -88,23 +90,41 @@
         height: 100%;
         width: 100vw;
         gap: 5%;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
+        margin-right: 0;
     }
 
     .navAnchors a {
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: #2f2f2f;
-        font-size: 3vw;
+        color: black;
+        font-size: 2.5vw;
         font-family: Poppins;
         font-weight: 400;
         padding-bottom: 5px;
     }
 
     .navAnchors a i {
-        color: #2f2f2f !important;
+        color: black !important;
+        font-size: 2rem;
+    }
+
+    .navSection.scrolled, .navSection.scrolledwhite{
+        background-color: white;
+    }
+
+    .navSection.scrolledwhite .navAnchors a{
+        color: black;
+    }
+
+    .navSection.scrolled .navAnchors a:hover {
+        border-bottom: none
+    }
+    
+    .navSection.scrolled .navAnchors a.active {
+        border-bottom: none;
     }
 
     .circles,
@@ -655,6 +675,9 @@
     }
     .ContactUsSection,.GetUpdates{
         align-items: center
+    }
+    .dropdown{
+        display: none;
     }
 
 }
@@ -730,18 +753,20 @@
     }
 
     .navSection {
-        padding-top: 1%;
-        padding-left: 1%;
+        /* padding-top: 1%; */
+        /* padding-left: 1%; */
         position: fixed;
         top: unset;
         bottom: 0;
         height: 10%;
         width: 100%;
-        background-color: white;
         box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.433);
         display: flex;
         align-items: center;
         z-index: 10;
+        background-color: white;
+        padding-top: 5%;
+        border-top: 2px solid gray;
 
     }
 
@@ -749,25 +774,44 @@
         height: 100%;
         width: 100vw;
         gap: 5%;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
+        margin-right: 0;
     }
 
     .navAnchors a {
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: #2f2f2f;
-        font-size: 3vw;
+        color: black;
+        font-size: 2.5vw;
         font-family: Poppins;
         font-weight: 400;
         padding-bottom: 5px;
     }
 
     .navAnchors a i {
-        color: #2f2f2f !important;
-        
+        color: black !important;
+        font-size: 200%;
     }
+
+    .navSection.scrolled, .navSection.scrolledwhite{
+        background-color: white;
+    }
+
+    .navSection.scrolledwhite .navAnchors a{
+        color: black;
+    }
+
+    .navSection.scrolled .navAnchors a:hover {
+        border-bottom: none
+    }
+    
+    .navSection.scrolled .navAnchors a.active {
+        border-bottom: none;
+    }
+
+    
 
     .circles,
     .Verticalline {
@@ -1317,6 +1361,10 @@
     }
     .ContactUsSection,.GetUpdates{
         align-items: center
+    }
+
+    .dropdown{
+        display: none;
     }
 
 }
