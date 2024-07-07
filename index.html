@@ -15,9 +15,13 @@
     <link rel="stylesheet" href="./CSS/mediaQuery.-Laptop.css">
     <link rel="stylesheet" href="./CSS/backgroundAnimation.css">
     <link rel="stylesheet" href="CSS/au-slider.css">
+    <link rel="stylesheet" href="./CSS/image-gallery-mobil.css">
 
     <!-- icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- Mobile image gallery -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 
     <!-- sweet alerts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -311,34 +315,34 @@
 
     <!-- image gallery for mobile tablet -->
     <section class="mobile-tablet-image-section">
-        <div class="container">
-            <div class="first-row">
-                <div class="image-div">
-                    <img class="mt-gallery-image" src="/Images/seas.png" alt="seas-image">
-                    <p class="mt-gallery-image-text">SEAS</p>
-                </div>
-                <div class="image-div">
-                    <img class="mt-gallery-image" src="/Images/sas.jpeg" alt="sas-image">
-                    <p class="mt-gallery-image-text">SAS</p>
-                </div>
+        <section class="mobile-wrapper">
+            <i class="fa-solid fa-arrow-left button" id="prev"></i>
+            <div class="image-container">
+              <div class="carousel">
+                <figure>
+                  <img src="/Images/seas.png" alt="SEAS Building 1" />
+                  <figcaption>SEAS</figcaption>
+                </figure>
+                <figure>
+                  <img src="/Images/sas.jpeg" alt="SEAS Building 2" />
+                  <figcaption>SAS</figcaption>
+                </figure>
+                <figure>
+                  <img src="/Images/amsom.jpeg" alt="SEAS Building 3" />
+                  <figcaption>AMSOM</figcaption>
+                </figure>
+                <figure>
+                  <img src="/Images/uc.jpg" alt="SEAS Building 4" />
+                  <figcaption>UC</figcaption>
+                </figure>
+                <figure>
+                  <img src="/Images/AU-Campus.jpg" alt="SEAS Building 5" />
+                  <figcaption>CAMPUS</figcaption>
+                </figure>
+              </div>
             </div>
-            <div class="second-row">
-                <div class="image-div">
-                    <img class="mt-gallery-image" src="/Images/AU-Campus.jpg" alt="au-campus">
-                    <p class="mt-gallery-image-text">CAMPUS</p>
-                </div>
-            </div>
-            <div class="third-row">
-                <div class="image-div">
-                    <img class="mt-gallery-image" src="/images/amsom.jpeg" alt="amsom-image">
-                    <p class="mt-gallery-image-text">AMSOM</p>
-                </div>
-                <div class="image-div">
-                    <img class="mt-gallery-image" src="/Images/uc.jpg" alt="uc-image">
-                    <p class="mt-gallery-image-text">UC</p>
-                </div>
-            </div>
-        </div>
+            <i class="fa-solid fa-arrow-right button" id="next"></i>
+          </section>
     </section>
 
     <!--Upcoming Event  -->
@@ -588,7 +592,7 @@
     <script src="js/typing.js"></script>
 
     <script src="js/animation.js"></script>
-    
+    <script src="js/image-gallery-mobile.js"></script>
 
 
 </body>

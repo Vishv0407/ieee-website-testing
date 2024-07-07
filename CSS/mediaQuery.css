@@ -338,10 +338,14 @@
         display: none;
     }
 
-    .mobile-tablet-image-section .container{
+    .mobile-tablet-image-section{
+        display: flex;
+    }
+
+    /* .mobile-tablet-image-section .container{
         display: flex;
         flex-direction: column;
-    }
+    } */
 
     .mt-gallery-image{
         width: 300px;
