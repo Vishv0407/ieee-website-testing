@@ -8,7 +8,7 @@
     position: relative;
     border-radius: 12px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    margin: 0 1rem;
+    margin: 0 5%;
     margin-bottom: 3.5rem;
   }
   .mobile-wrapper i.button {
@@ -59,7 +59,7 @@
   }
   .image-container .carousel img {
     height: 280px;
-    width: 100%;
+    width: 95%;
     border-radius: 18px;
     border: 10px solid #fff;
     object-fit: cover;
