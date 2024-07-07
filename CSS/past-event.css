@@ -26,13 +26,6 @@
 }
 
 
-.head h1 {
-    font-size: 10vw;
-    text-transform: uppercase;
-    font-weight: 900;
-    margin-left: 2rem;
-}
-
 .past-content {
     display: flex;
     flex-direction: row;
