@@ -24,7 +24,7 @@
 
     .typing-container {
         /* font-size: 1.5rem; */
-        font-size: 80%;
+        font-size: 70%;
         font-family     : Poppins;
         font-weight     : 400;
         letter-spacing  : 0.150em;
@@ -206,8 +206,9 @@
         font-weight: 400;
         letter-spacing: 0.150em;
         width: 100vw;
-        font-size: 75%;
+        font-size: 70%;
         text-align: center;
+        margin-top: 1rem;
     }
 
     .heroContent .Heading #subheadingText span {
