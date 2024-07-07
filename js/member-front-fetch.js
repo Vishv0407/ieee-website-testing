@@ -11,23 +11,26 @@ async function fetchMembers(department, position, elementId) {
                 <div class="card-img">
                     <img src="/uploads/members/${member.profile_image}" alt="${member.name}">
                 </div>
-                <div class="card-box box-1">
-                    <h3>${member.name}</h3>
-                    <div class="position">${member.position}</div>
-                </div>
-                <div class="card-box2 box-4">
-                    <h3>Socials</h3>
-                    <div class="social">
-                        <a href="${member.instagramProfile}" target="_blank" class="icon" id="instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="${member.linkedinProfile}" target="_blank" class="icon" id="linkedin">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
+                <div class="card-content">
+                    <div class="card-box box-1">
+                        <h3>${member.name}</h3>
+                        <div class="position">${member.position}</div>
+                    </div>
+                    <div class="card-box2 box-4">
+                        <h3>Socials</h3>
+                        <div class="social">
+                            <a href="${member.instagramProfile}" target="_blank" class="icon" id="instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="${member.linkedinProfile}" target="_blank" class="icon" id="linkedin">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            `;
-            container.appendChild(card);
+                `;
+                container.appendChild(card);
+
         });
     } catch (error) {
         console.error('Error fetching members:', error);

@@ -88,7 +88,7 @@ h1 {
 .event-card p {
     margin: 5px 0;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -677,6 +677,117 @@ body.darkTheme .theme-div button{
         padding-top: 0;
         padding-bottom: 0;
     }
+
+    .timeline-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .timeline-line{
+        position: relative;
+    }
+
+    .timeline-event{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        margin-bottom: 2rem;
+        flex-direction: column-reverse;
+    }
+
+    .timeline-event:nth-child(even){
+        margin-left: 0;
+        
+    }
+
+    .timeline-event:nth-child(odd){
+        margin-right: 0;
+    }
+
+    .timeline-event:nth-child(even) .event-date{
+        left: 0;
+        right: 0;
+        position: relative;
+    }
+    .timeline-event:nth-child(odd) .event-date{
+        left: 0;
+        right: 0;
+        position: relative;
+    }
+
+    .event-card::after{
+        content: "";
+        position: absolute;
+        background-color: transparent;
+        top: 0;
+        transform: translateY(0);
+    }
+
+    .event-date {
+        position: relative;
+        top: 0;
+        transform: translateY(0);
+        font-weight: bold;
+        padding: 5px 10px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        width: auto;
+        text-align: center;
+        white-space: nowrap;
+        z-index: 10;
+        margin-bottom: 0.5rem;
+    }
+
+    .event-card{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .event-card img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .modal-content{
+        margin-top: 10%;
+        /* margin-bottom: 5rem; */
+        display: flex;
+        /* justify-content: center;
+        align-items: center; */
+        flex-direction: column;
+    }
+
+    .modal-container{
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        margin-bottom: 0rem;
+    }
+
+    .modal-eventname{
+        margin: 0.5rem 0;
+    }
+
+    .div-text{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .modal-close{
+        font-size: 40px;
+    }
+
+
+
 }
 
 

@@ -120,7 +120,6 @@ h1 {
     height: 1px;
     background-color: rgba(0, 0, 0, 0.1); /* Change line color */
 }
-
 .card {
     width: 250px;
     height: 300px;
@@ -150,15 +149,13 @@ h1 {
     object-fit: cover;
 }
 
-.card-box h3 {
-    text-align: center;
-    font-size: 1.25rem;
-    margin: 0;
-}
-
 .card:hover .card-img {
     transform: scale(0.85);
     filter: brightness(0.45);
+}
+
+.card-content {
+    display: contents; /* Allow card-content to inherit the grid layout */
 }
 
 .card-box {
@@ -175,6 +172,10 @@ h1 {
     align-items: center;
     color: white;
     transform: translate(0, 0);
+}
+
+.card-box h3{
+    text-align: center;
 }
 
 .card-box2 {
@@ -205,11 +206,7 @@ h1 {
     transform: translate(100%, 100%);
 }
 
-.card:hover .box-1 {
-    opacity: 1;
-    transform: translate(0, 0);
-}
-
+.card:hover .box-1,
 .card:hover .box-4 {
     opacity: 1;
     transform: translate(0, 0);
@@ -239,17 +236,15 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    
 }
 
-.team-data{
+.team-data {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     row-gap: 1rem;
     column-gap: 1rem;
-    flex-wrap: wrap;
     margin: 0.8rem 0;
 }
 
@@ -259,10 +254,9 @@ h1 {
     justify-content: center;
     align-items: center;
     row-gap: 1rem;
-    flex-wrap: wrap;
 }
 
-.frow, .srow{
+.frow, .srow {
     display: flex;
     flex-direction: row;
     row-gap: 1rem;
@@ -272,18 +266,16 @@ h1 {
 .social {
     display: flex;
     justify-content: center;
-    /* margin-top: 10px; */
 }
 
-.social i{
+.social i {
     color: white;
     margin: 0 5px;
     font-size: 1.5rem;
     transition: color 0.2s;
-
 }
 
-.social img{
+.social img {
     width: 24px;
     height: 24px;
 }
@@ -296,9 +288,8 @@ h1 {
     color: #E4405F;
 }
 
-
 .icon {
-    position: relative; 
+    position: relative;
     display: inline-block;
 }
 
@@ -309,7 +300,6 @@ h1 {
     left: 50%;
     width: 20px;
     height: 16px;
-    /* background-color: transparent; */
     transform: translate(-50%, -50%);
     transition: all 0.2s;
     z-index: -100;
@@ -317,14 +307,18 @@ h1 {
 
 .icon#linkedin:hover::before {
     background-color: white;
-
 }
 
-.team h1, .obs h1{
+.team h1, .obs h1 {
     text-align: center;
     background-color: white;
     margin: 1rem 0;
 }
+
+.nav-line4{
+    display: none;
+}
+
 
 /* Nav bar */
 
@@ -334,10 +328,6 @@ h1 {
     padding-top: 0.5rem;
     padding-bottom: 1rem;
 }
-
-
-
-
 
 
 /* Footer section */
@@ -1066,22 +1056,237 @@ body.darkTheme
 body.darkTheme */
 
 @media (max-width: 1024px) {
-
-    .heading{
-        padding-top: 0;
-        padding-bottom: 0;
+    /* Reset existing styles */
+    .card {
+        width: auto;
+        height: auto;
+        display: block;
+        position: static;
+        cursor: default;
+        overflow: visible;
+        z-index: auto;
     }
-    .heading h1{
-        margin: 1.5rem 0 1rem 0;
+
+    .card-img {
+        position: static;
+        width: 100%;
+        height: auto;
+        z-index: auto;
+        transition: none;
+    }
+
+    .card-img img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .card-box h3 {
+        text-align: left;
+        font-size: 1rem;
+        margin: 0.5rem 0;
+    }
+
+    .card:hover .card-img {
+        transform: none;
+        filter: none;
+    }
+
+    .card-box {
+        padding: 1rem;
+        background-color: transparent;
+        backdrop-filter: none;
+        transition: none;
+        position: static;
+        z-index: auto;
+        opacity: 1;
+        display: block;
+        color: inherit;
+        transform: none;
+    }
+
+    .card-box2 {
+        padding: 1rem;
+        background-color: transparent;
+        backdrop-filter: none;
+        transition: none;
+        position: static;
+        z-index: auto;
+        opacity: 1;
+        display: block;
+        color: inherit;
+        transform: none;
+    }
+
+    .box-1, .box-4 {
+        grid-column: auto;
+        grid-row: auto;
+        transform: none;
+        opacity: 1;
+    }
+
+    .card:hover .box-1, .card:hover .box-4 {
+        opacity: 1;
+        transform: none;
+    }
+
+    .card-box2 .social a {
+        color: inherit;
+        text-decoration: none;
+        font-size: 1rem;
+        /* margin: 0.5rem; */
+    }
+
+    .icon {
+        display: block;
+        width: 100%;
+    }
+
+    .position {
+        padding-top: 0.5rem;
+        font-size: 0.875rem;
+        text-align: left;
+    }
+
+    .team, .obs, .team-data, .obscard, .frow, .srow, .social {
+        display: block;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+    }
+
+    .social i, .social img {
+        font-size: 1rem;
+        width: auto;
+        height: auto;
         color: black;
     }
-    .nav-line2{
-        display: none;
+
+    .icon#linkedin::before {
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        transition: none;
     }
+
+    .icon#linkedin:hover::before {
+        background-color: transparent;
+    }
+
+    .team h1, .obs h1 {
+        text-align: left;
+        background-color: transparent;
+        margin: 0.5rem 0;
+    }
+
+    /* Mobile view final */
+
     .navbar{
         display: none;
     }
+
+    .heading{
+        margin-top: 1rem;
+        margin-bottom: 0;
+        /* padding-bottom: 0; */
+    }
+    .container .option{
+        width: 80%;
+    }    
+    .card{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card-img{
+        width: 120px;
+        /* height: 0; */
+        position: relative;
+    }
+    .card-img img{
+        /* width: 150px; */
+        height: 150px;
+    }
+
+    .card-content{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .social{
+        display: flex;
+        flex-direction: row;
+        width: 20%;
+    }
+
+    .card-box2 h3{
+        display: none;
+    }
+
+    .card-box h3{
+        font-size: 1.5rem;
+        padding: 0;
+    }
+
+    .box-1{
+        padding: 0;
+        padding-left: 1rem;
+        padding-top: 1rem;
+    }
+
+    .box-4{
+        padding: 0;
+        /* padding-top: 1rem; */
+        padding-left: 0.5rem;
+    }
+
+    .position{
+        font-size: 1.25rem;
+        padding: 0;
+    }
+
+    .social i{
+        padding: 0;
+        font-size: 1.5rem;
+    }
+
+    .social a{
+        margin: 0;
+    }
+    
+    .nav-line2, .nav-line1{
+        display: none;
+    }
+    .nav-line4 {
+        display: flex;
+        width: 100%;
+        margin: 0.5rem auto;
+        border: none;
+        height: 1px;
+        background-color: rgba(0, 0, 0, 0.8); /* Change line color */
+    }
+
+    .team h1, .obs h1{
+        margin-top: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    .obs h1{
+        margin-bottom: 1rem;
+    }
+
+    /* .social .fa-linkedin {
+        color: #0a66c2;
+    }
+    
+    .social .fa-instagram {
+        color: #E4405F;
+    } */
+    
 }
+
+
 
 
 /* //Scrollbar */
