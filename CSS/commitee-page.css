@@ -26,10 +26,10 @@
 .heading {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    position: relative;
+    justify-content: center;
+    /* position: relative; */
     width: 100%;
-    margin: 20px 0;
+    /* margin: 20px 0; */
 }
 
 .heading a {
@@ -63,9 +63,9 @@
 }
 
 .heading h1 {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    /* position: absolute; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
     margin: 0;
     text-align: center;
 }
@@ -1059,6 +1059,23 @@ body.darkTheme .navSection.scrolled .fa-caret-down{
 body.darkTheme
 body.darkTheme */
 
+@media (max-width: 1024px) {
+
+    .heading{
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .heading h1{
+        margin: 1.5rem 0 1rem 0;
+        color: black;
+    }
+    .nav-line2{
+        display: none;
+    }
+    .navbar{
+        display: none;
+    }
+}
 
 
 /* //Scrollbar */

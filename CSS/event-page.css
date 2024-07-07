@@ -239,7 +239,7 @@ h1 {
 .heading {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     position: relative;
     width: 100%;
     margin: 20px 0;
@@ -253,7 +253,6 @@ h1 {
     text-decoration: none;
     color: black;
     padding-bottom: 5px;
-    position: relative;
 }
 
 .heading a::after {
@@ -276,9 +275,9 @@ h1 {
 }
 
 .heading h1 {
-    position: absolute;
+    /* position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
     margin: 0;
     text-align: center;
 }
@@ -312,7 +311,7 @@ nav {
     padding: 0;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    /* align-items: flex-end; */
     margin: auto 0;
     margin-right: 2rem;
 }
@@ -659,6 +658,19 @@ body.darkTheme .theme-div{
 body.darkTheme .theme-div button{
     color: white;
     cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .heading h1{
+        margin: 1.5rem 0;
+    }
+
+    .heading{
+        margin-bottom: 0;
+        margin-top: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 }
 
 

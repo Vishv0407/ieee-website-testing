@@ -93,7 +93,7 @@
         width: 100vw;
         gap: 5%;
         justify-content: space-evenly;
-        align-items: normal;
+        align-items: flex-end;
         margin-right: 0;
     }
 

@@ -110,7 +110,7 @@ nav{
     padding: 0;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    /* align-items: flex-end; */
     margin: auto 0;
     margin-right: 2rem;
 }
@@ -140,12 +140,6 @@ nav{
 .navAnchors a:hover {
     border-bottom: solid white;
     transform: scale(1.06);
-}
-
-.navAnchors {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .dropdown {

@@ -435,12 +435,25 @@ body.darkTheme .theme-div button {
     cursor: pointer;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1024px) {
 
+    .container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .container h1{
+        margin: 1.5rem 0;
+    }
     .achivement-div {
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-bottom: 0;
     }
 
     .achivement-div:nth-of-type(odd) {
@@ -450,10 +463,25 @@ body.darkTheme .theme-div button {
     /* Styles for alternating divs */
     .achivement-div:nth-of-type(even) {
         flex-direction: column;
+        justify-content: center;
     }
 
     .achi-text {
-        text-align: center;
+        /* text-align: center; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+        width: 90%;
+        margin-top: 0.5rem;
+    }
+
+    .achi-text .head{
+        margin-bottom: 0.5rem;
+    }
+
+    .achivement-div:nth-child(even) .achi-img img{
+        margin-left: 0;
     }
 
 }
