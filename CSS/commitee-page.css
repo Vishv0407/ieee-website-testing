@@ -1,12 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     scroll-behavior: smooth;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Montserrat;
 }
 
 .container {
-    font-family: "Source Code Pro", monospace;
     display: flex;
     flex-direction: row;
     column-gap: 1rem;
@@ -371,7 +377,7 @@ h1 {
 
 .footerClass {
     color: rgba(248, 248, 248, 0.856) !important;
-    font-family: Poppins;
+    font-family: Montserrat;
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 2.5%;
@@ -611,7 +617,7 @@ a:visited {
 .GetUpdatesContent form input {
     height: auto;
     width: 20em;
-    font-family: Poppins;
+    font-family: Montserrat;
     border: none;
     color: #2f2f2f !important;
 }
@@ -638,7 +644,7 @@ a:visited {
 #Submitbutton button {
     height: 3.7em;
     width: 23.5em;
-    font-family: Poppins;
+    font-family: Montserrat;
     font-size: 0.84em;
     border: none;
     font-weight: 600;
@@ -746,7 +752,7 @@ nav {
     text-decoration-color: white;
     color: white;
     font-size: 0.9rem;
-    font-family: Poppins;
+    font-family: Montserrat;
     font-weight: 400;
     padding-bottom: 5px;
     transition: border-bottom 0s;
@@ -810,7 +816,7 @@ nav {
     font-size: 0.9rem;
     display: flex;
     align-items: center;
-    font-family: poppins;
+    font-family: Montserrat;
 }
 
 .theme-icon{

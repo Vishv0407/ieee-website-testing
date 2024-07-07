@@ -8,6 +8,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Montserrat;
 }
 
 
@@ -159,7 +160,7 @@ nav {
     text-decoration-color: white;
     color: white;
     font-size: 0.9rem;
-    font-family: Poppins;
+    font-family: Montserrat;
     font-weight: 400;
     padding-bottom: 5px;
     transition: border-bottom 0s;
@@ -219,7 +220,7 @@ nav {
     font-size: 0.9rem;
     display: flex;
     align-items: center;
-    font-family: poppins;
+    font-family: Montserrat;
 }
 
 .theme-icon {
