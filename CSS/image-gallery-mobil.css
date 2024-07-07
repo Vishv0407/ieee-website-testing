@@ -1,7 +1,7 @@
 .mobile-wrapper {
     display: flex;
     max-width: 650px;
-    width: 100%;
+    width: 95%;
     background: #fff;
     align-items: center;
     justify-content: center;
@@ -39,7 +39,7 @@
   .image-container {
     height: 320px;
     max-width: 500px;
-    width: 100%;
+    width: 95%;
     overflow: hidden;
     position: relative;
   }
@@ -59,7 +59,7 @@
   }
   .image-container .carousel img {
     height: 280px;
-    width: 95%;
+    width: 100%;
     border-radius: 18px;
     border: 10px solid #fff;
     object-fit: cover;
