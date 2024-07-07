@@ -24,14 +24,14 @@
 
     .typing-container {
         /* font-size: 1.5rem; */
-        font-size: 80%;
+        font-size: 72.5%;
         font-family: Montserrat;
         font-weight     : 400;
         letter-spacing  : 0.150em;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 0.25rem;
+        margin-top: 0.5rem;
     }
 
     /* ===== hEROsECTION ===== */
@@ -207,7 +207,7 @@
         font-weight: 400;
         letter-spacing: 0.150em;
         width: 100vw;
-        font-size: 75%;
+        font-size: 70%;
         text-align: center;
         margin-top: 1rem;
     }
@@ -291,7 +291,7 @@
     }
 
     .aboutDescriptionText {
-        font-size: 3.4vw;
+        font-size: 3.75vw;
         padding-top: 0.9vh;
         text-align: left;
         color: #2f2f2fc6;
