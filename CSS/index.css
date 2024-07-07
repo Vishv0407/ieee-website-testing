@@ -636,6 +636,9 @@ nav{
     margin-top: 1rem;
 }
 
+.mobile-tablet-image-section{
+    display: none;
+}
 /* Achivement section */
 
 .achievementsSection {
