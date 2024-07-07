@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Apply the saved theme preference on page load
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const savedTheme = localStorage.getItem('theme') || 'light';
     applyTheme(savedTheme);
 
     // Toggle dropdown visibility on button click
