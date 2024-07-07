@@ -14,6 +14,10 @@
     scroll-behavior : smooth      ;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+  
 /* body{
     background-color: black;
 } */
