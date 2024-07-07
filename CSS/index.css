@@ -125,7 +125,7 @@ nav{
     text-decoration-color: white;
     color: white;
     font-size: 0.9rem;
-    font-family: Poppins;
+    font-family: Montserrat;
     font-weight: 400;
     padding-bottom: 5px;
     transition: border-bottom 0s;
@@ -163,7 +163,7 @@ nav{
     font-size: 0.9rem;
     display: flex;
     align-items: center;
-    font-family: poppins;
+    font-family: Montserrat;
 }
 
 .theme-icon{
@@ -472,7 +472,7 @@ nav{
     justify-self: center;
 }
 .aboutWelcomeText{
-    font-family: poppins;
+    font-family: Montserrat;
     font-size: 2em;
     font-weight: 500;
     color: #2f2f2f;
@@ -488,7 +488,7 @@ nav{
 }
 .aboutDescriptionText{
     padding-top : 6px;
-    font-family: poppins;
+    font-family: Montserrat;
     font-size: 1rem;
     color: #2f2f2f;
     text-align: justify;
@@ -656,7 +656,7 @@ nav{
 
 #HeaderFormContactus {
     grid-area: a;
-    font-family: Poppins;
+    font-family: Montserrat;
     font-size: 1.8rem;
     font-weight: 500;
     color: #047BB3;
@@ -671,7 +671,7 @@ nav{
 textarea {
     border: none;
     border-bottom: 1px solid #2f2f2f95;
-    font-family: Poppins;
+    font-family: Montserrat;
     color: #2f2f2fd7;
 
 }
@@ -682,7 +682,7 @@ textarea:focus {
 }
 
 .contactUsForm p {
-    font-family: Poppins;
+    font-family: Montserrat;
     color: #2f2f2f91;
     margin-bottom: 10px;
     font-size: 1.2rem;
@@ -731,7 +731,7 @@ textarea:focus {
     border: none;
     background-color: #047BB3;
     color: white;
-    font-family: Poppins;
+    font-family: Montserrat;
     font-size: 1.1rem;
     transition: all 0.2s;
 }
@@ -749,7 +749,7 @@ textarea:focus {
     width: 30%;
     gap: 10%;
     padding: 5%;
-    font-family: Poppins;
+    font-family: Montserrat;
     align-items: center;
     background-color: #00000093;
     position: absolute;
@@ -797,7 +797,7 @@ textarea:focus {
     gap: 12%;
     align-items: center;
     color: rgb(255, 255, 255);
-    font-family: Poppins;
+    font-family: Montserrat;
     font-size: 1.2rem;
     height: 15%;
     width: 100%;
@@ -824,7 +824,7 @@ a:link {
     gap: 12%;
     align-items: center;
     color: white;
-    font-family: Poppins;
+    font-family: Montserrat;
     width: 100%;
 }  
     

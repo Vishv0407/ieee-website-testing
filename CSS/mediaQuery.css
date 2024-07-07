@@ -24,13 +24,14 @@
 
     .typing-container {
         /* font-size: 1.5rem; */
-        font-size: 70%;
-        font-family     : Poppins;
+        font-size: 80%;
+        font-family: Montserrat;
         font-weight     : 400;
         letter-spacing  : 0.150em;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 0.25rem;
     }
 
     /* ===== hEROsECTION ===== */
@@ -65,7 +66,7 @@
     .videoHeroSection {
         position: absolute;
         overflow: hidden;
-        height: 70vh;
+        height: 100vh;
         width: 100vw;
 
     }
@@ -114,7 +115,7 @@
         align-items: center;
         color: black;
         font-size: 2.5vw;
-        font-family: Poppins;
+        font-family: Montserrat;
         font-weight: 400;
         padding-bottom: 5px;
     }
@@ -202,11 +203,11 @@
     .heroContent .Heading #subheadingText {
 
         all: unset;
-        font-family: Poppins;
+        font-family: Montserrat;
         font-weight: 400;
         letter-spacing: 0.150em;
         width: 100vw;
-        font-size: 70%;
+        font-size: 75%;
         text-align: center;
         margin-top: 1rem;
     }
@@ -283,6 +284,12 @@
         font-size: 7vw;
     }
 
+    .aboutWelcomeText:hover{
+        display: inline;
+        /* padding-bottom: 0.2rem; */
+        border-bottom: none;
+    }
+
     .aboutDescriptionText {
         font-size: 3.4vw;
         padding-top: 0.9vh;
@@ -297,6 +304,10 @@
 
     /* ===== achievementsSection ===== */
 
+    #achievementsSection h1{
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
     .achievementsSection {
         /* background-color: pink; */
         height: 3.2%;
@@ -309,6 +320,7 @@
         flex-direction: row;
         width: 100vw;
         overflow: none;
+        gap: 1rem;
     }
 
     .flex-card {
@@ -340,10 +352,15 @@
     }
 
     .flex-card h3 {
-        font-family: Poppins;
+        /* font-family: Montserrat; */
         letter-spacing: 1px;
         font-size: 4vw;
         margin-top: 3vh;
+        font-weight: 600;
+    }
+
+    .flex-card h3:hover{
+        border-bottom: none;
     }
 
     .au-slider{
@@ -424,7 +441,7 @@
     }
     
     #CardHeadingContainer p {
-        font-family: Poppins;
+        font-family: Montserrat;
         font-size: 6vw;
         font-weight: 600;
         /* color: #2f2f2f; */
@@ -474,7 +491,7 @@
         all: unset;
         padding-top: 30vw;
         font-size: 5vw;
-        font-family: Poppins;
+        font-family: Montserrat;
         color: #2f2f2fea;
         left: 0vw;
         padding-top: 2vh;
@@ -494,7 +511,7 @@
     #UpcomingEventDetails p {
 
         font-size: 2vw;
-        font-family: Poppins;
+        font-family: Montserrat;
         color: #2f2f2fea;
     }
 
@@ -805,7 +822,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: Poppins;
+        font-family: Montserrat;
         /* color : white; */
         font-weight: 400;
         font-size: 1em;
@@ -946,7 +963,7 @@
         align-items: center;
         color: black;
         font-size: 2.5vw;
-        font-family: Poppins;
+        font-family: Montserrat;
         font-weight: 400;
         padding-bottom: 5px;
     }
@@ -1031,7 +1048,7 @@
     .heroContent .Heading #subheadingText {
 
         all: unset;
-        font-family: Poppins;
+        font-family: Montserrat;
         font-weight: 400;
         letter-spacing: 0.150em;
         width: 100vw;
@@ -1168,10 +1185,15 @@
     }
 
     .flex-card h3 {
-        font-family: Poppins;
+        /* font-family: Montserrat; */
         letter-spacing: 1px;
         font-size: 4vw;
         margin-top: 3vh;
+        font-weight: 600;
+    }
+
+    .flex-card h3:hover{
+        border-bottom: none;
     }
 
     /* =======  UpcomingEventsSection ======*/
@@ -1212,7 +1234,7 @@
     }
     
     #CardHeadingContainer p {
-        font-family: Poppins;
+        font-family: Montserrat;
         font-size: 6vw;
         font-weight: 600;
         /* color: #2f2f2f; */
@@ -1262,7 +1284,7 @@
         all: unset;
         padding-top: 30vw;
         font-size: 5vw;
-        font-family: Poppins;
+        font-family: Montserrat;
         color: #2f2f2fea;
         left: 0vw;
         padding-top: 2vh;
@@ -1282,7 +1304,7 @@
     #UpcomingEventDetails p {
 
         font-size: 2vw;
-        font-family: Poppins;
+        font-family: Montserrat;
         color: #2f2f2fea;
     }
 
@@ -1561,7 +1583,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: Poppins;
+        font-family: Montserrat;
         /* color : white; */
         font-weight: 400;
         font-size: 1em;
