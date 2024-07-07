@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('lightTheme');
             tickDark.classList.add('show');
             tickLight.classList.remove('show');
-            localStorage.setItem('theme', 'dark');
+            localStorage.setItem('ieee-website-theme', 'dark');
             for (const element of document.getElementsByClassName('imageBackGround')) {
                 element.style.display = 'unset';
             }
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('darkTheme');
             tickDark.classList.remove('show');
             tickLight.classList.add('show');
-            localStorage.setItem('theme', 'light');
+            localStorage.setItem('ieee-website-theme', 'light');
             for (const element of document.getElementsByClassName('imageBackGround')) {
                 element.style.display = 'none';
             }
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Apply the saved theme preference on page load
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('ieee-website-theme') || 'light';
     applyTheme(savedTheme);
 
     // Toggle dropdown visibility on button click
