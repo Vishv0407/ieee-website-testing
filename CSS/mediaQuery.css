@@ -295,6 +295,8 @@
         padding-top: 0.9vh;
         text-align: left;
         color: #2f2f2fc6;
+        text-align: justify;
+        text-justify: inter-word;
     }
 
     .designCircle {
