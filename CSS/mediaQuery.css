@@ -558,6 +558,10 @@
     .head h1{
         font-size: 2rem;
         margin-left: 0;
+        font-size: 800;
+        text-shadow: 
+        6px 6px rgba(128, 128, 128, 0.4),
+        12px 12px rgba(128, 128, 128, 0.2);
     }
 
     .past-event-container .container{
