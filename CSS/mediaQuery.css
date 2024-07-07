@@ -22,6 +22,17 @@
         /* overflow: hidden; */
     }
 
+    .typing-container {
+        /* font-size: 1.5rem; */
+        font-size: 80%;
+        font-family     : Poppins;
+        font-weight     : 400;
+        letter-spacing  : 0.150em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     /* ===== hEROsECTION ===== */
     .heroSection {
         all: unset;
@@ -195,7 +206,7 @@
         font-weight: 400;
         letter-spacing: 0.150em;
         width: 100vw;
-        font-size: 2vw;
+        font-size: 75%;
         text-align: center;
     }
 
@@ -340,6 +351,13 @@
 
     .mobile-tablet-image-section{
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mobile-tablet-image-section .head{
+        margin-bottom: 1rem;
     }
 
     /* .mobile-tablet-image-section .container{
@@ -525,8 +543,9 @@
     }
 
     .upcomingEventText{
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 800;
+        font-family: Montserrat;
         color : #2f2f2f;
         text-shadow: 
         6px 6px rgba(128, 128, 128, 0.4),
@@ -536,7 +555,7 @@
     /* ===== Past Event Section ==== */
 
     .head h1{
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin-left: 0;
     }
 
