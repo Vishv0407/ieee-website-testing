@@ -296,7 +296,7 @@
     }
 
     .aboutDescriptionText {
-        font-size: 3.75vw;
+        font-size: 2.9vw;
         padding-top: 0.9vh;
         text-align: left;
         color: #2f2f2fc6;
@@ -999,7 +999,7 @@
 
 
 /* For TABLET */
-@media screen and (min-width > 768px) and (max-width : 1023px) {
+@media (min-width : 769px) and (max-width : 1023px) {
     * {
         padding: 0;
         margin: 0;
@@ -1183,6 +1183,11 @@
         display: grid;
 
     }
+    .typing-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .typing-text {
         display: flex;
         justify-content: center;
@@ -1274,7 +1279,7 @@
     }
 
     .aboutDescriptionText {
-        font-size: 3.4vw;
+        font-size: 3.1vw;
         padding-top: 0.9vh;
         text-align: left;
         color: #2f2f2fc6;

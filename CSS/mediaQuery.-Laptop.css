@@ -1,5 +1,6 @@
+
 /* for-desktop-landscape-up */
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
 
     html,
     body {
@@ -64,6 +65,7 @@
     .aboutSection {
         margin-bottom: 6vh;
     }
+    
     #typing-text , #subheadingText{
         font-size: 1.2vw !important;
         margin-left: 10px;
