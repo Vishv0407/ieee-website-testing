@@ -11,7 +11,7 @@ body {
     font-family: Montserrat;
 }
 
-
+j
 .heading {
     display: flex;
     align-items: center;
@@ -509,3 +509,4 @@ body.darkTheme .theme-div button {
 ::-webkit-scrollbar-thumb:hover {
     background: #f3f3f3;
 }
+

@@ -632,6 +632,7 @@ nav{
     flex-direction: row;
     box-shadow: -1em 1em 0.9em 0em rgba(0, 0, 0, 0.603);
     /* border-left: 0.2em solid #047BB3; */
+    z-index: 10;
 }
 
 .userFormContactUs {
@@ -645,7 +646,7 @@ nav{
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 10% 30% 30% 30%;
+    grid-template-rows: 20% 30% 30% 20%;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-areas: "a a a a"
         "b b c c"
@@ -664,6 +665,8 @@ nav{
     font-weight: 500;
     color: #047BB3;
     border: none;
+    /* margin-left: 1rem; */
+    /* grid-area: g; */
 }
 
 #nameInput {
