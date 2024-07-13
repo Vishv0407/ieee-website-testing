@@ -804,7 +804,7 @@ textarea:focus {
     align-items: center;
     color: rgb(255, 255, 255);
     font-family: Montserrat;
-    font-size: 1.1rem !important;
+    font-size: 1rem !important;
     height: 15%;
     width: 100%;
     transition: all 0.4s;
