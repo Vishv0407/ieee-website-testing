@@ -348,13 +348,12 @@ nav{
 .Heading #subheadingText{
     font-family     : Poppins;
     font-weight     : 400;
-    font-size       : 180% ;
-    /* align-self      : flex-start; */
-    /* position        : absolute; */
-    /* top             : 55%; */
-    /* padding-left    : 19px; */
     letter-spacing  : 0.150em;
     width: 100%;
+}
+#typing-text , #subheadingText{
+    font-size: 1.5vw !important;
+    margin-left: 10px;
 }
 .Heading #subheadingText span {
     border-right    : 4px solid white;
@@ -730,7 +729,7 @@ textarea:focus {
 }
 
 #sendButton button {
-    height: 70px;
+    height: 60px !important;
     width: 200px;
     border: none;
     background-color: #047BB3;
@@ -772,7 +771,7 @@ textarea:focus {
 .headerOurDetails {
     color: white;
     /* color : #047BB3; */
-    font-size: 2.5rem;
+    font-size: 2em !important;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -790,7 +789,7 @@ textarea:focus {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 5%;
+    gap: 8%;
     height: 100%;
     width: 100%;
 }
@@ -802,7 +801,7 @@ textarea:focus {
     align-items: center;
     color: rgb(255, 255, 255);
     font-family: Montserrat;
-    font-size: 1.2rem;
+    font-size: 1.1rem !important;
     height: 15%;
     width: 100%;
     transition: all 0.4s;
