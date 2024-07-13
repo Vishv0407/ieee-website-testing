@@ -803,6 +803,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-bottom: 5px;
     
     }
     .MapSection iframe{
@@ -841,6 +842,7 @@
             "c c c c"
             "d d d d"
             "e e e e";
+        column-gap: 0%
     
     }
     .contactUsForm p ,.contactUsForm input , .contactUsForm textarea{
@@ -860,13 +862,14 @@
         all: unset;
         grid-area: a;
         font-family: Poppins;
-        font-size: 1.8rem;
+        font-size: 1.45rem;
         font-weight: 500;
         color: #047BB3;
         border: none;
         display: flex;
         justify-content: center;
         align-items: center;
+        padding-bottom: 1rem;
     }
     #sendButton button {
         all : unset;
