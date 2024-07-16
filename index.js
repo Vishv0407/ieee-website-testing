@@ -4,7 +4,6 @@ const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql');
 const nodemailer = require('nodemailer');
-const { env } = require('process');
 require('dotenv').config();
 
 const app = express();
