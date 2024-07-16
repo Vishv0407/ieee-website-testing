@@ -151,7 +151,7 @@ h1 {
 }
 
 .card-box h3{
-    text-align: center;
+    /* text-align: center; */
     width: fit-content;
 }
 
@@ -1260,7 +1260,7 @@ body.darkTheme */
     } */
     
     .card-box h3{
-        text-align: center;
+        /* text-align: center; */
         background-color: white;
         width: fit-content;
         color: #2f2f2f;
