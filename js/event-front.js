@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
     leftArrows.forEach((leftArrow) => {
         leftArrow.addEventListener("click", function () {
             const cardContainer = leftArrow.parentElement.querySelector(".card-container");
-            const cardWidth = cardContainer.querySelector(".card").offsetWidth; // Calculate card width dynamically
+            const cardWidth = cardContainer.querySelector(".cardDiv").offsetWidth; // Calculate card width dynamically
             cardContainer.scrollBy({ left: -cardWidth, behavior: "smooth" });
         });
     });
@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
     rightArrows.forEach((rightArrow) => {
         rightArrow.addEventListener("click", function () {
             const cardContainer = rightArrow.parentElement.querySelector(".card-container");
-            const cardWidth = cardContainer.querySelector(".card").offsetWidth; // Calculate card width dynamically
+            const cardWidth = cardContainer.querySelector(".cardDiv").offsetWidth; // Calculate card width dynamically
             cardContainer.scrollBy({ left: cardWidth, behavior: "smooth" });
         });
     });
