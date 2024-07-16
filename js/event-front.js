@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "-" +
             eventDate.getFullYear();
 
-        card.classList.add("card");
+        card.classList.add("cardDiv");
         card.innerHTML = `
             <div class="img">
                 <img class="img2" src="${event.eventPoster}" alt="">

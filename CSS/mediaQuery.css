@@ -423,7 +423,7 @@
         width: 100%;
     }
 
-    .card{
+    .cardDiv{
         display: flex;
         flex-direction: column;
         width: fit-content;
@@ -619,6 +619,22 @@
 
     /* ===== Past Event Section ==== */
 
+    .modal-inner{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-inner .modal-detail{
+        max-width: 100%;
+    }
+
+    .modal-inner img{
+        margin-right: 0;
+        margin-bottom: 20px;
+        max-width: 50%;
+    }
     .head h1 {
         font-size: 2rem;
         margin-left: 0;
