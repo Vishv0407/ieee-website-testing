@@ -452,6 +452,10 @@
         border-bottom-left-radius: 16px;
     }
 
+    .card-container{
+        margin: 0 36px;
+    }
+
     .upcomingEventsSection {
         /* background-color: pink; */
         height: auto;
