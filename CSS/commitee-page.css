@@ -10,6 +10,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Montserrat;
+    
+}
+body{
+    background-image: url(../Images/bg.png);
+    object-fit:inherit;
 }
 
 .container {
@@ -17,11 +22,11 @@
     flex-direction: row;
     column-gap: 1rem;
     justify-content: center;
-    background-image: url(../Images/bg.png);
-    object-fit: cover;
+    
     z-index: -100;
     padding-bottom: 2rem;
     width: 100%;
+    margin-top: 2rem;
 }
 
 .header-nav{
@@ -33,47 +38,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* position: relative; */
+    margin-top: 0;
     width: 100%;
-    /* margin: 20px 0; */
+    
 }
 
-.heading a {
-    margin: 0;
-    margin-left: 2rem;
-    font-size: 24px;
-    font-weight: 600;
-    text-decoration: none;
-    color: black;
-    padding-bottom: 5px;
-    position: relative;
-}
 
-.heading a::after{
-    /* text-decoration: underline; */
-    /* border-bottom: solid black; */
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: black;
-    transition: width 0.3s, left 0.3s;
-    width: 0;
-}
-
-.heading a:hover::after{
-    width: 100%;
-    left: 0;
-}
 
 .heading h1 {
-    /* position: absolute; */
-    /* left: 50%; */
-    /* transform: translateX(-50%); */
     margin: 0;
     text-align: center;
+    padding: 0.5rem 0;
 }
 
 
@@ -98,11 +73,12 @@ h1 {
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
     font-weight: 500;
     border-radius: 8px; /* Add border radius */
-    color: black
+    color: black;
+    /* background-color: rgba(255, 255, 255, 1); */
 }
 
 .navbar a:hover {
-    background-color: rgba(0, 0, 0, 0.15); /* Change background color on hover */
+    background-color: rgb(216, 216, 216); /* Change background color on hover */
     
 }
 
@@ -176,6 +152,9 @@ h1 {
 
 .card-box h3{
     text-align: center;
+    background-color: white;
+    width: fit-content;
+    color: #2f2f2f;
 }
 
 .card-box2 {
@@ -228,6 +207,8 @@ h1 {
     padding-top: 0.8rem;
     font-size: 1rem;
     text-align: center;
+    background-color: white;
+    width: fit-content;
 }
 
 .team, .obs {
@@ -313,6 +294,8 @@ h1 {
     text-align: center;
     background-color: white;
     margin: 1rem 0;
+    font-size: 1.8rem;
+    color:#2f2f2f;
 }
 
 .nav-line4{
@@ -703,7 +686,7 @@ a:visited {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     position: sticky;
     top: 0;
     background-color: #2f2f2f;
@@ -1173,12 +1156,6 @@ body.darkTheme */
         background-color: transparent;
     }
 
-    .team h1, .obs h1 {
-        text-align: left;
-        background-color: transparent;
-        margin: 0.5rem 0;
-    }
-
     /* Mobile view final */
 
     .navbar{
@@ -1270,6 +1247,8 @@ body.darkTheme */
     .team h1, .obs h1{
         margin-top: 1.5rem;
         margin-bottom: 0;
+        text-align: left;
+        background-color: white;
     }
 
     .obs h1{

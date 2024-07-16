@@ -161,7 +161,7 @@
 
         // Fetch and display updates data
         async function displayUpdates() {
-            const response = await fetch('http://localhost:3000/updates');
+            const response = await fetch('http://localhost:3000/api/updates');
             const data = await response.json();
             const tableBody = document.getElementById('member-data-body');
             tableBody.innerHTML = '';
@@ -171,7 +171,7 @@
                 const formattedDate = formatDate(update.date);
 
                 row.innerHTML = `
-            <td>${update.id}</td>
+            <td>${update.rowCount}</td>
             <td>${update.name}</td>
             <td>${update.email}</td>
             <td>${formattedDate}</td>

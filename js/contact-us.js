@@ -30,7 +30,7 @@ async function submitContactForm() {
     document.getElementById('contactForm').style.opacity = '0.3'; // Reduce opacity of contact form container 
 
     try {
-        const response = await fetch('http://localhost:3000/contact-us-details', {
+        const response = await fetch('http://localhost:3000/api/contact-us/enroll', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

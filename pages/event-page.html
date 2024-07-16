@@ -8,7 +8,8 @@
     <title>Events</title>
     <link rel="stylesheet" href="../CSS/event-page.css">
     <link rel="stylesheet" href="../CSS/footerSection.css">
-    <link rel="stylesheet" href="../CSS/mediaQuery.css">
+    <link rel="stylesheet" href="/CSS/mediaQuery.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -212,7 +213,7 @@
 
     <script>
         async function fetchEvents() {
-            const response = await fetch('http://localhost:3000/events-check');
+            const response = await fetch('http://localhost:3000/api/events/events');
             const events = await response.json();
             const timelineList = document.querySelector('.timeline');
 
@@ -231,7 +232,7 @@
 
                 const cardContent = `
                 <div class="event-card">
-                    <img src="../uploads/events/${event.eventPoster}" alt="${event.eventName} Poster">
+                    <img src="${event.eventPoster}" alt="${event.eventName} Poster">
                     <div class="event-card-details">
                         <h3>${event.eventName}</h3>
                         <p>${event.eventDescription.length > 100 ? event.eventDescription.substring(0, 100) + '...' : event.eventDescription}</p>
@@ -251,7 +252,7 @@
 
         function openModal(eventName, eventDescription, eventPoster, speaker, eventDate, eventTime, venue, instaPostLink) {
             document.getElementById('modalEventName').innerText = eventName;
-            document.getElementById('modalEventImage').src = `../uploads/events/${eventPoster}`;
+            document.getElementById('modalEventImage').src = `${eventPoster}`;
             document.getElementById('modalEventDescription').innerText = decodeURIComponent(eventDescription).replace(/\\n/g, '\n');
             document.getElementById('modalSpeaker').innerText = speaker;
             document.getElementById('modalEventDate').innerText = eventDate;
@@ -278,22 +279,5 @@
 <script src="../js/theme-logic.js"></script>
 <script src="../js/navbar-scroll.js"></script>
 <script src="../js/get-updates.js"></script>
-<script>
-    
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const currentPath = window.location.pathname.split('/').pop(); // Get the current file name
-        const navLinks = document.querySelectorAll('.navAnchors a');
-
-        navLinks.forEach(link => {
-            const linkPath = link.getAttribute('href').split('/').pop(); // Get the href file name
-            if (currentPath === linkPath) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
-    });
-</script>
 
 </html>

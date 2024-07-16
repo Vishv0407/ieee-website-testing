@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     axios
-        .get("http://localhost:3000/events")
+        .get("http://localhost:3000/api/events/events")
         .then((response) => {
             let events = response.data;
             const currentDate = new Date();
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
         card.classList.add("card");
         card.innerHTML = `
             <div class="img">
-                <img class="img2" src="uploads/events/${event.eventPoster}" alt="">
+                <img class="img2" src="${event.eventPoster}" alt="">
             </div>
             <div class="content">
                 <div class="card-date-div">
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
         slide.classList.add("swiper-slide");
         slide.innerHTML = `
             <div class="picture">
-                <img src="uploads/events/${event.eventPoster}" alt="">
+                <img src="${event.eventPoster}" alt="">
             </div>
             <div class="detail">
                 <h2 style="margin-bottom: 0.75rem; text-align: center;">${event.eventName}</h2>

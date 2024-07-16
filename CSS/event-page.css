@@ -249,36 +249,9 @@ h1 {
     position: relative;
     width: 100%;
     margin: 20px 0;
+    margin-top: 0;
 }
 
-.heading a {
-    margin: 0;
-    margin-left: 2rem;
-    font-size: 24px;
-    font-weight: 600;
-    text-decoration: none;
-    color: black;
-    padding-bottom: 5px;
-}
-
-.heading a::after {
-    /* text-decoration: underline; */
-    /* border-bottom: solid black; */
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: black;
-    transition: width 0.3s, left 0.3s;
-    width: 0;
-}
-
-.heading a:hover::after {
-    width: 100%;
-    left: 0;
-}
 
 .heading h1 {
     /* position: absolute;
@@ -286,6 +259,7 @@ h1 {
     transform: translateX(-50%); */
     margin: 0;
     text-align: center;
+    margin-top: 0;
 }
 
 .navSection {
@@ -293,7 +267,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     position: sticky;
     top: 0;
     background-color: #2f2f2f;

@@ -286,23 +286,6 @@
     <script src="../js/get-updates.js"></script>
     <script src="../js/navbar-scroll.js"></script>
     <script src="../js/theme-logic.js"></script>
-    <script>
-       
-    
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentPath = window.location.pathname.split('/').pop(); // Get the current file name
-            const navLinks = document.querySelectorAll('.navAnchors a');
-    
-            navLinks.forEach(link => {
-                const linkPath = link.getAttribute('href').split('/').pop(); // Get the href file name
-                if (currentPath === linkPath) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>

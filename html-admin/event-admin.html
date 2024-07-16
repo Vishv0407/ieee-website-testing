@@ -11,13 +11,15 @@
 </head>
 
 <body>
+  
   <div class="header-container">
     <button class="adminbtn" onclick="window.location.href='admin.html'">Admin page</button>
     <h1>Event-admin Page</h1>
   </div>
   
-
+  
   <div id="event-modal" class="modal">
+    <div id="loader" class="loader"></div>
     <div class="modal-content">
       <span class="close">&times;</span>
       <form id="event-form" method="post" enctype="multipart/form-data">

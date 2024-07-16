@@ -161,7 +161,7 @@
         // Fetch and display contact us details data
         async function displayContactDetails() {
             try {
-                const response = await fetch('http://localhost:3000/contact-us');
+                const response = await fetch('http://localhost:3000/api/contact-us');
                 const data = await response.json();
 
                 const tableBody = document.getElementById('member-data-body');
@@ -172,7 +172,7 @@
                     const formattedDate = formatDate(contact.sentDate);
 
                     row.innerHTML = `
-                        <td>${contact.id}</td>
+                        <td>${contact.rowCount}</td>
                         <td>${contact.name}</td>
                         <td>${contact.email}</td>
                         <td>${contact.message}</td>
