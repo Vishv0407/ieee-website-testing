@@ -151,7 +151,7 @@ h1 {
 }
 
 .card-box h3{
-    /* text-align: center; */
+    text-align: center;
     width: fit-content;
 }
 
@@ -726,6 +726,7 @@ nav {
     padding-bottom: 5px;
     transition: border-bottom 0s;
     transition: transform 0.2s;
+    border-bottom: 2.4px solid transparent;
 }
 
 .navAnchors a i {
@@ -952,7 +953,7 @@ body.darkTheme{
 }
 
 body.darkTheme .heading h1{
-    background-color: black;
+    background-color: transparent;
     color: white;
 }
 
@@ -961,7 +962,7 @@ body.darkTheme .nav-line1, body.darkTheme .nav-line2{
     background-color: white;
 }
 
-body.darkTheme .container{
+body.darkTheme{
     background-image: url(../Images/bg1.jpg);
 }
 
@@ -1028,6 +1029,15 @@ body.darkTheme .dropdown .dropbtn img{
 
 body.darkTheme .navSection.scrolled .fa-caret-down{
     filter: invert(0);
+}
+
+body.darkTheme .card-box h3, body.darkTheme .position{
+    color: white;
+    background-color: transparent;
+}
+
+body.darkTheme .social i{
+    filter: invert(100);
 }
 
 /* body.darkTheme

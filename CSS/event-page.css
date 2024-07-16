@@ -311,6 +311,8 @@ nav {
     padding-bottom: 5px;
     transition: border-bottom 0s;
     transition: transform 0.2s;
+    border-bottom: 2.4px solid transparent;
+
 }
 
 .navAnchors a i {
