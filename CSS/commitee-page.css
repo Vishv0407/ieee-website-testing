@@ -1245,6 +1245,7 @@ body.darkTheme */
         margin-bottom: 0;
         text-align: left;
         background-color: white;
+        width: fit-content;
     }
 
     .obs h1{
