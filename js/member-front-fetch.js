@@ -1,6 +1,6 @@
 async function fetchMembers(department, position, elementId) {
     try {
-        const response = await fetch(`http://localhost:3000/api/members-front?department=${department}&position=${position}`);
+        const response = await fetch(`https://ieee-vishv-1.onrender.com/api/members-front?department=${department}&position=${position}`);
         const Members = await response.json();
         const container = document.getElementById(elementId);
         
