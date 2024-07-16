@@ -152,9 +152,7 @@ h1 {
 
 .card-box h3{
     text-align: center;
-    background-color: white;
     width: fit-content;
-    color: #2f2f2f;
 }
 
 .card-box2 {
@@ -207,8 +205,6 @@ h1 {
     padding-top: 0.8rem;
     font-size: 1rem;
     text-align: center;
-    background-color: white;
-    width: fit-content;
 }
 
 .team, .obs {
@@ -1262,6 +1258,19 @@ body.darkTheme */
     .social .fa-instagram {
         color: #E4405F;
     } */
+    
+    .card-box h3{
+        text-align: center;
+        background-color: white;
+        width: fit-content;
+        color: #2f2f2f;
+    }
+
+    .position {
+        color: #2f2f2f;
+        background-color: white;
+        width: fit-content;
+    }
     
 }
 

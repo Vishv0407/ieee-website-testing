@@ -1,9 +1,16 @@
 async function fetchMembers(department, position, elementId) {
     try {
-        const response = await fetch(`http://localhost:3000/api/Members-front?department=${department}&position=${position}`);
+        const response = await fetch(`http://localhost:3000/api/members-front?department=${department}&position=${position}`);
         const Members = await response.json();
         const container = document.getElementById(elementId);
         
+        // Custom sorting logic to place "Head" before "Member"
+        Members.sort((a, b) => {
+            if (a.position === "Head") return -1; // "Head" comes before "Member"
+            if (b.position === "Head") return 1;  // "Member" comes after "Head"
+            return 0; // Leave the order unchanged for other cases
+        });
+
         Members.forEach(Member => {
             const card = document.createElement('div');
             card.classList.add('card');
@@ -28,9 +35,8 @@ async function fetchMembers(department, position, elementId) {
                         </div>
                     </div>
                 </div>
-                `;
-                container.appendChild(card);
-
+            `;
+            container.appendChild(card);
         });
     } catch (error) {
         console.error('Error fetching Members:', error);
