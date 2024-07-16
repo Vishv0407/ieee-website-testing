@@ -420,6 +420,36 @@
 
     /* =======  UpcomingEventsSection ======*/
 
+    .eventContainer{
+        width: 100%;
+    }
+
+    .card{
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+    }
+
+    .card-date-div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content{
+        padding-top: 0;
+        padding-left: 1.5rem;
+    }
+
+    .img2{
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 40px ;
+    }
+
+    .link{
+        border-bottom-left-radius: 16px;
+    }
+
     .upcomingEventsSection {
         /* background-color: pink; */
         height: auto;
@@ -584,6 +614,7 @@
             6px 6px rgba(128, 128, 128, 0.4),
             12px 12px rgba(128, 128, 128, 0.2);
     }
+
 
     /* ===== Past Event Section ==== */
 

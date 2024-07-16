@@ -232,11 +232,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const leftArrows = document.querySelectorAll(".arrow.left");
     const rightArrows = document.querySelectorAll(".arrow.right");
-    const cardWidth = 770; // Set this to the width of your cards
 
     leftArrows.forEach((leftArrow) => {
         leftArrow.addEventListener("click", function () {
             const cardContainer = leftArrow.parentElement.querySelector(".card-container");
+            const cardWidth = cardContainer.querySelector(".card").offsetWidth; // Calculate card width dynamically
             cardContainer.scrollBy({ left: -cardWidth, behavior: "smooth" });
         });
     });
@@ -244,6 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
     rightArrows.forEach((rightArrow) => {
         rightArrow.addEventListener("click", function () {
             const cardContainer = rightArrow.parentElement.querySelector(".card-container");
+            const cardWidth = cardContainer.querySelector(".card").offsetWidth; // Calculate card width dynamically
             cardContainer.scrollBy({ left: cardWidth, behavior: "smooth" });
         });
     });
