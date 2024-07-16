@@ -1121,12 +1121,6 @@ body.darkTheme */
         width: 100%;
     }
 
-    .position {
-        padding-top: 0.5rem;
-        font-size: 0.875rem;
-        text-align: left;
-    }
-
     .team, .obs, .team-data, .obscard, .frow, .srow, .social {
         display: block;
         flex-direction: column;
@@ -1215,8 +1209,12 @@ body.darkTheme */
     }
 
     .position{
-        font-size: 1.25rem;
+        font-size: 1.15rem;
         padding: 0;
+        color: #2f2f2f;
+        background-color: white;
+        width: fit-content;
+        text-align: left;
     }
 
     .social i{
@@ -1267,11 +1265,7 @@ body.darkTheme */
         color: #2f2f2f;
     }
 
-    .position {
-        color: #2f2f2f;
-        background-color: white;
-        width: fit-content;
-    }
+    
     
 }
 
