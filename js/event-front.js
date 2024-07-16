@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <img src="${event.eventPoster}" alt="">
             </div>
             <div class="detail">
-                <h2 style="margin-bottom: 0.75rem; text-align: center;">${event.eventName}</h2>
+                <h2 style="margin-bottom: 0.75rem; text-align: center; padding: 0 1rem;">${event.eventName}</h2>
                 <button class="know-more-btn" data-event-id="${event.id}">Know more</button>
             </div>
         `;
