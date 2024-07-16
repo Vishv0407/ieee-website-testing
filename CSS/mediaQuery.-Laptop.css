@@ -392,28 +392,28 @@
     
     .heroSection,
     .achievementsSection {
-        margin-top: unset !important;
-        margin-bottom: unset !important;
-        margin-bottom: 90px !important;
+        /* margin-top: unset !important; */
+        /* margin-bottom: unset !important; */
+        /* margin-bottom: 90px !important; */
        
     }
     .aboutSection{
-        margin-top: unset !important;
-        margin-bottom: unset !important;
-        margin-bottom: 100px !important;
+        /* margin-top: unset !important; */
+        /* margin-bottom: unset !important; */
+        /* margin-bottom: 100px !important; */
     }
     
     .past-event-container,
     .wrapper {
         margin-top: unset !important;
         margin-bottom: unset !important;
-        margin-bottom: 200px !important;
+        margin-bottom: 4rem !important;
     }
 
     .contactUsSection {
         margin-top: 5rem !important;
         margin-bottom: unset !important;
-        margin-bottom: 250px !important;
+        margin-bottom: 8rem !important;
         
     }
 }

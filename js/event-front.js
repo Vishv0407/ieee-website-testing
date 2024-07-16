@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function showModal(event) {
-        document.getElementById("modal-image").src = `uploads/events/${event.eventPoster}`;
+        document.getElementById("modal-image").src = `${event.eventPoster}`;
         modalDetail.innerHTML = `
             <h2>${event.eventName}</h2>
             <p>${event.eventDescription}</p>
