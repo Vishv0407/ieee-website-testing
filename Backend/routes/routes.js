@@ -502,6 +502,20 @@ router.post('/addAdmin', async (req, res) => {
     }
 });
 
+// Route to delete admin by ID
+router.delete('/deleteAdmin/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+      const deletedAdmin = await User.findByIdAndDelete(id);
+      if (!deletedAdmin) {
+        return res.status(404).json({ error: 'Admin not found' });
+      }
+      res.status(200).json({ message: 'Admin deleted successfully' });
+    } catch (err) {
+      console.error('Error deleting admin:', err);
+      res.status(500).json({ error: 'Failed to delete admin' });
+    }
+  });
 
 
   

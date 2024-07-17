@@ -59,138 +59,200 @@
         font-size: 1.25rem;
     }
   </style>
+
 </head>
+
+
 <body>
-  <div class="container mt-5">
-    <div class="header-container">
-        <button class="adminbtn" onclick="window.location.href='admin.html'">Admin page</button>
-        <h1>Current Admins</h1>
-    </div>
-    
-
-    <!-- Table to display admin credentials -->
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Username</th>
-          <th scope="col">Password</th>
-        </tr>
-      </thead>
-      <tbody id="adminTableBody">
-        <!-- Admin data will be inserted here dynamically -->
-      </tbody>
-    </table>
-  </div>
-
-  
-
-  <!-- Modal for adding admin -->
-  <div class="modal fade" id="addAdminModal" tabindex="-1" role="dialog" aria-labelledby="addAdminModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addAdminModalLabel">Add Admin</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+    <div class="container mt-5">
+        <div class="header-container">
+            <button class="adminbtn" onclick="window.location.href='admin.html'">Admin page</button>
+            <h1>Current Admins</h1>
         </div>
-        <div class="modal-body">
-          <form id="addAdminForm">
-            <div class="form-group">
-              <label for="username">Username</label>
-              <input type="text" class="form-control" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Save</button>
-          </form>
+
+      
+  
+      <!-- Table to display admin credentials -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="adminTableBody">
+          <!-- Admin data will be inserted here dynamically -->
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Modal for adding admin -->
+    <div class="modal fade" id="addAdminModal" tabindex="-1" role="dialog" aria-labelledby="addAdminModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addAdminModalLabel">Add Admin</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="addAdminForm">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="btn-div">
-      <button type="button" class="btn btn-primary mt-3 mb-3" data-toggle="modal" data-target="#addAdminModal">
-        Add Admin
-      </button>
-  </div>
-
-  <!-- Bootstrap JS and dependencies for modal functionality -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-  <!-- Custom JavaScript -->
-  <script>
-    // JavaScript code to handle form submission and display admin data
-
-    document.addEventListener('DOMContentLoaded', function () {
-  const addAdminForm = document.getElementById('addAdminForm');
-  const adminTableBody = document.getElementById('adminTableBody');
-
-  // Function to fetch and display all admins
-  function getAllAdmins() {
-    fetch('https://ieee-vishv-1.onrender.com/api/getAllAdmins')
-      .then(response => response.json())
-      .then(data => {
-        // Check if data is an array
-        if (Array.isArray(data)) {
-          // Clear existing table rows
-          adminTableBody.innerHTML = '';
-
-          // Insert new rows for each admin
-          data.forEach(admin => {
-            const newRow = `<tr><td>${admin.username}</td><td>${admin.password}</td></tr>`;
-            adminTableBody.insertAdjacentHTML('beforeend', newRow);
-          });
-        } else {
-          console.error('Error fetching admins: Data is not an array', data);
-          // Optionally handle this case, like displaying an error message
+    <div class="btn-div">
+        <button type="button" class="btn btn-primary mt-3 mb-3" data-toggle="modal" data-target="#addAdminModal">
+            Add Admin
+          </button>
+    </div>
+  
+    <!-- Bootstrap JS and dependencies for modal functionality -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+    <!-- Custom JavaScript -->
+    <script>
+      // JavaScript code to handle form submission and display admin data
+  
+      document.addEventListener('DOMContentLoaded', function () {
+        const addAdminForm = document.getElementById('addAdminForm');
+        const adminTableBody = document.getElementById('adminTableBody');
+  
+        // Function to fetch and display all admins
+        function getAllAdmins() {
+          fetch('http://localhost:3000/api/getAllAdmins')
+            .then(response => response.json())
+            .then(data => {
+              // Check if data is an array
+              if (Array.isArray(data)) {
+                // Clear existing table rows
+                adminTableBody.innerHTML = '';
+  
+                // Insert new rows for each admin
+                data.forEach(admin => {
+                  const newRow = `
+                    <tr>
+                      <td>${admin.username}</td>
+                      <td>${admin.password}</td>
+                      <td>
+                        <button class="btn btn-danger btn-sm delete-btn" data-admin-id="${admin._id}">Delete</button>
+                      </td>
+                    </tr>`;
+                  adminTableBody.insertAdjacentHTML('beforeend', newRow);
+                });
+  
+                // Attach event listeners to delete buttons
+                const deleteButtons = document.querySelectorAll('.delete-btn');
+                deleteButtons.forEach(button => {
+                  button.addEventListener('click', () => {
+                    const adminId = button.getAttribute('data-admin-id');
+                    deleteAdmin(adminId);
+                  });
+                });
+              } else {
+                console.error('Error fetching admins: Data is not an array', data);
+                // Optionally handle this case, like displaying an error message
+              }
+            })
+            .catch(error => console.error('Error fetching admins:', error));
         }
-      })
-      .catch(error => console.error('Error fetching admins:', error));
-  }
+  
+        // Fetch and display all admins initially
+        getAllAdmins();
+  
+        // Event listener for form submission
+        addAdminForm.addEventListener('submit', function (event) {
+          event.preventDefault();
+          
+          // Get form data
+          const formData = new FormData(addAdminForm);
+          const username = formData.get('username');
+          const password = formData.get('password');
+  
+          // Reset form fields
+          addAdminForm.reset();
+  
+          // Send data to server via fetch API
+          fetch('http://localhost:3000/api/addAdmin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log('Admin added successfully:', data);
+            // Update UI to display new admin in table
+            const newRow = `
+              <tr>
+                <td>${data.username}</td>
+                <td>${data.password}</td>
+                <td>
+                  <button class="btn btn-danger btn-sm delete-btn" data-admin-id="${data._id}">Delete</button>
+                </td>
+              </tr>`;
+            adminTableBody.insertAdjacentHTML('beforeend', newRow);
+  
+            // Attach event listener to delete button of the newly added admin
+            const deleteButton = adminTableBody.querySelector(`[data-admin-id="${data._id}"]`);
+            deleteButton.addEventListener('click', () => {
+            //   deleteAdmin(data._id);
+              confirmDelete(data._id);
+            });
+  
+          })
+          .catch(error => {
+            console.error('Error adding admin:', error);
+            alert('Failed to add admin. Please try again.');
+          });
+          
+          // Close modal after submission
+          $('#addAdminModal').modal('hide');
+        });
+  
+       // Function to confirm admin deletion
+      function confirmDelete(adminId) {
+        if (confirm('Are you sure you want to delete this admin?')) {
+          deleteAdmin(adminId);
+        }
+      }
 
-  // Fetch and display all admins initially
-  getAllAdmins();
-
-  // Event listener for form submission
-  addAdminForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(addAdminForm);
-    const username = formData.get('username');
-    const password = formData.get('password');
-
-    // Reset form fields
-    addAdminForm.reset();
-
-    // Send data to server via fetch API
-    fetch('https://ieee-vishv-1.onrender.com/api/addAdmin', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Admin added successfully:', data);
-      // Update UI to display new admin in table
-      const newRow = `<tr><td>${data.username}</td><td>${data.password}</td></tr>`;
-      adminTableBody.insertAdjacentHTML('beforeend', newRow);
-    })
-    .catch(error => {
-      console.error('Error adding admin:', error);
-      alert('Failed to add admin. Please try again.');
-    });
-    
-    // Close modal after submission
-    $('#addAdminModal').modal('hide');
-  });
-});
-
-  </script>
-</body>
-</html>
+      // Function to delete admin by ID
+      function deleteAdmin(adminId) {
+        fetch(`http://localhost:3000/api/deleteAdmin/${adminId}`, {
+          method: 'DELETE'
+        })
+        .then(response => {
+          if (response.ok) {
+            console.log('Admin deleted successfully');
+            // Remove the deleted admin row from UI
+            const deletedRow = adminTableBody.querySelector(`[data-admin-id="${adminId}"]`).closest('tr');
+            deletedRow.remove();
+          } else {
+            console.error('Failed to delete admin:', response.statusText);
+            alert('Failed to delete admin. Please try again.');
+          }
+        })
+        .catch(error => {
+          console.error('Error deleting admin:', error);
+          alert('Failed to delete admin. Please try again.');
+        });
+      }
+      });
+    </script>
+  </body>
+  </html>
