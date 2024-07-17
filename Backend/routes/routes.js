@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const cloudinary = require('cloudinary').v2;
 const nodemailer = require('nodemailer');
+const cors = require('cors');
 
 const Event = require('../models/events'); // Adjust path as necessary
 const Members = require('../models/members'); // Adjust path as necessary
@@ -18,6 +19,7 @@ cloudinary.config({
 });
 
 // Middleware for file uploads with express-fileupload
+router.use(cors());
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
 const fileUpload = require('express-fileupload');
