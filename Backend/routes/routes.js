@@ -505,20 +505,33 @@ router.post('/addAdmin', async (req, res) => {
 });
 
 // Route to delete admin by ID
+// Route to delete an admin by ID
 router.delete('/deleteAdmin/:id', async (req, res) => {
-    const { id } = req.params;
     try {
-      const deletedAdmin = await User.findByIdAndDelete(id);
-      if (!deletedAdmin) {
-        return res.status(404).json({ error: 'Admin not found' });
+      const adminId = req.params.id;
+  
+      // Check the number of admins in the collection
+      const countAdmins = await User.countDocuments();
+  
+      if (countAdmins === 1) {
+        return res.status(400).json({ error: 'Cannot delete the last admin.' });
       }
-      res.status(200).json({ message: 'Admin deleted successfully' });
+  
+      // Proceed with deleting the admin
+      const deletedAdmin = await Admin.findByIdAndDelete(adminId);
+  
+      if (!deletedAdmin) {
+        return res.status(404).json({ error: 'Admin not found.' });
+      }
+  
+      res.status(200).json({ message: 'Admin deleted successfully.' });
+  
     } catch (err) {
       console.error('Error deleting admin:', err);
-      res.status(500).json({ error: 'Failed to delete admin' });
+      res.status(500).json({ error: 'Failed to delete admin.' });
     }
-  });
-
+});
+  
 
   
 module.exports = router;
