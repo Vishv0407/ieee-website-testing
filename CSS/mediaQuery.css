@@ -97,13 +97,12 @@
         box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.433);
         display: flex;
         align-items: center;
-        z-index: 10000;
+        z-index: 10000 !important;
         background-color: white;
         /* padding-top: 5%; */
         border-top: 1px solid rgba(128, 128, 128, 0.45);
         margin-bottom: 0;
         padding: 0;
-
     }
 
     .navAnchors {
@@ -713,6 +712,7 @@
     .FooterSection {
         height: auto;
         width: 100vw;
+        z-index: -999 !important;
     }
 
     .footerSection {
@@ -728,13 +728,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* gap : 6vh; */
     }
 
     .OurGoalsSection {
         display: flex;
         flex-direction: column;
-        /* height : auto; */
         width: 100%;
         gap: 8%;
     }
@@ -750,16 +748,11 @@
     }
 
     #headerOurGoals::after {
-        /* display: none; */
         width: 100%;
         position: absolute;
-        /* left: 5%; */
-
-
     }
 
     #OurGoalsDescription {
-        /* display: none; */
         margin-bottom: 2rem;
         font-size: 1rem;
     }
@@ -1146,7 +1139,7 @@
         box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.433);
         display: flex;
         align-items: center;
-        z-index: 10;
+        z-index: 999;
         background-color: white;
         padding-top: 3%;
         border-top: 2px solid gray;
