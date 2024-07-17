@@ -71,10 +71,19 @@
         <div class="contact-us">
             <button class="memberAdminBtn" onclick="window.location.href='contact-us-admin.html'">Contact us details</button>
         </div>
-        <div class="contact-us">
+        <div class="add-admin">
+            <button class="memberAdminBtn" onclick="window.location.href='user-admin.html'">Add admin</button>
+        </div>
+        <div class="main-page">
             <button class="mainPageBtn" onclick="window.location.href='../index.html'">IEEE website main page</button>
         </div>
 
     </div>
+    <script>
+        if (!sessionStorage.getItem('ieee-login-userId')) {
+          window.location.href = '../login.html';
+        }
+    </script> 
 </body>
+
 </html>

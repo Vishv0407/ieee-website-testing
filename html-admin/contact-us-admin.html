@@ -217,6 +217,11 @@
         // Call displayContactDetails function when the page loads
         window.onload = displayContactDetails;
     </script>
+    <script>
+        if (!sessionStorage.getItem('ieee-login-userId')) {
+          window.location.href = '../login.html';
+        }
+    </script>
 </body>
 
 </html>

@@ -6,7 +6,8 @@ const nodemailer = require('nodemailer');
 const Event = require('../models/events'); // Adjust path as necessary
 const Members = require('../models/members'); // Adjust path as necessary
 const GetUpdates = require('../models/get-updates'); // Adjust path as necessary
-const ContactUsDetail = require('../models/contact-us'); // Adjust path as necessary
+const ContactUsDetail = require('../models/contact-us'); // Adjust path as necessary4
+const User = require('../models/user');
 require('dotenv').config();
 
 // Configure Cloudinary
@@ -461,6 +462,47 @@ router.get('/updates', async (req, res) => {
     }
 });
 
+router.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+    console.log(`Login attempt: ${username}, ${password}`); // Log login attempt
+  
+    try {
+      const user = await User.findOne({ username, password });
+      if (user) {
+        res.json({ success: true, userId: user._id });
+      } else {
+        res.json({ success: false });
+      }
+    } catch (err) {
+      console.error('Error finding user:', err);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+// Route to get all admins
+router.get('/getAllAdmins', async (req, res) => {
+    try {
+      const admins = await User.find();
+      res.status(200).json(admins);
+    } catch (err) {
+      console.error('Error fetching admins:', err);
+      res.status(500).json({ error: 'Failed to fetch admins' });
+    }
+  });
+
+// Route to add new admin
+router.post('/addAdmin', async (req, res) => {
+    const { username, password } = req.body;
+    try {
+      const newAdmin = await User.create({ username, password });
+      res.status(201).json(newAdmin);
+    } catch (err) {
+      console.error('Error adding admin:', err);
+      res.status(500).json({ error: 'Failed to add admin' });
+    }
+});
 
 
+
+  
 module.exports = router;
