@@ -87,19 +87,19 @@
     }
 
     .navSection {
-        padding-top: 1%;
+        /* padding-top: 1%; */
         /* padding-left: 1%; */
         position: fixed;
         top: unset;
         bottom: 0;
-        height: 8%;
+        /* height: 8%; */
         width: 100%;
         box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.433);
         display: flex;
         align-items: center;
         z-index: 10000;
         background-color: white;
-        padding-top: 5%;
+        /* padding-top: 5%; */
         border-top: 2px solid gray;
         margin-bottom: 0;
         padding: 0;
@@ -107,11 +107,11 @@
     }
 
     .navAnchors {
-        height: 100%;
+        /* height: 100%; */
         width: 100vw;
         gap: 5%;
         justify-content: space-evenly;
-        align-items: center;
+        align-items: flex-end;
         margin-right: 0;
     }
 
@@ -123,7 +123,9 @@
         font-size: 2.5vw;
         font-family: Montserrat;
         font-weight: 400;
-        padding-bottom: 5px;
+        padding-bottom: 0;
+        justify-content: center;
+        margin: 10px 0 6px 0;
     }
 
     .navAnchors a i {

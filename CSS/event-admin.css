@@ -210,3 +210,13 @@ opacity: 1; /* Ensure loader is fully visible */
 .adminbtn:hover {
   background-color: rgba(0, 0, 0, 0.639);
 }
+
+@media (max-width: 1024px) {
+  .header-container{
+      flex-direction: column;
+  }
+  .header-container .adminbtn{
+      position: relative;
+      margin-left: 0;
+  }
+}
