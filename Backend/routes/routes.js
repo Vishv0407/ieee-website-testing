@@ -518,7 +518,7 @@ router.delete('/deleteAdmin/:id', async (req, res) => {
       }
   
       // Proceed with deleting the admin
-      const deletedAdmin = await Admin.findByIdAndDelete(adminId);
+      const deletedAdmin = await User.findByIdAndDelete(adminId);
   
       if (!deletedAdmin) {
         return res.status(404).json({ error: 'Admin not found.' });
