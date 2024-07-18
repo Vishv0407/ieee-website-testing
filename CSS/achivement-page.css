@@ -489,6 +489,17 @@ body.darkTheme .theme-div button {
 
 }
 
+@media (min-width : 769px) and (max-width : 1023px) {
+
+    .navSection{
+        height: 10%;
+    }
+
+    .navAnchors a i{
+        font-size: 150%;
+    }
+}
+
 
 /* //Scrollbar */
 ::-webkit-scrollbar {

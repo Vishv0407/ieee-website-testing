@@ -1079,9 +1079,26 @@
     .container {
         /* height: 100vh; */
         width: 100vw;
+        display: flex;
+        flex-direction: column;
         /* overflow: hidden; */
     }
 
+    .head h1{
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .au-slider{
+        display: none;
+    }
+
+    .mobile-tablet-image-section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
     /* ===== hEROsECTION ===== */
     .heroSection {
         all: unset;
@@ -1134,7 +1151,7 @@
         position: fixed;
         top: unset;
         bottom: 0;
-        height: 11%;
+        height: 10%;
         width: 100%;
         box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.433);
         display: flex;
@@ -1142,7 +1159,7 @@
         z-index: 999;
         background-color: white;
         padding-top: 3%;
-        border-top: 2px solid gray;
+        border-top: 1px solid rgba(128, 128, 128, 0.45);
         margin-bottom: 0;
 
     }
@@ -1169,7 +1186,7 @@
 
     .navAnchors a i {
         color: black !important;
-        font-size: 200%;
+        font-size: 150%;
     }
 
     .navSection.scrolled,
@@ -1288,7 +1305,7 @@
         flex-direction: column-reverse;
         margin-left: 4vw;
         margin-right: 4vw;
-        margin-bottom: 10vh;
+        margin-bottom: 5vh;
         position: unset;
 
     }
@@ -1303,7 +1320,7 @@
         all: unset;
 
         width: 92vw;
-        height: 50vh;
+        height: 90vh;
         display: flex;
         justify-content: center;
         padding-top: 5vh;
@@ -1313,8 +1330,8 @@
     #aboutImage {
         /* all: unset; */
         position: static;
-        height: 50vh;
-        width: 92vw;
+        height: 100%;
+        width: 100%;
         border-bottom-right-radius: 0.6em;
         ;
         box-shadow: none;
@@ -1377,8 +1394,8 @@
 
     .flex-item {
         position: static !important;
-        height: 40vw;
-        width: 40vw;
+        height: 30vw;
+        width: 30vw;
         box-shadow: inset 5px 5px 10px 2px #00000023;
         justify-content: center;
     }
@@ -1391,7 +1408,7 @@
     .flex-item h2 {
         font-family: Montserrat;
         font-weight: normal;
-        font-size: 8vw;
+        font-size: 6vw;
 
     }
 
@@ -1733,10 +1750,13 @@
         /* display: none; */
         margin: 1rem 0;
         text-align: center;
-        font-size: 5vw;
-        font-weight: bold;
+        font-size: 3.5vw;
+        font-weight: 600;
         color: #bebaba;
         padding-bottom: 1rem;
+    }
+    #headerOurGoals p{
+        color: #bebaba;
     }
 
     #headerOurGoals::after {
@@ -1763,8 +1783,8 @@
     }
 
     #socialLinks a {
-        height: 10vw;
-        width: 10vw;
+        height: 6vw;
+        width: 6vw;
         background-color: #404040;
         display: flex;
         justify-content: center;
@@ -1777,7 +1797,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 4em;
+        font-size: 2em;
     }
 
     #socialLinks a:hover {
@@ -1937,8 +1957,8 @@
     .ContactUsHeader p,
     .GetUpdatesHeader p {
         width: 100vw;
-        font-size: 5vw;
-        font-weight: bold;
+        font-size: 3.5vw;
+        /* font-weight: ; */
         color: #bebaba;
         padding-bottom: 1rem;
     }
