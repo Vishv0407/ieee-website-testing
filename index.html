@@ -44,6 +44,41 @@
     <!-- Link Swiper's CSS - past events -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body {
+    background: #000;
+} */
+
+/* .videoHeroSection {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+} */
+
+#myCanvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.imageBackGround {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5; /* Adjust as needed */
+}
+
+    </style>
 </head>
 
 <body>
@@ -53,12 +88,16 @@
             <div class="Section" id="heroSection">
 
                 <!-- <img src="./Images/HeroSection1.jpg" alt=""> -->
+                <!-- <div class="videoHeroSection">
+                    <canvas id="myCanvas"></canvas>
+                    <img class="imageBackGround" src="./Images/pattern.png">
+                </div> -->
+
                 <div class="videoHeroSection">
                     <video autoplay muted loop id="myVideo">
-                        <source src="./video/grid3.mp4" type="video/mp4">
+                        <source src="./video/grid small.mp4" type="video/mp4">
                     </video>
                     <img class="imageBackGround" src="./Images/pattern.png">
-
                 </div>
 
                 <div class="navSection" id="navBar">
@@ -517,10 +556,10 @@
                         <div id="SiteMapContent">
                             <a href="#Home">Home</a>
                             <a href="#aboutUs">About Us</a>
-                            <a href="#achievement">Achievements</a>
-                            <a href="#upcomingEvents">Upcoming Events</a>
-                            <a href="#pastEvents">Past Events</a>
+                            <a href="/pages/achivement-page.html">Achievements</a>
+                            <a href="/pages/event-page.html">Events</a>
                             <a href="./pages/commitee-page.html">Committee</a>
+                            <a href="#contactUs">Contact Us</a>
                         </div>
                     </div>
                     <div class="ContactUsSection">
@@ -578,7 +617,10 @@
         <div class="copyrightSection">
             <hr class="nav-line3">
             <div class="bottom-div">
-                <h4>&copy; IEEE AU SB 2024. All Rights Reserved | Developed by CSE Team, IEEE AU SB</h4>
+                <h4>&copy; IEEE AU SB 2024. All Rights Reserved | Developed by 
+                    <a href="https://www.linkedin.com/in/vishv-boda-806ab5289/">Vishv Boda</a> & 
+                    <a href="https://www.linkedin.com/in/deeppatelDW1631/">Deep Patel</a>, IEEE AU SB
+                </h4> 
                 <!-- <div class="theme-div">
                     <img id="theme-icon" src="./Images/moon-icon.svg" alt="Theme Icon">
                     <button id="theme-toggle">dark</button>
@@ -603,7 +645,58 @@
     <script src="js/animation.js"></script>
     <script src="js/image-gallery-mobile.js"></script>
 
-   
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Initialising the canvas
+    var canvas = document.getElementById('myCanvas'),
+        ctx = canvas.getContext('2d');
+
+    // Function to resize the canvas to the size of its container
+    function resizeCanvas() {
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
+    }
+
+    // Initial resize
+    resizeCanvas();
+
+    // Resize the canvas whenever the window is resized
+    window.addEventListener('resize', resizeCanvas);
+
+    // Setting up the letters
+    var letters = 'ABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZ';
+    letters = letters.split('');
+
+    // Setting up the columns
+    var fontSize = 10;
+    var columns = canvas.width / fontSize;
+
+    // Setting up the drops
+    var drops = [];
+    for (var i = 0; i < columns; i++) {
+        drops[i] = 1;
+    }
+
+    // Setting up the draw function
+    function draw() {
+        ctx.fillStyle = 'rgba(0, 0, 0, .1)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < drops.length; i++) {
+            var text = letters[Math.floor(Math.random() * letters.length)];
+            ctx.fillStyle = '#0080FF';
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            drops[i]++;
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
+                drops[i] = 0;
+            }
+        }
+    }
+
+    // Loop the animation
+    setInterval(draw, 33);
+});
+
+    </script>
 
 </body>
 
