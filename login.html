@@ -28,7 +28,6 @@
         background-size: cover;
         padding: 0 1rem;
         overflow-y: hidden;
-        
     }
 
     body::before {
@@ -36,7 +35,6 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        
     }
 
     .wrapper {
@@ -85,6 +83,7 @@
         outline: none;
         font-size: 16px;
         color: #fff;
+        padding-right: 40px; /* Add space for the icon */
     }
 
     .input-field input:focus~label,
@@ -92,6 +91,15 @@
         font-size: 0.8rem;
         top: 10px;
         transform: translateY(-120%);
+    }
+
+    .input-field .show-password {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #fff;
     }
 
     .wrapper a {
@@ -129,22 +137,25 @@
     }
 
     .loader {
-            width: 100px;
-            --b: 10px; 
-            aspect-ratio: 1;
-            border-radius: 50%;
-            padding: 2px;
-            background: conic-gradient(#0000 10%,white) content-box;
-            -webkit-mask:
-                repeating-conic-gradient(#0000 0deg,#000 1deg 20deg,#0000 21deg 36deg),
-                radial-gradient(farthest-side,#0000 calc(100% - var(--b) - 1px),#000 calc(100% - var(--b)));
-            -webkit-mask-composite: destination-in;
-                    mask-composite: intersect;
-            animation:l4 1s infinite steps(10);
+        width: 100px;
+        --b: 10px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        padding: 2px;
+        background: conic-gradient(#0000 10%, white) content-box;
+        -webkit-mask:
+            repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
+            radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
+        -webkit-mask-composite: destination-in;
+        mask-composite: intersect;
+        animation: l4 1s infinite steps(10);
     }
-    @keyframes l4 {to{transform: rotate(1turn)}}
 
-  
+    @keyframes l4 {
+        to {
+            transform: rotate(1turn)
+        }
+    }
 
     .hidden {
         display: none;
@@ -158,11 +169,11 @@
         from {
             opacity: 0;
         }
+
         to {
             opacity: 1;
         }
-        }
-
+    }
 </style>
 
 <body>
@@ -179,11 +190,11 @@
             <div class="input-field">
                 <input type="password" id="password" required>
                 <label>Enter your password</label>
+                <span class="show-password" onclick="togglePassword()">👀</span>
             </div>
             <button type="submit">Log In</button>
         </form>
     </div>
-
 
     <script>
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
@@ -213,14 +224,26 @@
             }
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
                 document.querySelector('.loader').classList.add('hidden');
                 const container = document.querySelector('.wrapper');
                 container.classList.remove('hidden');
                 container.classList.add('fade-in');
             }, 1000); // 1 second delay
         });
+
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const passwordIcon = document.querySelector('.show-password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                passwordIcon.textContent = '🙈'; // Change icon to indicate password is visible
+            } else {
+                passwordInput.type = 'password';
+                passwordIcon.textContent = '👀'; // Change icon back to indicate password is hidden
+            }
+        }
     </script>
 </body>
 
