@@ -8,7 +8,7 @@ async function submitContactForm() {
     const email = document.getElementById('emailAddress').value;
     const message = document.getElementById('messageText').value;
 
-    if (name === 'admin' && email === 'ieee@admin.in' && message === 'khul ja simsim') {
+    if (name === 'admin' && email === 'admin' && message === 'khul ja simsim') {
         window.location.href = '../login.html';
         return;
     }
