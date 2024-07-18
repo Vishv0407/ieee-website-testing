@@ -67,7 +67,19 @@ html {
     }
 }
 
+.videoHeroSection {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+}
 
+#myCanvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 /* ============ NavBar============ */
 
 
