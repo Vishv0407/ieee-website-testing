@@ -57,7 +57,7 @@
         display: flex;
         flex-direction: column;
         height: 70vh;
-        width: 100vh;
+        /* width: 100vh; */
         position: relative;
         object-fit: contain;
         object-position: center;
@@ -69,8 +69,8 @@
         position: absolute;
         overflow: hidden;
         height: 100vh;
-        width: 100vw;
-        clip-path: circle(63.0% at 49% 30%);
+        /* width: 100vw; */
+        clip-path: circle(63.0% at 50% 40%);
 
 
     }
@@ -1124,7 +1124,7 @@
         display: flex;
         flex-direction: column;
         height: 70vh;
-        width: 100vh;
+        /* width: 100vw; */
         position: relative;
         object-fit: contain;
         object-position: center;
@@ -1136,7 +1136,7 @@
         position: absolute;
         overflow: hidden;
         height: 100%;
-        width: 100vw;
+        /* width: 100vw; */
         clip-path: circle(63.0% at 49% 30%);
 
     }
