@@ -70,24 +70,21 @@
         overflow: hidden;
         height: 100vh;
         width: 100vw;
+        clip-path: circle(63.0% at 49% 30%);
+
 
     }
 
-    #myVideo {
+    /* #myVideo {
         height: 100%;
         object-fit: cover;
         object-position: center;
         position: absolute;
         overflow: hidden;
         clip-path: circle(63.0% at 49% 30%);
-    }
+    } */
 
-    #myCanvas {
-        display: block;
-        width: 100%;
-        height: 100%;
-        clip-path: circle(63.0% at 49% 30%);
-    }
+
 
     #typing-text, #subheadingText{
         font-size: 2.5vw !important;
@@ -1138,8 +1135,9 @@
     .videoHeroSection {
         position: absolute;
         overflow: hidden;
-        height: 70vh;
+        height: 100%;
         width: 100vw;
+        clip-path: circle(63.0% at 49% 30%);
 
     }
 
@@ -1152,13 +1150,7 @@
         clip-path: circle(63.0% at 49% 30%);
     }
 
-    #myCanvas {
-        display: block;
-        width: 100%;
-        height: 100%;
-        clip-path: circle(63.0% at 49% 30%);
-
-    }
+    
 
     .navSection {
         /* padding-top: 1%; */
