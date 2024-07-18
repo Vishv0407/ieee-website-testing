@@ -58,10 +58,55 @@
                 font-size: 140px;
             }
         }
+
+        .loader-container{
+            height: 95vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader {
+            width: 100px;
+            --b: 10px; 
+            aspect-ratio: 1;
+            border-radius: 50%;
+            padding: 1px;
+            background: conic-gradient(#0000 10%,rgb(0, 132, 255)) content-box;
+            -webkit-mask:
+                repeating-conic-gradient(#0000 0deg,#000 1deg 20deg,#0000 21deg 36deg),
+                radial-gradient(farthest-side,#0000 calc(100% - var(--b) - 1px),#000 calc(100% - var(--b)));
+            -webkit-mask-composite: destination-in;
+                    mask-composite: intersect;
+            animation:l4 1s infinite steps(10);
+        }
+        @keyframes l4 {to{transform: rotate(1turn)}}
+
+        .hidden {
+            display: none;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.7s;
+            animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+
+    <div class="container hidden">
         <h1 class="text">IEEE</h1>
 
         <div class="events">
@@ -82,13 +127,20 @@
         <div class="main-page">
             <button class="mainPageBtn" onclick="window.location.href='../index.html'">IEEE website main page</button>
         </div>
-
     </div>
     <script>
         if (!sessionStorage.getItem('ieee-login-userId')) {
           window.location.href = '../login.html';
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.querySelector('.loader-container').classList.add('hidden');
+                const container = document.querySelector('.container');
+                container.classList.remove('hidden');
+                container.classList.add('fade-in');
+            }, 1000); // 1 second delay
+        });
     </script> 
 </body>
-
 </html>
