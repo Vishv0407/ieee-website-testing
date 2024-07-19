@@ -1025,7 +1025,10 @@ body.darkTheme .eventContainer .link:hover{
     color: white;
 }
 
-
+body.darkTheme .cardDiv{
+    background-color: rgb(27, 28, 29);
+    border: 1px solid rgba(255, 255, 255, 0.377);
+}
 body.darkTheme .swiper-slide{
     background-color: black;
     border: 1px solid white;
