@@ -67,22 +67,11 @@ The IEEE AU SB website is a platform for the student branch to showcase its acti
 
 ### To get started with the website, follow these steps:
 
-1. Clone the repository using `git clone <repository-url>`
+1. Clone the repository using `git clone https://github.com/Vishv0407/ieee-vishv.git`
 2. Open the project in your preferred code editor or IDE
 3. Run `npm install` to install the required dependencies
 4. Run `npm start` to start the development server
 5. Open `http://localhost:3000` in your web browser to view the website
-
-## Contributing
---------------
-
-Contributions to the website are welcome! If you'd like to contribute, please follow these steps:
-
-1. Fork the repository using `git fork <repository-url>`
-2. Create a new branch for your feature or fix using `git checkout -b <branch-name>`
-3. Make your changes and commit them using `git commit -m "<commit-message>"`
-4. Push your changes to your forked repository using `git push origin <branch-name>`
-5. Create a pull request to merge your changes into the main repository
 
 ## License
 ---------
@@ -100,7 +89,7 @@ The IEEE AU SB Website is licensed under the MIT License. See `LICENSE` for deta
 
 We would like to thank the IEEE Ahmedabad University Student Branch for their support and encouragement.
 
-## Support
+## Need Help or Have Questions?
 ---------
 
-If you need any support or have questions, please contact us at [ieee.ausbsb@gmail.com](mailto:ieee.ausb@gmail.com).
+If you need any support, have questions, or encounter any bugs or issues, please don't hesitate to reach out to us at [ieee.ausb@gmail.com](mailto:ieee.ausb@gmail.com).
