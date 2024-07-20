@@ -100,16 +100,6 @@ The IEEE AU SB Website is licensed under the MIT License. See `LICENSE` for deta
 
 We would like to thank the IEEE Ahmedabad University Student Branch for their support and encouragement.
 
-## Changelog
-------------
-
-See the `CHANGELOG.md` file for a list of changes and updates to the website.
-
-## Issues
----------
-
-If you encounter any issues or bugs, please report them in the `issues` section of this repository.
-
 ## Support
 ---------
 
