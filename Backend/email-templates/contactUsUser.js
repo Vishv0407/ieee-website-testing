@@ -53,8 +53,8 @@ function contactUsUser(name) {
 	<body>
 		<div class="container">
 			<div class="logos">
-				<img src="https://res.cloudinary.com/dub5rms8i/image/upload/v1721848407/ieee_logo_urpxug.png" alt="IEEE Logo">
 				<img src="https://res.cloudinary.com/dub5rms8i/image/upload/v1721848407/au_logo_jcaotv.png" alt="Ahmedabad University Logo">
+				<img src="https://res.cloudinary.com/dub5rms8i/image/upload/v1721848407/ieee_logo_urpxug.png" alt="IEEE Logo">
 			</div>
 			<h2>Thank you for contacting us!</h2>
 			<p>Dear ${name},</p>
