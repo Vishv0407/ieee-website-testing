@@ -1,9 +1,18 @@
 async function fetchMembers(department, position, elementId) {
+    const container = document.getElementById(elementId);
+    const loader = container.querySelector('.member-loader');
+    
+    // Show loader
+    loader.style.display = 'block';
+
     try {
         const response = await fetch(`https://ieee-vishv-1.onrender.com/api/members-front?department=${department}&position=${position}`);
         const Members = await response.json();
-        const container = document.getElementById(elementId);
-        
+
+        // Hide loader
+        loader.style.display = 'none';
+        container.innerHTML = ''; // Clear existing content
+
         // Custom sorting logic to place "Head" before "Member"
         Members.sort((a, b) => {
             if (a.position === "Head") return -1; // "Head" comes before "Member"
@@ -40,6 +49,10 @@ async function fetchMembers(department, position, elementId) {
         });
     } catch (error) {
         console.error('Error fetching Members:', error);
+
+        // Hide loader and show error message
+        loader.style.display = 'none';
+        container.innerHTML = 'Failed to load members';
     }
 }
 

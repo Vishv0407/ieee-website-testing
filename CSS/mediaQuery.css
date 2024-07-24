@@ -198,8 +198,26 @@
         top: 16vh;
         left: 0;
     }
+    
+    .Heading .ieee-ausb-div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+    }
+    
+    #headingTextIEEE{
+        margin-right: 0;
+    }
+    .letter-heading{
+        font-size: 20vw;
+        display: flex;
+        align-items: center;
+    }
 
-    .heroContent .Heading #headingText {
+    /* .heroContent .Heading #headingText {
         all: unset;
         font-family: Montserrat;
         font-weight: 1000;
@@ -211,7 +229,7 @@
         padding-right: none;
         display: grid;
 
-    }
+    } */
 
     .heroContent .Heading #subheadingText {
 
@@ -1256,6 +1274,24 @@
         width: 100vw;
         top: 16vh;
         left: 0;
+    }
+    
+    .Heading .ieee-ausb-div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: auto;
+    }
+    
+    #headingTextIEEE{
+        margin-right: 0;
+    }
+    .letter-heading{
+        font-size: 20vw;
+        display: flex;
+        align-items: center;
     }
 
     .heroContent .Heading #headingText {

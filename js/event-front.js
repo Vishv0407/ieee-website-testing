@@ -4,6 +4,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("eventModal");
     const modalDetail = document.getElementById("modal-detail");
     const span = document.getElementsByClassName("close")[0];
+    const upcomingLoader = document.getElementById("upcoming-loader");
+    const pastLoader = document.getElementById("past-loader");
+
+    function showLoader(loader) {
+        loader.style.display = "block";
+    }
+
+    function hideLoader(loader) {
+        loader.style.display = "none";
+    }
 
     span.onclick = function () {
         closeModal();
@@ -14,6 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
             closeModal();
         }
     };
+
+    showLoader(upcomingLoader);
+    showLoader(pastLoader);
 
     axios
         .get("https://ieee-vishv-1.onrender.com/api/events/events")
@@ -26,6 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             upcomingEvents.sort((a, b) => new Date(a.eventDate) - new Date(b.eventDate));
             pastEvents.sort((a, b) => new Date(b.eventDate) - new Date(a.eventDate));
+
+            hideLoader(upcomingLoader);
+            hideLoader(pastLoader);
 
             if (upcomingEvents.length === 0) {
                 displayNoEventMessage(upcomingCardContainer);
@@ -64,6 +80,8 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch((error) => {
             console.error("There was an error in database connection!", error);
+            hideLoader(upcomingLoader);
+            hideLoader(pastLoader);
             displayNoEventMessage(upcomingCardContainer);
             displayNoEventMessage(swiperWrapper);
             hidePastArrows();
