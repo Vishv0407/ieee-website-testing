@@ -117,7 +117,7 @@ hr {
 }
 
 .navSection {
-    /* padding: 0.5rem; */
+    padding: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -485,6 +485,10 @@ body.darkTheme .theme-div button {
 
     .achivement-div:nth-child(even) .achi-img img{
         margin-left: 0;
+    }
+
+    .navSection{
+        padding: 0;
     }
 
 }

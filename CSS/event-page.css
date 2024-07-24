@@ -263,7 +263,7 @@ h1 {
 }
 
 .navSection {
-    /* padding: 0.5rem; */
+    padding: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -760,6 +760,10 @@ body.darkTheme .theme-div button{
 
     .modal-close{
         font-size: 40px;
+    }
+
+    .navSection{
+        padding: 0;
     }
 
 
