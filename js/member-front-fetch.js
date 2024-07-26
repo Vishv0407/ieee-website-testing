@@ -50,7 +50,7 @@ async function fetchTeams(department, elementId) {
     container.innerHTML = ''; // Clear previous content
 
     try {
-        const response = await fetch(`http://localhost:3000/api/members-by-department?department=${department}`);
+        const response = await fetch(`https://ieee-vishv-1.onrender.com/api/members-by-department?department=${department}`);
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
