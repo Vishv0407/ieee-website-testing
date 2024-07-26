@@ -491,6 +491,11 @@ body.darkTheme .theme-div button {
         padding: 0;
     }
 
+    .navAnchors a.active{
+        transform: scale(1);
+        font-weight: bolder;
+    }
+
 }
 
 @media (min-width : 769px) and (max-width : 1023px) {
@@ -501,6 +506,11 @@ body.darkTheme .theme-div button {
 
     .navAnchors a i{
         font-size: 150%;
+    }
+
+    .navAnchors a.active{
+        transform: scale(1);
+        font-weight: bolder;
     }
 }
 

@@ -296,6 +296,20 @@ router.get('/members-front', async (req, res) => {
     }
   });
 
+router.get('/members-by-department', async (req, res) => {
+    const { department } = req.query;
+    try {
+      const results = await Members.find({
+        department: department,
+        leave_date: null  // Assuming 'leave_date' is null for active members, adjust as per your schema
+      }).exec();
+      res.json(results);
+    } catch (err) {
+      console.error('Error fetching members:', err);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
 
 // GET: Get a member by ID
 router.get('/members/member/:id', async (req, res) => {

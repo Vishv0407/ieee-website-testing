@@ -88,59 +88,74 @@ document.addEventListener("DOMContentLoaded", function () {
             hideUpcomingArrows();
         });
 
-    function createUpcomingEventCard(event) {
-        const card = document.createElement("div");
-        const eventDate = new Date(event.eventDate);
-        const dateString =
-            eventDate.getDate().toString().padStart(2, "0") +
-            "-" +
-            (eventDate.getMonth() + 1).toString().padStart(2, "0") +
-            "-" +
-            eventDate.getFullYear();
-
-        card.classList.add("cardDiv");
-        card.innerHTML = `
-            <div class="img">
-                <img class="img2" src="${event.eventPoster}" alt="">
-            </div>
-            <div class="content">
-                <div class="card-date-div">
-                    <div class="upcomingEventCard-content">
-                        <p class="upcomingEventCard-content-heading"></p>
-                        <p class="upcomingEventCard-content-data">${dateString}</p>
+        function createUpcomingEventCard(event) {
+            const card = document.createElement("div");
+            const eventDate = new Date(event.eventDate);
+            const dateString =
+                eventDate.getDate().toString().padStart(2, "0") +
+                "-" +
+                (eventDate.getMonth() + 1).toString().padStart(2, "0") +
+                "-" +
+                eventDate.getFullYear();
+        
+            // Create the card structure
+            card.classList.add("cardDiv");
+            
+            // Start building the card's HTML content
+            let cardHTML = `
+                <div class="img">
+                    <img class="img2" src="${event.eventPoster}" alt="">
+                </div>
+                <div class="content">
+                    <div class="card-date-div">
+                        <div class="upcomingEventCard-content">
+                            <p class="upcomingEventCard-content-heading"></p>
+                            <p class="upcomingEventCard-content-data">${dateString}</p>
+                        </div>
                     </div>
-                </div>
-                <h2>${event.eventName}</h2>
-                <div class="para">
-                    <p>${event.eventDescription}</p>
-                </div>
-                
-                <div class="check">
+                    <h2>${event.eventName}</h2>
+                    <div class="para">
+                        <p>${event.eventDescription}</p>
+                    </div>
+                    <div class="check">
+            `;
+        
+            // Conditionally include the speaker section if event.speaker is not null
+            if (event.speaker) {
+                cardHTML += `
                     <div class="card-speaker-div">
                         <div class="upcomingEventCard-content">
-                            <img src="Images/speaker.png" width="20px">
+                            <img src="Images/speaker.png" width="20px" alt="Speaker">
                             <p class="upcomingEventCard-content-data">${event.speaker}</p>
                         </div>
                     </div>
-
+                `;
+            }
+        
+            // Include the time and venue sections (they are always displayed)
+            cardHTML += `
                     <div class="card-time-div">
                         <div class="upcomingEventCard-content">
-                            <img src="Images/event-time.png" width="20px">
-                            <p class="upcomingEventCard-content-data"> ${event.eventTime}</p>
+                            <img src="Images/event-time.png" width="20px" alt="Time">
+                            <p class="upcomingEventCard-content-data">${event.eventTime}</p>
                         </div>
                     </div>
-                    <div class="card-veneu-div">
+                    <div class="card-venue-div">
                         <div class="upcomingEventCard-content">
-                            <img src="Images/venue.png" width="20px">
-                            <p class="upcomingEventCard-content-data" >${event.venue}</p>
+                            <img src="Images/venue.png" width="20px" alt="Venue">
+                            <p class="upcomingEventCard-content-data">${event.venue}</p>
                         </div>
                     </div>
                 </div>
                 <a class="link" href="${event.registrationLink}">Register Now</a>
-            </div>
-        `;
-        return card;
-    }
+            `;
+        
+            // Set the inner HTML of the card element
+            card.innerHTML = cardHTML;
+        
+            return card;
+        }
+        
 
     function createPastEventSlide(event) {
         const slide = document.createElement("div");
@@ -208,22 +223,40 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function showModal(event) {
+        // Set the modal image source
         document.getElementById("modal-image").src = `${event.eventPoster}`;
-        modalDetail.innerHTML = `
+        
+        // Build the modal details content
+        let modalContentHTML = `
             <h2>${event.eventName}</h2>
             <p>${event.eventDescription}</p>
-            <p>Speaker: ${event.speaker}</p>
             <p>Date: ${formatDate(event.eventDate)}</p>
             <p>Time: ${event.eventTime}</p>
-            <p>Venue: ${event.venue}</p>
-            <a class="link" href="${event.instaPostLink}">Instagram Post</a>
+            <p>Venue: ${event.venue}
         `;
+    
+        // Conditionally include the speaker section if event.speaker is not null
+        if (event.speaker) {
+            modalContentHTML += `<p>Speaker: ${event.speaker}</p>`;
+        }
+
+        if(event.instaPostLink){
+            modalContentHTML += `<a class="link" href="${event.instaPostLink}">Instagram Post</a>`;
+        }
+    
+     
+    
+        // Update the modal detail content
+        modalDetail.innerHTML = modalContentHTML;
+        
+        // Display the modal
         modal.style.display = "block";
         const modalContent = document.querySelector(".modal-content");
         modalContent.classList.remove("zoomOut", "fadeOut");
         modalContent.classList.add("zoomIn");
         document.body.style.overflow = "hidden";
     }
+    
 
     function closeModal() {
         const modalContent = document.querySelector(".modal-content");

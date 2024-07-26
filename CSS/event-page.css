@@ -766,7 +766,10 @@ body.darkTheme .theme-div button{
         padding: 0;
     }
 
-
+    .navAnchors a.active{
+        transform: scale(1);
+        font-weight:bolder;
+    }
 
 }
 
