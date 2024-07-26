@@ -201,6 +201,11 @@ h1 {
 .faculty-card a img{
     width: 24px;
     filter: invert(100);
+    transition: all 0.3s;
+}
+
+.faculty-card a img:hover{
+    filter: invert(0);
 }
 
 .card:hover .box-1,

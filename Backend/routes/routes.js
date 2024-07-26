@@ -42,7 +42,13 @@ router.post('/events/upload', async (req, res) => {
         const file = req.files.eventPoster;
 
         // Upload file to Cloudinary
-        const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath);
+
+        const options = {
+            folder:"Events", 
+            quality: 50,
+        };
+        options.resource_type = "auto";
+        const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
 
 
         // Create event in database
