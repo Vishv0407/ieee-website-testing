@@ -20,7 +20,6 @@ const memberSchema = new mongoose.Schema(
         },
         contact_number:{
             type: String,
-            required:true,
             trim: true,
         },
         enrollment_number:{

@@ -1061,9 +1061,6 @@ body.darkTheme .card-box h3, body.darkTheme .position{
     background-color: transparent;
 }
 
-body.darkTheme .social i{
-    filter: invert(100);
-}
 
 /* body.darkTheme
 body.darkTheme

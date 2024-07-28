@@ -9,6 +9,7 @@ const Members = require('../models/members'); // Adjust path as necessary
 const GetUpdates = require('../models/get-updates'); // Adjust path as necessary
 const ContactUsDetail = require('../models/contact-us'); // Adjust path as necessary4
 const User = require('../models/user');
+const Achievements = require('../models/achivements');
 require('dotenv').config();
 
 // import email templates
@@ -36,7 +37,7 @@ router.use(fileUpload({
 // POST: Create a new event with image upload
 router.post('/events/upload', async (req, res) => {
     try {
-        const { eventName, eventDescription, eventDate, eventTime, registrationLink, venue,  speaker, instaPostLink } = req.body;
+        const { eventName, eventDescription, eventDate, startTime, endTime , registrationLink, venue,  speaker, instaPostLink } = req.body;
 
         // Handle file upload using express-fileupload
         const file = req.files.eventPoster;
@@ -46,8 +47,8 @@ router.post('/events/upload', async (req, res) => {
         const options = {
             folder:"Events", 
             quality: 50,
+            resource_type: "auto"
         };
-        options.resource_type = "auto";
         const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
 
 
@@ -56,7 +57,8 @@ router.post('/events/upload', async (req, res) => {
             eventName,
             eventDescription,
             eventDate,
-            eventTime,
+            startTime,
+            endTime,
             eventPoster: uploadedFile.secure_url, // Store image URL in database
             speaker,
             registrationLink,
@@ -76,7 +78,7 @@ router.post('/events/upload', async (req, res) => {
 // POST: Update an event by ID with image upload
 router.post('/events/update/:id', async (req, res) => {
     const { id } = req.params;
-    const { eventName, eventDescription, eventDate, eventTime, speaker, registrationLink, venue, instaPostLink } = req.body;
+    const { eventName, eventDescription, eventDate, startTime, endTime, speaker, registrationLink, venue, instaPostLink } = req.body;
 
     try {
         let updatedEvent;
@@ -85,15 +87,20 @@ router.post('/events/update/:id', async (req, res) => {
             // Handle file upload using express-fileupload
             const file = req.files.eventPoster;
 
-            // Upload file to Cloudinary
-            const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath);
-
+            const options = {
+                folder:"Events", 
+                quality: 50,
+                resource_type: "auto"
+            };
+            const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
+    
             // Update event in database with new image URL
             updatedEvent = await Event.findByIdAndUpdate(id, {
                 eventName,
                 eventDescription,
                 eventDate,
-                eventTime,
+                startTime,
+                endTime,
                 eventPoster: uploadedFile.secure_url, // Update image URL in database
                 speaker,
                 registrationLink,
@@ -106,7 +113,8 @@ router.post('/events/update/:id', async (req, res) => {
                 eventName,
                 eventDescription,
                 eventDate,
-                eventTime,
+                startTime,
+                endTime,
                 speaker,
                 registrationLink,
                 venue,
@@ -126,25 +134,25 @@ router.post('/events/update/:id', async (req, res) => {
 });
 
 // GET: Get an event by ID
-router.get('/events/event/:id', async (req, res) => {
-    const { id } = req.params;
+// router.get('/event/:id', async (req, res) => {
+//     const { id } = req.params;
 
-    try {
-        const event = await Event.findById(id);
+//     try {
+//         const event = await Event.findById(id);
 
-        if (!event) {
-            return res.status(404).json({ error: "Event not found" });
-        }
+//         if (!event) {
+//             return res.status(404).json({ error: "Event not found" });
+//         }
 
-        res.json(event);
-    } catch (error) {
-        console.error("Error fetching event by ID:", error);
-        res.status(500).json({ error: "Error fetching event by ID" });
-    }
-});
+//         res.json(event);
+//     } catch (error) {
+//         console.error("Error fetching event by ID:", error);
+//         res.status(500).json({ error: "Error fetching event by ID" });
+//     }
+// });
 
 // DELETE: Delete an event by ID
-router.delete('/events/event/:id', async (req, res) => {
+router.delete('/event/:id', async (req, res) => {
     const { id } = req.params;
 
     try {
@@ -175,7 +183,7 @@ router.delete('/events/event/:id', async (req, res) => {
 });
 
 // GET: Fetch all events
-router.get('/events/events', async (req, res) => {
+router.get('/events', async (req, res) => {
     try {
         const events = await Event.find();
 
@@ -190,6 +198,7 @@ router.get('/events/events', async (req, res) => {
 
 // --------------------------------MEMBERS-----------------------------------//
 
+
 // POST: Create a new member with image upload
 router.post('/members/upload', async (req, res) => {
     try {
@@ -198,8 +207,12 @@ router.post('/members/upload', async (req, res) => {
         // Handle file upload using express-fileupload
         const file = req.files.profile_image;
 
-        // Upload file to Cloudinary
-        const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath);
+        const options = {
+            folder:"Members", 
+            quality: 50,
+            resource_type: "auto"
+        };
+        const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
 
         // Create member in database
         const newMember = new Members({
@@ -241,9 +254,13 @@ router.post('/members/update/:id', async (req, res) => {
             // Handle file upload using express-fileupload
             const file = req.files.profile_image;
 
-            // Upload file to Cloudinary
-            const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath);
-
+            const options = {
+                folder:"Members", 
+                quality: 50,
+                resource_type: "auto"
+            };
+            const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
+    
             // Update member in database with new image URL
             updatedMember = await Members.findByIdAndUpdate(id, {
                 profile_image: uploadedFile.secure_url, // Update image URL in database
@@ -316,27 +333,26 @@ router.get('/members-by-department', async (req, res) => {
     }
   });
 
-
 // GET: Get a member by ID
-router.get('/members/member/:id', async (req, res) => {
-    const { id } = req.params;
+// router.get('/member/:id', async (req, res) => {
+//     const { id } = req.params;
 
-    try {
-        const member = await Members.findById(id);
+//     try {
+//         const member = await Members.findById(id);
 
-        if (!member) {
-            return res.status(404).json({ error: "Member not found" });
-        }
+//         if (!member) {
+//             return res.status(404).json({ error: "Member not found" });
+//         }
 
-        res.json(member);
-    } catch (error) {
-        console.error("Error fetching member by ID:", error);
-        res.status(500).json({ error: "Error fetching member by ID" });
-    }
-});
+//         res.json(member);
+//     } catch (error) {
+//         console.error("Error fetching member by ID:", error);
+//         res.status(500).json({ error: "Error fetching member by ID" });
+//     }
+// });
 
 // DELETE: Delete a member by ID
-router.delete('/members/member/:id', async (req, res) => {
+router.delete('/member/:id', async (req, res) => {
     const { id } = req.params;
 
     try {
@@ -367,7 +383,7 @@ router.delete('/members/member/:id', async (req, res) => {
 });
 
 // GET: Fetch all members
-router.get('/members/allMembers', async (req, res) => {
+router.get('/members', async (req, res) => {
     try {
         const members = await Members.find();
 
@@ -377,6 +393,150 @@ router.get('/members/allMembers', async (req, res) => {
         res.status(500).json({ error: "Error fetching all members" });
     }
 });
+
+
+
+// -------------------------------achievementS-----------------------------------//
+
+
+// POST: Create a new achievement with image upload
+router.post('/achievements/upload', async (req, res) => {
+    try {
+        const { achievementName, achievementDescription } = req.body;
+
+        // Handle file upload using express-fileupload
+        const file = req.files.achievementImage;
+
+        // Upload file to Cloudinary
+        const options = {
+            folder: "achievements",
+            quality: 50,
+            resource_type: "auto"
+        };
+        const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
+
+        // Create achievement in database
+        const newachievement = new Achievements({
+            achievementName,
+            achievementDescription,
+            achievementImage: uploadedFile.secure_url // Store image URL in database
+        });
+
+        await newachievement.save();
+
+        res.json({ message: 'Achievement added successfully', achievement: newachievement });
+    } catch (error) {
+        console.error("Error uploading achievement:", error);
+        res.status(500).json({ error: "Error uploading achievement" });
+    }
+});
+
+// POST: Update an achievement by ID with image upload
+router.post('/achievements/update/:id', async (req, res) => {
+    const { id } = req.params;
+    const { achievementName, achievementDescription } = req.body;
+
+    try {
+        let updatedachievement;
+
+        if (req.files && req.files.achievementImage) {
+            // Handle file upload using express-fileupload
+            const file = req.files.achievementImage;
+
+            const options = {
+                folder: "achievements",
+                quality: 50,
+                resource_type: "auto"
+            };
+            const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
+
+            // Update achievement in database with new image URL
+            updatedachievement = await Achievements.findByIdAndUpdate(id, {
+                achievementName,
+                achievementDescription,
+                achievementImage: uploadedFile.secure_url // Update image URL in database
+            }, { new: true });
+        } else {
+            // Update achievement in database without changing the image URL
+            updatedachievement = await Achievements.findByIdAndUpdate(id, {
+                achievementName,
+                achievementDescription,
+            }, { new: true });
+        }
+
+        if (!updatedachievement) {
+            return res.status(404).json({ error: "Achievement not found" });
+        }
+
+        res.json({ message: 'Achievement updated successfully', achievement: updatedachievement });
+    } catch (error) {
+        console.error("Error updating achievement:", error);
+        res.status(500).json({ error: "Error updating achievement" });
+    }
+});
+
+// GET: Get an achievement by ID
+// router.get('/achievement/:id', async (req, res) => {
+//     const { id } = req.params;
+
+//     try {
+//         const achievement = await Achievements.findById(id);
+
+//         if (!achievement) {
+//             return res.status(404).json({ error: "Achievement not found" });
+//         }
+
+//         res.json(achievement);
+//     } catch (error) {
+//         console.error("Error fetching achievement by ID:", error);
+//         res.status(500).json({ error: "Error fetching achievement by ID" });
+//     }
+// });
+
+// DELETE: Delete an achievement by ID
+router.delete('/achievement/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        // Find the achievement by ID in MongoDB
+        const deletedachievement = await Achievements.findByIdAndDelete(id);
+
+        if (!deletedachievement) {
+            return res.status(404).json({ error: "Achievement not found" });
+        }
+
+        // Delete image from Cloudinary
+        if (deletedachievement.achievementImage) {
+            const publicId = deletedachievement.achievementImage.split('/')[7].split('.')[0]; // Extract public_id from URL or adjust based on your naming convention
+
+            await cloudinary.uploader.destroy(publicId);
+
+            // Alternatively, if your achievementImage field directly contains public_id:
+            // await cloudinary.uploader.destroy(deletedachievement.achievementImage);
+
+            console.log(`Deleted image from Cloudinary: ${publicId}`);
+        }
+
+        res.json({ message: 'Achievement deleted successfully', achievement: deletedachievement });
+    } catch (error) {
+        console.error("Error deleting achievement:", error);
+        res.status(500).json({ error: "Error deleting achievement" });
+    }
+});
+
+// GET: Fetch all achievements
+router.get('/achievements', async (req, res) => {
+    try {
+        const achievements = await Achievements.find();
+
+        res.json(achievements);
+    } catch (error) {
+        console.error("Error fetching all achievements:", error);
+        res.status(500).json({ error: "Error fetching all achievements" });
+    }
+});
+
+
 
 // --------------------------------CONTACT US-----------------------------------//
 
@@ -445,6 +605,7 @@ router.get('/contact-us', async (req, res) => {
 });
 
 
+
 // --------------------------------GET UPDATES-----------------------------------//
 
 // router.post('/updates/enroll', async (req, res) => {
@@ -506,6 +667,10 @@ router.get('/updates', async (req, res) => {
         res.status(500).send('Error fetching updates data');
     }
 });
+
+
+
+// ------------------------------------ADMIN---------------------------------------//
 
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;

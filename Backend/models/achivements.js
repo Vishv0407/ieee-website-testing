@@ -1,0 +1,23 @@
+const mongoose = require('mongoose');
+
+const achievementSchema = new mongoose.Schema(
+    {
+        achievementName: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        achievementDescription: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        achievementImage: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+    }
+)
+
+module.exports = mongoose.model("achievements", achievementSchema);
