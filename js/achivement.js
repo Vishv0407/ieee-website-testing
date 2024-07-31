@@ -60,9 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Edit achievement
     window.editAchievement = function (id) {
-        axios.post(`https://ieee-vishv-1.onrender.com/api/achievement/update/${id}`)
+        axios.post(`https://ieee-vishv-1.onrender.com/api/achievements/update/${id}`)
             .then(response => {
-                const achievement = response.data;
+                const achievement = response.data.achievement;
                 document.getElementById('achivementId').value = achievement._id;
                 document.getElementById('achivementName').value = achievement.achievementName;
                 document.getElementById('achivementDescription').value = achievement.achievementDescription;

@@ -376,7 +376,7 @@ router.post('/achievements/upload', async (req, res) => {
             achievementName,
             achievementDescription,
             achievementImage: uploadedFile.secure_url, // Store image URL in database
-            public_id: uploadedFile.public_id,
+            public_id: uploadedFile.public_id, // Store public_id for future deletions
         });
 
         await newachievement.save();
@@ -411,27 +411,24 @@ router.post('/achievements/update/:id', async (req, res) => {
             };
             const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
             
-             // Optionally, delete the old image from Cloudinary if exists
-             if (updatedachievement.public_id) {
+            // Optionally, delete the old image from Cloudinary if it exists
+            if (updatedachievement.public_id) {
                 await cloudinary.uploader.destroy(updatedachievement.public_id);
             }
 
-            // Update achievement in database with new image URL
+            // Update achievement in database with new image URL and public_id
             updatedachievement = await Achievements.findByIdAndUpdate(id, {
                 achievementName,
                 achievementDescription,
-                achievementImage: uploadedFile.secure_url // Update image URL in database
+                achievementImage: uploadedFile.secure_url, // Update image URL in database
+                public_id: uploadedFile.public_id // Update public_id for easier deletion
             }, { new: true });
         } else {
             // Update achievement in database without changing the image URL
             updatedachievement = await Achievements.findByIdAndUpdate(id, {
                 achievementName,
-                achievementDescription,
+                achievementDescription
             }, { new: true });
-        }
-
-        if (!updatedachievement) {
-            return res.status(404).json({ error: "Achievement not found" });
         }
 
         res.json({ message: 'Achievement updated successfully', achievement: updatedachievement });
@@ -453,8 +450,8 @@ router.delete('/achievement/:id', async (req, res) => {
             return res.status(404).json({ error: "Achievement not found" });
         }
 
-         // Optionally, delete the old image from Cloudinary if exists
-         if (deletedachievement.public_id) {
+        // Optionally, delete the old image from Cloudinary if it exists
+        if (deletedachievement.public_id) {
             await cloudinary.uploader.destroy(deletedachievement.public_id);
         }
 
@@ -464,6 +461,7 @@ router.delete('/achievement/:id', async (req, res) => {
         res.status(500).json({ error: "Error deleting achievement" });
     }
 });
+
 
 // GET: Fetch all achievements
 router.get('/achievements', async (req, res) => {
