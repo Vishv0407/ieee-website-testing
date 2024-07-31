@@ -213,12 +213,14 @@ nav{
     align-items: center;
     width: 100%;
     transition: 0.1s;
+    border-bottom: 0;
 }
 
 
 .dropdown-content a:hover{
-    border-bottom: none;
+    border-bottom: 0;
     transform: scale(1.0);
+    font-weight: bold;
 }
 
 .tick-mark {
