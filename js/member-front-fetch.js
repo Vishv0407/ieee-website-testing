@@ -1,6 +1,6 @@
 async function fetchAllMembers() {
     try {
-        const response = await fetch('http://localhost:3000/api/members');
+        const response = await fetch('https://ieee-vishv-1.onrender.com/api/members');
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
