@@ -61,6 +61,7 @@ router.post('/events/upload', async (req, res) => {
             startTime,
             endTime,
             eventPoster: uploadedFile.secure_url, // Store image URL in database
+            public_id: uploadedFile.public_id, // Store image URL in database
             speaker,
             registrationLink,
             venue,
@@ -76,65 +77,6 @@ router.post('/events/upload', async (req, res) => {
     }
 });
 
-// POST: Update an event by ID with image upload
-router.post('/events/update/:id', async (req, res) => {
-    const { id } = req.params;
-    const { eventName, eventDescription, eventDate, startTime, endTime, speaker, registrationLink, venue, instaPostLink } = req.body;
-
-    try {
-        let updatedEvent;
-
-        if (req.files && req.files.eventPoster) {
-            // Handle file upload using express-fileupload
-            const file = req.files.eventPoster;
-
-            const options = {
-                folder:"Events", 
-                quality: 90,
-                resource_type: "auto"
-            };
-            const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
-    
-            // Update event in database with new image URL
-            updatedEvent = await Event.findByIdAndUpdate(id, {
-                eventName,
-                eventDescription,
-                eventDate,
-                startTime,
-                endTime,
-                eventPoster: uploadedFile.secure_url, // Update image URL in database
-                speaker,
-                registrationLink,
-                venue,
-                instaPostLink
-            }, { new: true });
-        } else {
-            // Update event in database without changing the image URL
-            updatedEvent = await Event.findByIdAndUpdate(id, {
-                eventName,
-                eventDescription,
-                eventDate,
-                startTime,
-                endTime,
-                speaker,
-                registrationLink,
-                venue,
-                instaPostLink
-            }, { new: true });
-        }
-
-        if (!updatedEvent) {
-            return res.status(404).json({ error: "Event not found" });
-        }
-
-        res.json({ message: 'Event updated successfully', event: updatedEvent });
-    } catch (error) {
-        console.error("Error updating event:", error);
-        res.status(500).json({ error: "Error updating event" });
-    }
-});
-
-// DELETE: Delete an event by ID
 // POST: Update an event by ID with image upload
 router.post('/events/update/:id', async (req, res) => {
     const { id } = req.params;
@@ -199,8 +141,6 @@ router.post('/events/update/:id', async (req, res) => {
     }
 });
 
-
-// GET: Fetch all events
 // DELETE: Delete an event by ID
 router.delete('/event/:id', async (req, res) => {
     const { id } = req.params;
@@ -226,6 +166,17 @@ router.delete('/event/:id', async (req, res) => {
     }
 });
 
+// GET: Fetch all events
+router.get('/events', async (req, res) => {
+    try {
+        const events = await Event.find();
+
+        res.json(events);
+    } catch (error) {
+        console.error("Error fetching all events:", error);
+        res.status(500).json({ error: "Error fetching all events" });
+    }
+});
 
 
 
@@ -250,6 +201,7 @@ router.post('/members/upload', async (req, res) => {
         // Create member in database
         const newMember = new Members({
             profile_image: uploadedFile.secure_url, // Store image URL in database
+            public_id: uploadedFile.public_id,
             name,
             email,
             enrollment_number,
@@ -281,7 +233,11 @@ router.post('/members/update/:id', async (req, res) => {
     const { name, email, enrollment_number, contact_number, join_year, programme, department, position, instagramProfile, linkedinProfile, leave_date } = req.body;
 
     try {
-        let updatedMember;
+        let updatedMember = await Members.findById(id);
+
+        if (!updatedMember) {
+            return res.status(404).json({ error: "Member not found" });
+        }
 
         if (req.files && req.files.profile_image) {
             // Handle file upload using express-fileupload
@@ -293,10 +249,16 @@ router.post('/members/update/:id', async (req, res) => {
                 resource_type: "auto"
             };
             const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
-    
+            
+             // Optionally, delete the old image from Cloudinary if exists
+             if (updatedMember.public_id) {
+                await cloudinary.uploader.destroy(updatedMember.public_id);
+            }
+
             // Update member in database with new image URL
             updatedMember = await Members.findByIdAndUpdate(id, {
                 profile_image: uploadedFile.secure_url, // Update image URL in database
+                public_id: uploadedFile.public_id,
                 name,
                 email,
                 enrollment_number,
@@ -364,16 +326,9 @@ router.delete('/member/:id', async (req, res) => {
             return res.status(404).json({ error: "Member not found" });
         }
 
-        // Delete image from Cloudinary
-        if (deletedMember.profile_image) {
-            const publicId = deletedMember.profile_image.split('/')[7].split('.')[0]; // Extract public_id from URL or adjust based on your naming convention
-
-            await cloudinary.uploader.destroy(publicId);
-
-            // Alternatively, if your profile_image field directly contains public_id:
-            // await cloudinary.uploader.destroy(deletedMember.profile_image);
-
-            console.log(`Deleted image from Cloudinary: ${publicId}`);
+        // Optionally, delete the old image from Cloudinary if exists
+        if (deletedMember.public_id) {
+            await cloudinary.uploader.destroy(deletedMember.public_id);
         }
 
         res.json({ message: 'Member deleted successfully', member: deletedMember });
@@ -420,7 +375,8 @@ router.post('/achievements/upload', async (req, res) => {
         const newachievement = new Achievements({
             achievementName,
             achievementDescription,
-            achievementImage: uploadedFile.secure_url // Store image URL in database
+            achievementImage: uploadedFile.secure_url, // Store image URL in database
+            public_id: uploadedFile.public_id,
         });
 
         await newachievement.save();
@@ -438,7 +394,11 @@ router.post('/achievements/update/:id', async (req, res) => {
     const { achievementName, achievementDescription } = req.body;
 
     try {
-        let updatedachievement;
+        let updatedachievement = await Achievements.findById(id);
+
+        if (!updatedachievement) {
+            return res.status(404).json({ message: 'Achievement not found' });
+        }
 
         if (req.files && req.files.achievementImage) {
             // Handle file upload using express-fileupload
@@ -450,6 +410,11 @@ router.post('/achievements/update/:id', async (req, res) => {
                 resource_type: "auto"
             };
             const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
+            
+             // Optionally, delete the old image from Cloudinary if exists
+             if (updatedachievement.public_id) {
+                await cloudinary.uploader.destroy(updatedachievement.public_id);
+            }
 
             // Update achievement in database with new image URL
             updatedachievement = await Achievements.findByIdAndUpdate(id, {
@@ -488,16 +453,9 @@ router.delete('/achievement/:id', async (req, res) => {
             return res.status(404).json({ error: "Achievement not found" });
         }
 
-        // Delete image from Cloudinary
-        if (deletedachievement.achievementImage) {
-            const publicId = deletedachievement.achievementImage.split('/')[7].split('.')[0]; // Extract public_id from URL or adjust based on your naming convention
-
-            await cloudinary.uploader.destroy(publicId);
-
-            // Alternatively, if your achievementImage field directly contains public_id:
-            // await cloudinary.uploader.destroy(deletedachievement.achievementImage);
-
-            console.log(`Deleted image from Cloudinary: ${publicId}`);
+         // Optionally, delete the old image from Cloudinary if exists
+         if (deletedachievement.public_id) {
+            await cloudinary.uploader.destroy(deletedachievement.public_id);
         }
 
         res.json({ message: 'Achievement deleted successfully', achievement: deletedachievement });

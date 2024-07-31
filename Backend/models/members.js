@@ -60,6 +60,9 @@ const memberSchema = new mongoose.Schema(
             type: String,
             required: true,
             trim: true,
+        },
+        public_id:{
+            type: String,
         }
     }
 )

@@ -17,6 +17,9 @@ const achievementSchema = new mongoose.Schema(
             required: true,
             trim: true,
         },
+        public_id:{
+            type:String,
+        }
     }
 )
 
