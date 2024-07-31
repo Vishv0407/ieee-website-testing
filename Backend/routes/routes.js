@@ -34,6 +34,7 @@ router.use(fileUpload({
     tempFileDir : '/tmp/'
 }));
 
+
 // POST: Create a new event with image upload
 router.post('/events/upload', async (req, res) => {
     try {
@@ -46,7 +47,7 @@ router.post('/events/upload', async (req, res) => {
 
         const options = {
             folder:"Events", 
-            quality: 50,
+            quality: 90,
             resource_type: "auto"
         };
         const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
@@ -89,7 +90,7 @@ router.post('/events/update/:id', async (req, res) => {
 
             const options = {
                 folder:"Events", 
-                quality: 50,
+                quality: 90,
                 resource_type: "auto"
             };
             const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
@@ -133,24 +134,73 @@ router.post('/events/update/:id', async (req, res) => {
     }
 });
 
-// GET: Get an event by ID
-// router.get('/event/:id', async (req, res) => {
-//     const { id } = req.params;
+// DELETE: Delete an event by ID
+// POST: Update an event by ID with image upload
+router.post('/events/update/:id', async (req, res) => {
+    const { id } = req.params;
+    const { eventName, eventDescription, eventDate, startTime, endTime, speaker, registrationLink, venue, instaPostLink } = req.body;
 
-//     try {
-//         const event = await Event.findById(id);
+    try {
+        let updatedEvent = await Event.findById(id);
 
-//         if (!event) {
-//             return res.status(404).json({ error: "Event not found" });
-//         }
+        if (!updatedEvent) {
+            return res.status(404).json({ error: "Event not found" });
+        }
 
-//         res.json(event);
-//     } catch (error) {
-//         console.error("Error fetching event by ID:", error);
-//         res.status(500).json({ error: "Error fetching event by ID" });
-//     }
-// });
+        if (req.files && req.files.eventPoster) {
+            // Handle file upload using express-fileupload
+            const file = req.files.eventPoster;
 
+            const options = {
+                folder: "Events",
+                quality: 90,
+                resource_type: "auto"
+            };
+            const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
+
+            // Optionally, delete the old image from Cloudinary if exists
+            if (updatedEvent.public_id) {
+                await cloudinary.uploader.destroy(updatedEvent.public_id);
+            }
+
+            // Update event in database with new image URL
+            updatedEvent = await Event.findByIdAndUpdate(id, {
+                eventName,
+                eventDescription,
+                eventDate,
+                startTime,
+                endTime,
+                eventPoster: uploadedFile.secure_url, // Update image URL in database
+                public_id: uploadedFile.public_id, // Update public_id for easier deletion
+                speaker,
+                registrationLink,
+                venue,
+                instaPostLink
+            }, { new: true });
+        } else {
+            // Update event in database without changing the image URL
+            updatedEvent = await Event.findByIdAndUpdate(id, {
+                eventName,
+                eventDescription,
+                eventDate,
+                startTime,
+                endTime,
+                speaker,
+                registrationLink,
+                venue,
+                instaPostLink
+            }, { new: true });
+        }
+
+        res.json({ message: 'Event updated successfully', event: updatedEvent });
+    } catch (error) {
+        console.error("Error updating event:", error);
+        res.status(500).json({ error: "Error updating event" });
+    }
+});
+
+
+// GET: Fetch all events
 // DELETE: Delete an event by ID
 router.delete('/event/:id', async (req, res) => {
     const { id } = req.params;
@@ -164,15 +214,9 @@ router.delete('/event/:id', async (req, res) => {
         }
 
         // Delete image from Cloudinary
-        if (deletedEvent.eventPoster) {
-            const publicId = deletedEvent.eventPoster.split('/')[7].split('.')[0]; // Extract public_id from URL or adjust based on your naming convention
-
-            await cloudinary.uploader.destroy(publicId);
-
-            // Alternatively, if your eventPoster field directly contains public_id:
-            // await cloudinary.uploader.destroy(deletedEvent.eventPoster);
-
-            console.log(`Deleted image from Cloudinary: ${publicId}`);
+        if (deletedEvent.public_id) {
+            await cloudinary.uploader.destroy(deletedEvent.public_id);
+            console.log(`Deleted image from Cloudinary: ${deletedEvent.public_id}`);
         }
 
         res.json({ message: 'Event deleted successfully', event: deletedEvent });
@@ -182,17 +226,6 @@ router.delete('/event/:id', async (req, res) => {
     }
 });
 
-// GET: Fetch all events
-router.get('/events', async (req, res) => {
-    try {
-        const events = await Event.find();
-
-        res.json(events);
-    } catch (error) {
-        console.error("Error fetching all events:", error);
-        res.status(500).json({ error: "Error fetching all events" });
-    }
-});
 
 
 
@@ -209,7 +242,7 @@ router.post('/members/upload', async (req, res) => {
 
         const options = {
             folder:"Members", 
-            quality: 50,
+            quality: 90,
             resource_type: "auto"
         };
         const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
@@ -256,7 +289,7 @@ router.post('/members/update/:id', async (req, res) => {
 
             const options = {
                 folder:"Members", 
-                quality: 50,
+                quality: 90,
                 resource_type: "auto"
             };
             const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
@@ -319,38 +352,6 @@ router.get('/members-front', async (req, res) => {
     }
   });
 
-router.get('/members-by-department', async (req, res) => {
-    const { department } = req.query;
-    try {
-      const results = await Members.find({
-        department: department,
-        leave_date: null  // Assuming 'leave_date' is null for active members, adjust as per your schema
-      }).exec();
-      res.json(results);
-    } catch (err) {
-      console.error('Error fetching members:', err);
-      res.status(500).json({ error: 'Internal server error' });
-    }
-  });
-
-// GET: Get a member by ID
-// router.get('/member/:id', async (req, res) => {
-//     const { id } = req.params;
-
-//     try {
-//         const member = await Members.findById(id);
-
-//         if (!member) {
-//             return res.status(404).json({ error: "Member not found" });
-//         }
-
-//         res.json(member);
-//     } catch (error) {
-//         console.error("Error fetching member by ID:", error);
-//         res.status(500).json({ error: "Error fetching member by ID" });
-//     }
-// });
-
 // DELETE: Delete a member by ID
 router.delete('/member/:id', async (req, res) => {
     const { id } = req.params;
@@ -410,7 +411,7 @@ router.post('/achievements/upload', async (req, res) => {
         // Upload file to Cloudinary
         const options = {
             folder: "achievements",
-            quality: 50,
+            quality: 90,
             resource_type: "auto"
         };
         const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
@@ -445,7 +446,7 @@ router.post('/achievements/update/:id', async (req, res) => {
 
             const options = {
                 folder: "achievements",
-                quality: 50,
+                quality: 90,
                 resource_type: "auto"
             };
             const uploadedFile = await cloudinary.uploader.upload(file.tempFilePath, options);
@@ -474,24 +475,6 @@ router.post('/achievements/update/:id', async (req, res) => {
         res.status(500).json({ error: "Error updating achievement" });
     }
 });
-
-// GET: Get an achievement by ID
-// router.get('/achievement/:id', async (req, res) => {
-//     const { id } = req.params;
-
-//     try {
-//         const achievement = await Achievements.findById(id);
-
-//         if (!achievement) {
-//             return res.status(404).json({ error: "Achievement not found" });
-//         }
-
-//         res.json(achievement);
-//     } catch (error) {
-//         console.error("Error fetching achievement by ID:", error);
-//         res.status(500).json({ error: "Error fetching achievement by ID" });
-//     }
-// });
 
 // DELETE: Delete an achievement by ID
 router.delete('/achievement/:id', async (req, res) => {
