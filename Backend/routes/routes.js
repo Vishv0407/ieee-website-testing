@@ -43,7 +43,7 @@ router.get('/members', getMembers);
 
 // Admins
 router.post('/login', adminLogin);
-router.post('/getAllAdmins', getAllAdmins);
+router.get('/getAllAdmins', getAllAdmins);
 router.post('/addAdmin', addAdmin);
 router.delete('/deleteAdmin/:id', deleteAdmin);
 
