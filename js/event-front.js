@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     showLoader(pastLoader);
 
     axios
-        .get("https://ieee-vishv-1.onrender.com/api/events")
+        .get("http://localhost:3000/api/events")
         .then((response) => {
             let events = response.data;
             const currentDate = new Date();
