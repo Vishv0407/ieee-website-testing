@@ -220,7 +220,7 @@
 
     <script>
         async function fetchEvents() {
-            const response = await fetch('http://localhost:3000/api/events');
+            const response = await fetch('https://ieee-vishv.onrender.com/api/events');
             const events = await response.json();
             const timelineList = document.querySelector('.timeline');
 

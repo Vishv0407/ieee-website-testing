@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function fetchData() {
-    axios.get('http://localhost:3000/api/events')
+    axios.get('https://ieee-vishv.onrender.com/api/events')
       .then(response => {
         renderData(response.data);
       })
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   window.editEvent = function (id) {
-    axios.post(`http://localhost:3000/api/events/update/${id}`)
+    axios.post(`https://ieee-vishv.onrender.com/api/events/update/${id}`)
       .then(response => {
         const event = response.data.event; // Assuming response.data has a structure like { message: 'Event updated successfully', event: updatedEvent }
         let dateString = '';
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loader.style.display = 'block';
         document.body.classList.add('disable-interaction');
   
-        axios.delete(`http://localhost:3000/api/event/${id}`)
+        axios.delete(`https://ieee-vishv.onrender.com/api/event/${id}`)
           .then(response => {
             fetchData();
             // Hide loader and enable interactions
@@ -212,11 +212,11 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     if (eventId) {
-      axios.post(`http://localhost:3000/api/events/update/${eventId}`, formData)
+      axios.post(`https://ieee-vishv.onrender.com/api/events/update/${eventId}`, formData)
         .then(handleResponse)
         .catch(handleError);
     } else {
-      axios.post('http://localhost:3000/api/events/upload', formData)
+      axios.post('https://ieee-vishv.onrender.com/api/events/upload', formData)
         .then(handleResponse)
         .catch(handleError);
     }
