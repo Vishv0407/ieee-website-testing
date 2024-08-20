@@ -396,10 +396,15 @@
         width: 100%;
     }
 
+    .achievementsSection {
+        /* margin-top: 0em !important; */
+        margin-bottom: 4rem !important;
+        /* background-color: green; */
+       
+    }
 
     
-    .heroSection,
-    .achievementsSection {
+    .heroSection{
         /* margin-top: 0em !important; */
         margin-bottom: 0 !important;
         /* background-color: green; */
