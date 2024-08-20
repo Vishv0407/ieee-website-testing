@@ -203,7 +203,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if(container.id === "swiper-wrapper") {
             noEventDiv.innerHTML = "<p>No Past event found</p>";
         } else if(container.id === "upcoming-card-container") {
-            noEventDiv.innerHTML = "<p>No Upcoming event found</p>";
+            noEventDiv.innerHTML = `
+            <div class="no-event-div">
+                <p style="font-size : 1.25em">No Upcoming Event</p>
+                <div style="display:flex ; gap:10px">
+                    <p>Explore Our </p>
+                    <a href="./pages/event-page.html" class="no-event-p">Completed Events >></a>
+                </div> 
+            </div>
+            `
+            ;
         }
         
         container.appendChild(noEventDiv);
