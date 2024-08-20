@@ -128,6 +128,7 @@
         margin-top: unset !important;
         margin-bottom: unset !important;
         margin-bottom: 70px !important;
+        background-color: red;
        
     }
     .aboutSection,
@@ -136,12 +137,16 @@
         margin-top: unset !important;
         margin-bottom: unset !important;
         /* margin-bottom: 100px !important; */
+        background-color: red;
+
     }
 
     .contactUsSection{
         margin-top: 100px !important;
         margin-bottom: unset !important;
         margin-bottom: 240px !important;
+        background-color: red;
+
     }
 }
 
@@ -272,6 +277,7 @@
         margin-top: unset !important;
         margin-bottom: unset !important;
         margin-bottom: 70px !important;
+        background-color: yellow;
        
     }
     .aboutSection,
@@ -280,12 +286,14 @@
         margin-top: unset !important;
         /* margin-bottom: unset !important; */
         /* margin-bottom: 140px !important; */
+        background-color: yellow;
     }
 
     .contactUsSection {
         margin-top: unset !important;
         margin-bottom: unset !important;
         margin-bottom: 140px !important;
+        background-color: yellow;
     }
     
 }
@@ -395,12 +403,14 @@
         /* margin-top: unset !important; */
         /* margin-bottom: unset !important; */
         /* margin-bottom: 90px !important; */
+        background-color: green;
        
     }
     .aboutSection{
         /* margin-top: unset !important; */
         /* margin-bottom: unset !important; */
         /* margin-bottom: 100px !important; */
+        background-color: green;
     }
     
     .past-event-container,
@@ -408,12 +418,14 @@
         margin-top: unset !important;
         margin-bottom: unset !important;
         margin-bottom: 4rem !important;
+        background-color: green;
     }
 
     .contactUsSection {
         margin-top: 5rem !important;
         margin-bottom: unset !important;
         margin-bottom: 8rem !important;
+        background-color: green;
         
     }
 }
@@ -521,24 +533,31 @@
         margin-top: unset !important;
         margin-bottom: unset !important;
         margin-bottom: 190px !important;
+        background-color: pink;
        
     }
     .aboutSection{
         margin-top: unset !important;
         margin-bottom: unset !important;
         margin-bottom: 80px !important;
+        background-color: pink;
+
     }
     .past-event-container,
     .wrapper {
         margin-top: unset !important;
         margin-bottom: unset !important;
         margin-bottom: 280px !important;
+        background-color: pink;
+
     }
 
     .contactUsSection {
         margin-top: unset !important;
         margin-bottom: unset !important;
         margin-bottom: 350px !important;
+        background-color: pink;
+
     }
 }
 
