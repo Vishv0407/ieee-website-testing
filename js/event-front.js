@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Start building the card's HTML content
             let cardHTML = `
                 <div class="img">
-                    <img class="img2" src="${event.eventPoster}" alt="">
+                    <img class="img2" src="${event.eventPoster}" alt="" loading="lazy">
                 </div>
                 <div class="content">
                     <div class="card-date-div">
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 cardHTML += `
                     <div class="card-speaker-div">
                         <div class="upcomingEventCard-content">
-                            <img src="Images/speaker.png" width="20px" alt="Speaker">
+                            <img src="Images/speaker.png" width="20px" alt="Speaker" loading="lazy">
                             <p>${event.speaker}</p>
                         </div>
                     </div>
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 cardHTML += `
                     <div class="card-time-div">
                         <div class="upcomingEventCard-content">
-                            <img src="Images/event-time.png" width="20px" alt="Time">
+                            <img src="Images/event-time.png" width="20px" alt="Time" loading="lazy">
                             <p>${event.startTime}</p>
                         </div>
                     </div>
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 cardHTML += `
                     <div class="card-time-div">
                         <div class="upcomingEventCard-content">
-                            <img src="Images/event-time.png" width="20px" alt="Time">
+                            <img src="Images/event-time.png" width="20px" alt="Time" loading="lazy">
                             <p>${event.startTime} - ${event.endTime}</p>
                         </div>
                     </div>
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cardHTML += `
                     <div class="card-venue-div">
                         <div class="upcomingEventCard-content">
-                            <img src="Images/venue.png" width="20px" alt="Venue">
+                            <img src="Images/venue.png" width="20px" alt="Venue" loading="lazy">
                             <p>${event.venue}</p>
                         </div>
                     </div>
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
         slide.classList.add("swiper-slide");
         slide.innerHTML = `
             <div class="picture">
-                <img src="${event.eventPoster}" alt="">
+                <img src="${event.eventPoster}" alt="" loading="lazy">
             </div>
             <div class="detail">
                 <h2 style="margin-bottom: 0.75rem; text-align: center; padding: 0 1rem;">${event.eventName}</h2>
@@ -205,8 +205,8 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if(container.id === "upcoming-card-container") {
             noEventDiv.innerHTML = `
             <div class="no-event-div">
-                <p style="font-size : 1.25em">No Upcoming Event</p>
-                <div style="display:flex ; gap:10px">
+                <p class="no-event-div-p">No Upcoming Event</p>
+                <div class="no-event-div-text">
                     <p>Explore Our </p>
                     <a href="./pages/event-page.html" class="no-event-p">Completed Events >></a>
                 </div> 

@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(handleResponse)
         .catch(handleError);
     } else {
-      axios.post('http://localhost:3000/api/events/upload', formData)
+      axios.post('https://ieee-vishv.onrender.com/api/events/upload', formData)
         .then(handleResponse)
         .catch(handleError);
     }

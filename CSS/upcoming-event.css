@@ -214,7 +214,14 @@ body {
     border-radius: 0 10px 0 10px;
 }
 
+.no-event-div-p{
+    font-size: 1.25em;
+}
 
+.no-event-div-text{
+    display:flex ; 
+    gap:10px;
+}
 
 .check {
     display: flex;
