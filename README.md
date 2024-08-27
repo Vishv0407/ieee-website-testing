@@ -71,7 +71,7 @@ The IEEE AU SB website is a platform for the student branch to showcase its acti
 2. Open the project in your preferred code editor or IDE
 3. Run `npm install` to install the required dependencies
 4. Run `npm start` to start the development server
-5. Open `https://ieee-vishv-1.onrender.com/` in your web browser to view the website
+5. Open `https://ieee-vishv.onrender.com/` in your web browser to view the website
 
 ## License
 ---------
