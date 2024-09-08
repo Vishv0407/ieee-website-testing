@@ -71,7 +71,7 @@ exports.updateMember = async (req, res) => {
             // Handle file upload using express-fileupload
             const file = req.files.profile_image;
 
-            const uploadedFile = await uploadImageToCloudinary(file, "Members", 10 );
+            const uploadedFile = await uploadImageToCloudinary(file, "Members", 50 );
             
             // Optionally, delete the old image from Cloudinary if exists
             if (updatedMember.public_id) {
