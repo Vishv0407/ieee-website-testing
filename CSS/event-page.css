@@ -37,6 +37,27 @@ h1 {
     transform: translateX(-50%);
 }
 
+.timeline-line::before,
+.timeline-line::after {
+    content: '';
+    position: absolute;
+    width: 10px;  /* Diameter of the circle */
+    height: 10px; /* Diameter of the circle */
+    background-color: #a7a7a7;
+    border-radius: 50%; /* Makes it a circle */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-line::before {
+    top: 0; /* Circle at the top of the line */
+}
+
+.timeline-line::after {
+    bottom: 0; /* Circle at the bottom of the line */
+}
+
+
 .timeline {
     display: flex;
     flex-wrap: wrap;
@@ -74,7 +95,7 @@ h1 {
 
 .event-card img {
     width: 200px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 5px;
     margin-right: 20px;
 }
@@ -144,14 +165,23 @@ h1 {
 }
 
 .know-more {
-    background-color: #007bff;
+    background-color: #2f2f2f;
     color: white;
     border: none;
-    padding: 10px;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
     text-align: center;
+    width: fit-content;
+    padding:10px 20px ;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.know-more:hover{
+    background-color: white;
+    border:1px solid  #2f2f2f;
+    color: black;
 }
 
 .modal {
@@ -214,7 +244,6 @@ h1 {
 
 .modal-eventname{
     display: flex;
-    justify-content: center;
     align-items: center;
     font-size: 1.25rem;
 }
@@ -332,7 +361,6 @@ nav {
 .navAnchors a.active {
     border-bottom: solid white;
     transform: scale(1.06);
-    /* font-weight: bold; */
 }
 
 #IEEE-LOGO {

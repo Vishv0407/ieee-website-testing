@@ -22,13 +22,15 @@
 
 }
 
-.imgs .au-footer{
+.au-footer{
     width: 200px;
     background-color: white;
+    cursor: pointer;
 }
 
 .ieee-footer{
     width: 250px;
+    cursor: pointer;
 }
 
 .footerClass {
