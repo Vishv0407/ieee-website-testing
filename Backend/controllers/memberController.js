@@ -17,7 +17,7 @@ exports.uploadMember = async (req, res) => {
         // Handle file upload using express-fileupload
         const file = req.files.profile_image;
 
-        const uploadedFile = await uploadImageToCloudinary(file, "Members" , 10 );
+        const uploadedFile = await uploadImageToCloudinary(file, "Members" , 80 );
 
         // const options = {
         //     folder:"Members", 
