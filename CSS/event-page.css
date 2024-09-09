@@ -870,6 +870,7 @@ body.darkTheme .theme-div button{
         padding: 1rem;
         overflow-y: auto; /* Enable vertical scrolling */
         max-height: calc(80vh - 4rem); /* Adjust height considering header and footer */
+        padding-top: 0;
     }
     
     .modal-close {
