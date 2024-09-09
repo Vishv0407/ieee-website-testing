@@ -57,6 +57,10 @@ function closeModal() {
     modalContent.classList.remove("zoomIn");
     modalContent.classList.add("zoomOut");
     modal.classList.add("fadeOut");
+    
+    // Re-enable pointer events for the card container
+    document.querySelector('.timeline-container').style.pointerEvents = 'auto';
+    
     setTimeout(() => {
         modal.style.display = "none";
         modal.classList.remove("fadeOut");
@@ -82,7 +86,12 @@ function openModal(eventName, eventDescription, eventPoster, speaker, eventDate,
     modalContent1.classList.remove("zoomOut", "fadeOut");
     modalContent1.classList.add("zoomIn");
     document.body.style.overflow = "hidden";
+
+    // Disable pointer events for the card container
+    document.querySelector('.timeline-container').style.pointerEvents = 'none';
 }
+
+
 
 document.getElementById('modalClose').onclick = function () {
     closeModal();
