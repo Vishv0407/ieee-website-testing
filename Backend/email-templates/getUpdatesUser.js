@@ -55,7 +55,7 @@ function getUpdatesUser(name) {
             /* Media query for mobile screens */
             @media (max-width: 768px) {
                 .container {
-                    width: 95%;
+                    width: 90%;
                     padding: 15px;
                 }
                 .logos {
@@ -69,10 +69,10 @@ function getUpdatesUser(name) {
                     height: 40px;  /* Adjust height for logos */
                 }
                 h2 {
-                    font-size: 2em;
+                    font-size: 1.75em;
                 }
                 p {
-                    font-size: 1.75em;
+                    font-size: 1.25em;
                 }
             }
         </style>
