@@ -1,4 +1,3 @@
-
 function contactUsUser(name) {
 	return `
 	<!DOCTYPE html>
@@ -54,6 +53,29 @@ function contactUsUser(name) {
 				margin-top: 8px;
 			}
 
+			/* Media query for mobile screens */
+			@media (max-width: 768px) {
+				.container {
+					width: 95%;
+					padding: 15px;
+				}
+				.logos {
+					flex-direction: column;
+					margin-bottom: 15px;
+				}
+				.logos img {
+					height: 60px;  /* Adjust height for mobile */
+				}
+				.logos .ieee-logo, .logos .au-logo {
+					height: 80px;  /* Adjust height for logos */
+				}
+				h2 {
+					font-size: 1.5em;
+				}
+				p {
+					font-size: 1em;
+				}
+			}
 		</style>
 	</head>
 	<body>
