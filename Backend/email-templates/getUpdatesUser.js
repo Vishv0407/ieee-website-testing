@@ -63,16 +63,16 @@ function getUpdatesUser(name) {
                     margin-bottom: 15px;
                 }
                 .logos img {
-                    height: 80px;  /* Adjust height for mobile */
+                    height: 60px;  /* Adjust height for mobile */
                 }
                 .logos .ieee-logo, .logos .au-logo {
-                    height: 60px;  /* Adjust height for logos */
+                    height: 50px;  /* Adjust height for logos */
                 }
                 h2 {
-                    font-size: 1.5em;
+                    font-size: 2em;
                 }
                 p {
-                    font-size: 1em;
+                    font-size: 1.75em;
                 }
             }
         </style>
