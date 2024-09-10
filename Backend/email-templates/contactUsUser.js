@@ -27,13 +27,14 @@ function contactUsUser(name) {
 			}
 				
 			.logos img {
-				height: 70px;  /* Set a fixed height */
+				height: 100px;  /* Set a fixed height */
 				object-fit: contain;  /* Maintain aspect ratio */
 				margin: 10px;
+                margin-left: 0;
 			}
 
 			.logos .ieee-logo, .logos .au-logo {
-				height: 100px;  /* Same height for both logos */
+				height: 70px;  /* Same height for both logos */
 				width: auto;    /* Let the width adjust automatically */
 			}
 
@@ -64,17 +65,17 @@ function contactUsUser(name) {
 					margin-bottom: 15px;
 				}
 				.logos img {
-					height: 60px;  /* Adjust height for mobile */
-				}
-				.logos .ieee-logo, .logos .au-logo {
-					height: 80px;  /* Adjust height for logos */
-				}
+                    height: 50px;  /* Adjust height for mobile */
+                }
+                .logos .ieee-logo, .logos .au-logo {
+                    height: 40px;  /* Adjust height for logos */
+                }
 				h2 {
-					font-size: 1.5em;
-				}
-				p {
-					font-size: 1em;
-				}
+                    font-size: 1.1em;
+                }
+                p {
+                    font-size: 0.75em;
+                }
 			}
 		</style>
 	</head>

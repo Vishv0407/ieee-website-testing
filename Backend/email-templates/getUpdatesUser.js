@@ -29,6 +29,7 @@ function getUpdatesUser(name) {
 				height: 100px;  /* Set a fixed height */
 				object-fit: contain;  /* Maintain aspect ratio */
 				margin: 10px;
+                margin-left: 0;
 			}
 
 			.logos .ieee-logo, .logos .au-logo {
