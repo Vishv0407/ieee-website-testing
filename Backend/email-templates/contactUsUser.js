@@ -28,7 +28,7 @@ function contactUsUser(name) {
 			}
 				
 			.logos img {
-				height: 100px;  /* Set a fixed height */
+				height: 70px;  /* Set a fixed height */
 				object-fit: contain;  /* Maintain aspect ratio */
 				margin: 10px;
 			}

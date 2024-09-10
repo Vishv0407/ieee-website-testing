@@ -34,7 +34,7 @@ function getUpdatesUser(name) {
 			}
 
 			.logos .ieee-logo, .logos .au-logo {
-				height: 100px;  /* Same height for both logos */
+				height: 70px;  /* Same height for both logos */
 				width: auto;    /* Let the width adjust automatically */
 			}
             h2 {
