@@ -14,19 +14,13 @@ require('dotenv').config();
 // });
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.yourinstitution.edu.in', // Replace with your institution's SMTP server
-    port: 587, // Use the appropriate port, 587 is common for TLS
-    secure: false, // Set to true if you're using port 465 (SSL)
+    host: 'smtp.sendgrid.net',
+    port: 587, // or use 465 for secure connection (SSL)
     auth: {
-        user: "vishvkumar.b@ahduni.edu.in",
-        pass: "VishvAU0407"
-    },
-    // If your institution requires a specific TLS configuration
-    tls: {
-        // Do not fail on invalid certs (use this if necessary)
-        rejectUnauthorized: false,
-    },
-});
+      user: 'apikey', // This is the SendGrid username for SMTP
+      pass: process.env.SENDGRID_API_KEY // Use your SendGrid API key as the password
+    }
+  });
 
 exports.contactUsEnroll =  async (req, res) => {
     const { name, email, message } = req.body;
