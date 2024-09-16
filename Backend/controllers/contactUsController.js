@@ -5,12 +5,27 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 // Nodemailer setup
+// const transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//         user: process.env.EMAIL_USER,
+//         pass: process.env.EMAIL_PASS
+//     }
+// });
+
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.yourinstitution.edu.in', // Replace with your institution's SMTP server
+    port: 587, // Use the appropriate port, 587 is common for TLS
+    secure: false, // Set to true if you're using port 465 (SSL)
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
-    }
+    },
+    // If your institution requires a specific TLS configuration
+    tls: {
+        // Do not fail on invalid certs (use this if necessary)
+        rejectUnauthorized: false,
+    },
 });
 
 exports.contactUsEnroll =  async (req, res) => {
