@@ -35,14 +35,14 @@ exports.contactUsEnroll =  async (req, res) => {
     const formattedTime = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
 
     const mailOptionsAdmin = {
-        from: process.env.EMAIL_USER,
+        from: "vishvkumar.b@ahduni.edu.in",
         to: 'vishvboda0407@gmail.com',
         subject: 'New Contact Us Submission',
         text: `You have a new contact form submission from website:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}\nDate: ${formattedDate}\nTime: ${formattedTime}`
     };
 
     const mailOptionsUser = {
-        from: process.env.EMAIL_USER,
+        from: "vishvkumar.b@ahduni.edu.in",
         to: `${email}`,
         subject: 'Thank you for contacting IEEE AUSB!',
         html: contactUsUser(`${name}`) // Use the template function to set the HTML body
