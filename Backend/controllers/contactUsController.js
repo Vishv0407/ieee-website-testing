@@ -18,8 +18,8 @@ const transporter = nodemailer.createTransport({
     port: 587, // Use the appropriate port, 587 is common for TLS
     secure: false, // Set to true if you're using port 465 (SSL)
     auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
+        user: "vishvkumar.b@ahduni.edu.in",
+        pass: "VishvAU0407"
     },
     // If your institution requires a specific TLS configuration
     tls: {
