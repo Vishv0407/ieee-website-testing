@@ -5,22 +5,13 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 // Nodemailer setup
-// const transporter = nodemailer.createTransport({
-//     service: 'gmail',
-//     auth: {
-//         user: process.env.EMAIL_USER,
-//         pass: process.env.EMAIL_PASS
-//     }
-// });
-
 const transporter = nodemailer.createTransport({
-    host: 'smtp.sendgrid.net',
-    port: 587, // or use 465 for secure connection (SSL)
+    service: 'gmail',
     auth: {
-      user: 'apikey', // This is the SendGrid username for SMTP
-      pass: process.env.SENDGRID_API_KEY // Use your SendGrid API key as the password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
     }
-  });
+});
 
 exports.contactUsEnroll =  async (req, res) => {
     const { name, email, message } = req.body;
