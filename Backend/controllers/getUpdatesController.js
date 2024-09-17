@@ -1,17 +1,46 @@
 const GetUpdates = require('../models/get-updates');
 const nodemailer = require('nodemailer');
 const GetUpdatesUser = require('../email-templates/getUpdatesUser');
+const { google } = require('googleapis');
 
 require('dotenv').config();
 
 // Nodemailer setup
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    }
-});
+// const transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//         user: process.env.EMAIL_USER,
+//         pass: process.env.EMAIL_PASS
+//     }
+// });
+
+const CLIENT_ID = '804408240542-musltguj9can2gn3rlc2d0j2j9erchdq.apps.googleusercontent.com';
+const CLIENT_SECRET = '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';
+const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
+const REFRESH_TOKEN = '1//04pmPSR2oxML8CgYIARAAGAQSNwF-L9IrZ1gLQNnU27wfaUI6VgY63YTfW3L623m6gWm8oMR0vUNyrttzpE6xIa9zDVuYaYGgbgs';
+
+// Create an OAuth2 client
+const oAuth2Client = new google.auth.OAuth2(
+  CLIENT_ID,
+  CLIENT_SECRET,
+  REDIRECT_URI
+);
+oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
+
+const accessToken = await oAuth2Client.getAccessToken();
+
+    // Set up Nodemailer transport
+    const transport = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        type: 'OAuth2',
+        user: 'vishvkumar.b@ahduni.edu.in', // Your full email address
+        clientId: CLIENT_ID,
+        clientSecret: CLIENT_SECRET,
+        refreshToken: REFRESH_TOKEN,
+        accessToken: accessToken.token, // Provide the token here
+      },
+    });
 
 exports.getUpdatesEnroll = async (req, res) => {
     const { name, email } = req.body;
@@ -29,7 +58,7 @@ exports.getUpdatesEnroll = async (req, res) => {
 
         // Send email notification to Admin
         const mailOptionsAdmin = {
-            from: process.env.EMAIL_USER,
+            from: 'vishvkumar.b@ahduni.edu.in',
             to: 'vishvboda0407@gmail.com',
             subject: 'New Get Updates submission',
             text: `I want updates of your events:\n\nName: ${name}\nEmail: ${email} \nDate: ${formattedDate}\nTime: ${formattedTime}`
@@ -41,7 +70,7 @@ exports.getUpdatesEnroll = async (req, res) => {
 
         // Send email notification to User
         const mailOptionsUser = {
-            from: process.env.EMAIL_USER,
+            from: 'vishvkumar.b@ahduni.edu.in',
             to: email,
             subject: 'Thank you for connecting to IEEE AUSB!',
             html:  GetUpdatesUser(`${name}`) // Use the template function to set the HTML body
