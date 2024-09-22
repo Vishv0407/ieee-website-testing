@@ -91,9 +91,10 @@ document.addEventListener("DOMContentLoaded", function () {
         leftDiv.className = 'card-left';
         leftDiv.innerHTML = `
             <img src="${row.profile_image}" alt="Profile Image" class="profile-image">
-            <div style="display: flex; flex-direction: column; gap:0">
-            <h3>${row.name}</h3>
-            <p>${row.enrollment_number}</p>
+            <div class="icons">
+            
+            <i class="fas fa-edit edit-icon" style="color: white; font-size: 1.25rem;" onclick="editMember('${row._id}')"></i>
+            <i class="fas fa-trash delete-icon" style="font-size: 1.25rem;" onclick="deleteMember('${row._id}')"></i>
             </div>
         `;
 
@@ -101,22 +102,34 @@ document.addEventListener("DOMContentLoaded", function () {
         const rightDiv = document.createElement('div');
         rightDiv.className = 'card-right';
         rightDiv.innerHTML = `
-            <i class="fas fa-edit edit-icon" onclick="editMember('${row._id}')"></i>
-            <i class="fas fa-trash delete-icon" onclick="deleteMember('${row._id}')"></i>
+            <h3>${row.name}</h3>
+            <p>${row.enrollment_number}</p>
         `;
 
         card.appendChild(leftDiv);
         card.appendChild(rightDiv);
 
         // Create the second section with email, phone, department, and position
+        const positionDiv = document.createElement('div');
+        positionDiv.className = 'card-position-details';
+        positionDiv.innerHTML = `
+            <div class="div1">
+            <p class="head">Department </p>
+            <p>${row.department}</p>
+            </div>
+            <div class="div2">
+            <p class="head">Position </p>
+            <p>${row.position}</p>
+            </div>
+        `;
+        
         const detailsDiv = document.createElement('div');
         detailsDiv.className = 'card-details';
         detailsDiv.innerHTML = `
-            <p>Email: ${row.email}</p>
-            <p>Phone: ${row.contact_number}</p>
-            <p>Department: ${row.department}</p>
-            <p>Position: ${row.position}</p>
-        `;
+        <p><i class="fas fa-envelope" style="color: #888; margin-right: 6px; "></i> ${row.email}</p>
+        <p><i class="fas fa-phone" style="color: #888; margin-right: 6px;"></i> ${row.contact_number}</p>
+    `;
+    
 
         // Add Instagram and LinkedIn icons if they exist
         const socialDiv = document.createElement('div');
@@ -128,6 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
             socialDiv.innerHTML += `<a href="${row.linkedinProfile}" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>`;
         }
 
+        card.appendChild(positionDiv);
         detailsDiv.appendChild(socialDiv);
         card.appendChild(detailsDiv);
         cardsContainer.appendChild(card);
