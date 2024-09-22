@@ -202,7 +202,7 @@ th.leave-date, td.leave-date {
 }
 
 #add-member-button {
-  display: block;
+  /* display: block; */
   margin: 20px auto;
   padding: 10px 20px;
   background-color: #28a745;
@@ -278,6 +278,53 @@ th.leave-date, td.leave-date {
     position: relative;
 }
 }
+
+/* Modal styling for mobile and tablet responsiveness */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+    /* Reduces the width for smaller screens */
+    padding: 15px;
+  }
+
+  #member-form {
+    grid-template-columns: 1fr;
+    /* Makes the form layout single column for smaller screens */
+  }
+
+  #member-form button {
+    grid-column: span 1;
+    /* Adjusts the submit button width to match single-column layout */
+  }
+
+  #image-upload {
+    grid-column: span 1;
+    /* Ensures the image upload is also single-column */
+  }
+}
+
+@media (max-width: 1024px) {
+  .modal-content {
+    width: 75%;
+    /* Adjusts modal width for tablets */
+  }
+  
+  #member-form {
+    grid-template-columns: 1fr;
+    /* For tablets, maintain single-column form layout */
+  }
+
+  #member-form button {
+    grid-column: span 1;
+    /* Ensures button is aligned with single-column layout */
+  }
+
+  #image-upload {
+    grid-column: span 1;
+    /* Image upload section remains full width */
+  }
+}
+
 
 #member-data-container {
 display: flex;
