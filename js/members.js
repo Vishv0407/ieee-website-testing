@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById('member-form');
   const imagePreview = document.getElementById('image-preview');
   const imageUpload = document.getElementById('profile_image');
-  const dataTable = document.querySelector('#member-data-table tbody');
+  const dataTable = document.querySelector('#member-data-container');
   let currentProfileImage = null;
   const departmentDropdown = document.getElementById('department');
   const positionDropdown = document.getElementById('position');
@@ -72,57 +72,71 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
+  function updateMemberCount() {
+    const memberContainer = document.getElementById('member-data-container');
+    const memberCount = memberContainer.childElementCount; // Get the number of child elements
+    document.getElementById('member-count').textContent = memberCount-1; // Display the count
+}
+
+
   function renderData(data) {
-    dataTable.innerHTML = '';
+    const cardsContainer = document.getElementById('member-data-container');
+    cardsContainer.innerHTML = '';
     data.forEach(row => {
-      // Format the leave_date if it exists
-      const formattedLeaveDate = row.leave_date ? formatDate(row.leave_date) : '';
+        const card = document.createElement('div');
+        card.className = 'card';
 
-      const tr = document.createElement('tr');
-
-      // Create the base content of the row
-      tr.innerHTML = `
-          <td>${row.name}</td>
-          <td>${row.email}</td>
-          <td>${row.enrollment_number}</td>
-          <td>${row.contact_number}</td>
-          <td>${row.join_year}</td>
-          <td>${row.programme}</td>
-          <td>${row.department}</td>
-          <td>${row.position}</td>
+        // Create the left side content
+        const leftDiv = document.createElement('div');
+        leftDiv.className = 'card-left';
+        leftDiv.innerHTML = `
+            <img src="${row.profile_image}" alt="Profile Image" class="profile-image">
+            <div style="display: flex; flex-direction: column; gap:0">
+            <h3>${row.name}</h3>
+            <p>${row.enrollment_number}</p>
+            </div>
         `;
 
-      // Add Instagram profile icon if it exists
-      const instagramTd = document.createElement('td');
-      if (row.instagramProfile) {
-        instagramTd.innerHTML = `<a class="linkIcon" href="${row.instagramProfile}" target="_blank" aria-label="Instagram Profile">
-    <i class="fab fa-instagram"></i>
-</a>`;
-      }
-      tr.appendChild(instagramTd);
-
-      // Add LinkedIn profile icon if it exists
-      const linkedinTd = document.createElement('td');
-      if (row.linkedinProfile) {
-        linkedinTd.innerHTML = `<a class="linkIcon" href="${row.linkedinProfile}" target="_blank" class="icon" id="linkedin">
-            <i class="fa-brands fa-linkedin"></i></a>`;
-      }
-      tr.appendChild(linkedinTd);
-
-      // Add remaining columns: leave date, profile image, and action buttons
-      tr.innerHTML += `
-          <td class="leave-date">${formattedLeaveDate}</td> <!-- Display formatted leave_date -->
-          <td><img src="${row.profile_image}" alt="profile image" style="width: 100px; height: auto;"></td>
-          <td>
-            <button onclick="editMember('${row._id}')">Edit</button>
-            <button onclick="deleteMember('${row._id}')">Delete</button>
-          </td>
+        // Create the right side content with edit and delete icons
+        const rightDiv = document.createElement('div');
+        rightDiv.className = 'card-right';
+        rightDiv.innerHTML = `
+            <i class="fas fa-edit edit-icon" onclick="editMember('${row._id}')"></i>
+            <i class="fas fa-trash delete-icon" onclick="deleteMember('${row._id}')"></i>
         `;
 
-      // Append the row to the table
-      dataTable.appendChild(tr);
-    });
-  }
+        card.appendChild(leftDiv);
+        card.appendChild(rightDiv);
+
+        // Create the second section with email, phone, department, and position
+        const detailsDiv = document.createElement('div');
+        detailsDiv.className = 'card-details';
+        detailsDiv.innerHTML = `
+            <p>Email: ${row.email}</p>
+            <p>Phone: ${row.contact_number}</p>
+            <p>Department: ${row.department}</p>
+            <p>Position: ${row.position}</p>
+        `;
+
+        // Add Instagram and LinkedIn icons if they exist
+        const socialDiv = document.createElement('div');
+        socialDiv.className = 'social-icons';
+        if (row.instagramProfile) {
+            socialDiv.innerHTML += `<a href="${row.instagramProfile}" target="_blank" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>`;
+        }
+        if (row.linkedinProfile) {
+            socialDiv.innerHTML += `<a href="${row.linkedinProfile}" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>`;
+        }
+
+        detailsDiv.appendChild(socialDiv);
+        card.appendChild(detailsDiv);
+        cardsContainer.appendChild(card);
+
+        
+      });
+      updateMemberCount(); // Update the count after rendering
+    }
+
 
 
 
@@ -322,3 +336,4 @@ document.addEventListener("DOMContentLoaded", function () {
   // Fetch and display members data on page load
   fetchMembers();
 });
+
