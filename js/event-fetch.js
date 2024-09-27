@@ -32,7 +32,7 @@ async function fetchEvents() {
                         '${event.eventName}', 
                         '${encodeURIComponent(event.eventDescription.replace(/\n/g, '\\n').replace(/"/g, '\\"'))}', 
                         '${event.eventPoster}', 
-                        '${event.speaker}', 
+                        '${event.speaker ? `<p><span style="font-weight:600">Speaker: </span>${event.speaker}</p>` : ''}', 
                         '${dateString}', 
                         '${event.startTime}', 
                         '${event.endTime}', 
