@@ -25,7 +25,8 @@ async function fetchEvents() {
                         `<p><span style="font-weight:600">Time: </span>${event.startTime}</p>` :
                         `<p><span style="font-weight:600">Time: </span>${event.startTime} - ${event.endTime}</p>`
                     }
-                    <p><span style="font-weight:600">Speaker: </span>${event.speaker}</p>
+                    ${event.speaker ? `<p><span style="font-weight:600">Speaker: </span>${event.speaker}</p>` : ''    
+                    }
                     <p><span style="font-weight:600">Venue: </span>${event.venue}</p>
                     <button class="know-more" onclick="openModal(
                         '${event.eventName}', 
