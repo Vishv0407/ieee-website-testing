@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function fetchData() {
-    axios.get('https://ieee-vishv.onrender.com/api/events')
+    axios.get('http://localhost:3000/api/events')
       .then(response => {
         renderData(response.data);
       })
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   window.editEvent = function (id) {
-    axios.post(`https://ieee-vishv.onrender.com/api/events/update/${id}`)
+    axios.post(`http://localhost:3000/api/events/update/${id}`)
       .then(response => {
         const event = response.data.event; // Assuming response.data has a structure like { message: 'Event updated successfully', event: updatedEvent }
         let dateString = '';
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
         loader.style.display = 'block';
         document.body.classList.add('disable-interaction');
   
-        axios.delete(`https://ieee-vishv.onrender.com/api/event/${id}`)
+        axios.delete(`http://localhost:3000/api/event/${id}`)
           .then(response => {
             fetchData();
             // Hide loader and enable interactions
@@ -185,9 +185,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   
     // Convert necessary fields to strings if needed
-    formData.append('eventName', formData.get('eventName'));
-    formData.append('eventDescription', formData.get('eventDescription'));
-    formData.append('venue', formData.get('venue'));
+    formData.set('eventName', formData.get('eventName'));  // Use set() to overwrite
+    formData.set('eventDescription', formData.get('eventDescription'));
+    formData.set('venue', formData.get('venue'));
+    
   
     // Show loader and disable interactions
     loader.style.display = 'block';
@@ -210,11 +211,38 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   
     const handleError = error => {
-      console.error(eventId ? 'Error updating event:' : 'Error uploading event:', error);
+      if (error.response) {
+        // The request was made and the server responded with a status code that falls out of the range of 2xx
+       console.log("Error while updating event ",error.response.data);
+      }
+    
       // Hide loader and enable interactions
       loader.style.display = 'none';
       document.body.classList.remove('disable-interaction');
+
+      if(error.response.data.error.message === "File size too large. Got 12327024. Maximum is 10485760. Upgrade your plan to enjoy higher limits https://www.cloudinary.com/pricing/upgrades/file-limit"){
+        return (
+          Swal.fire({
+            title: 'Error',
+            text: 'File size too large. Maximum allowed size is 10 MB',
+            icon: 'error',
+            confirmButtonText: 'OK'
+            })
+        )
+      }
+      else{
+        // Optionally, show a more user-friendly message
+          Swal.fire({
+            title: 'Error!',
+            text: 'Something went wrong. Please try again later.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+          });
+      }
+    
+      
     };
+    
   
     // Set the appropriate headers to handle file uploads
     const config = {
@@ -224,11 +252,11 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   
     if (eventId) {
-      axios.post(`https://ieee-vishv.onrender.com/api/events/update/${eventId}`, formData, config)
+      axios.post(`http://localhost:3000/api/events/update/${eventId}`, formData, config)
         .then(handleResponse)
         .catch(handleError);
     } else {
-      axios.post('https://ieee-vishv.onrender.com/api/events/upload', formData, config)
+      axios.post('http://localhost:3000/api/events/upload', formData, config)
         .then(handleResponse)
         .catch(handleError);
     }

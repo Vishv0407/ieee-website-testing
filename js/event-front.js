@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                     </div>
                 </div>
-                <a class="link" href="${event.registrationLink}">Register Now</a>
+                <a target="_blank" class="link" href="${event.registrationLink}">Register Now</a>
             </div>
         `;
         
@@ -176,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
     showLoader(pastLoader);
 
     axios
-        .get("https://ieee-vishv.onrender.com/api/events")
+        .get("http://localhost:3000/api/events")
         .then((response) => {
             const events = response.data;
             const currentDate = new Date();
