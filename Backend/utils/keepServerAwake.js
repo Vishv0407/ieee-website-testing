@@ -64,7 +64,7 @@ const keepServerAwake = () => {
             console.error('Error keeping server awake:', error.message);
             await sendEmail('Error in Keeping Server Awake', `An error occurred while trying to keep the server awake:\n\n${error.message}`);
         }
-    }, 5 * 60 * 1000); // 5 minutes
+    }, 15 * 60 * 1000); // 15 minutes
 };
 
 module.exports = keepServerAwake;
