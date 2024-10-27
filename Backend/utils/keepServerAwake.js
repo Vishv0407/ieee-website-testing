@@ -8,7 +8,7 @@ const CLIENT_ID = process.env.CLIENT_ID; // Your Client ID
 const CLIENT_SECRET = process.env.CLIENT_SECRET; // Your Client Secret
 const REDIRECT_URI = 'https://developers.google.com/oauthplayground'; // Google API redirect URI
 const REFRESH_TOKEN = process.env.REFRESH_TOKEN; // Your Refresh Token
-const SENDER_EMAIL = 'vishvboda0407@gmail.com'; // Your email
+const SENDER_EMAIL = process.env.SEND_EMAIL; // Your email
 
 // Create an OAuth2 client
 const oAuth2Client = new google.auth.OAuth2(
@@ -42,7 +42,7 @@ async function sendEmail(subject, text) {
         
         const mailOptions = {
             from: SENDER_EMAIL,
-            to: SENDER_EMAIL, // You can add other recipients here if needed
+            to: 'vishvboda0407@gmail.com', // You can add other recipients here if needed
             subject: subject,
             text: text,
         };
@@ -60,7 +60,7 @@ const keepServerAwake = () => {
         try {
             await axios.get('https://ieee-vishv.onrender.com'); // Replace with your actual URL
             console.log('Sent self-ping to keep server awake');
-            await sendEmail('Server Awake', `An`);
+            await sendEmail('Server Awake', 'No error occurred while trying to keep the server awake.');
         } catch (error) {
             console.error('Error keeping server awake:', error.message);
             await sendEmail('Error in Keeping Server Awake', `An error occurred while trying to keep the server awake:\n\n${error.message}`);
