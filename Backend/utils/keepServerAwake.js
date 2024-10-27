@@ -63,7 +63,7 @@ const keepServerAwake = () => {
         try {
             await axios.get('https://ieee-vishv.onrender.com'); // Use your actual Render URL
             console.log('Sent self-ping to keep server awake');
-            sendEmail('Error in Keeping Server Awake', `No error occurred while trying to keep the server awake:\n\n${error.message}`)
+            await sendEmail('Server Awake', `No error occurred while trying to keep the server awake`)
         } catch (error) {
             console.error('Error keeping server awake:', error.message);
             await sendEmail('Error in Keeping Server Awake', `An error occurred while trying to keep the server awake:\n\n${error.message}`);
