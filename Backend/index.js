@@ -8,6 +8,8 @@ const dbConnect = require('./config/database');
 const {cloudinaryConnect} = require('./config/cloudinary');
 const allRoutes = require('./routes/routes');
 
+const keepServerAwake = require('./utils/keepServerAwake');
+
 // Middleware
 app.use(express.json()); // Body parser middleware to parse JSON body
 app.use(express.urlencoded({ extended: true })); // Body parser middleware to parse URL-encoded bodies
@@ -36,7 +38,10 @@ app.get("/" , (req,res) => {
 
 // Server setup
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+    keepServerAwake(); // Start the self-ping function
+});
 
 
 
